@@ -244,6 +244,8 @@
     "Contabilidad": "/Home/Contabilidad",
     "Ventas": "/Home/Ventas",
     "Inventario": "/Home/SupervisorBodega",
+    "Bodega Móvil": "/Home/BodegaMovil",
+    "Bodega Movil": "/Home/BodegaMovil",
     "Alertas": "/Home/Alertas",
     "Reportes": "/Home/Reportes",
     "Usuarios": "/Home/Administracion"
@@ -264,6 +266,7 @@
     if (texto.includes('Nueva Venta')) b.onclick = function () { location.href = '/Home/Ventas'; };
     if (texto.includes('Solicitar Cotización')) b.onclick = function () { location.href = '/Home/Compras'; };
     if (texto.includes('Exportar Reporte')) b.onclick = function () { location.href = '/Home/Reportes'; };
+    if (texto.includes('Vista Bodega Móvil') || texto.includes('Bodega Movil')) b.onclick = function () { location.href = '/Home/BodegaMovil'; };
   });
 })();
 </script>

@@ -1,403 +1,80 @@
 @{
-    Layout = null;
+    ViewData["Title"] = "Centro de Alertas";
 }
-<!-- Centro de Alertas de Negocio - Actualizado -->
-<!DOCTYPE html><html class="light" lang="es"><head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>Comercializadora San Juan - Alertas Generales</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@@400;500;600;700;900&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@@100..700,0..1&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@@100..700,0..1&amp;display=swap" rel="stylesheet">
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "on-primary-fixed-variant": "#0c5216",
-                        "on-primary-fixed": "#002203",
-                        "on-tertiary-fixed": "#2c1600",
-                        "inverse-surface": "#2f3131",
-                        "secondary-container": "#759efd",
-                        "tertiary-fixed": "#ffdcbe",
-                        "surface": "#f9f9f9",
-                        "surface-container-high": "#e8e8e8",
-                        "tertiary": "#583100",
-                        "secondary-fixed-dim": "#b0c6ff",
-                        "surface-bright": "#f9f9f9",
-                        "on-secondary-fixed-variant": "#00429c",
-                        "primary-fixed": "#acf4a4",
-                        "on-surface": "#1a1c1c",
-                        "error": "#ba1a1a",
-                        "secondary": "#2b5bb5",
-                        "surface-container-lowest": "#ffffff",
-                        "surface-container": "#eeeeee",
-                        "background": "#f9f9f9",
-                        "primary": "#00450d",
-                        "error-container": "#ffdad6",
-                        "secondary-fixed": "#d9e2ff",
-                        "surface-dim": "#dadada",
-                        "surface-tint": "#2a6b2c",
-                        "on-background": "#1a1c1c",
-                        "on-secondary-container": "#00337c",
-                        "inverse-primary": "#91d78a",
-                        "surface-container-low": "#f3f3f3",
-                        "surface-variant": "#e2e2e2",
-                        "on-primary": "#ffffff",
-                        "on-tertiary": "#ffffff",
-                        "on-secondary-fixed": "#001945",
-                        "on-tertiary-container": "#ffb66b",
-                        "outline": "#717a6d",
-                        "on-error-container": "#93000a",
-                        "on-error": "#ffffff",
-                        "tertiary-fixed-dim": "#ffb870",
-                        "outline-variant": "#c0c9bb",
-                        "primary-fixed-dim": "#91d78a",
-                        "inverse-on-surface": "#f1f1f1",
-                        "on-tertiary-fixed-variant": "#693c00",
-                        "on-secondary": "#ffffff",
-                        "on-surface-variant": "#41493e",
-                        "on-primary-container": "#90d689",
-                        "primary-container": "#1b5e20",
-                        "surface-container-highest": "#e2e2e2",
-                        "tertiary-container": "#794500"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.125rem",
-                        "lg": "0.25rem",
-                        "xl": "0.5rem",
-                        "full": "0.75rem"
-                    },
-                    "spacing": {
-                        "lg": "24px",
-                        "margin-mobile": "16px",
-                        "xl": "32px",
-                        "xs": "4px",
-                        "sidebar-width": "260px",
-                        "margin-desktop": "32px",
-                        "md": "16px",
-                        "base": "8px",
-                        "gutter": "16px",
-                        "sm": "8px"
-                    },
-                    "fontFamily": {
-                        "display-lg": ["Inter"],
-                        "headline-lg": ["Inter"],
-                        "code-md": ["monospace"],
-                        "label-md": ["Inter"],
-                        "headline-md": ["Inter"],
-                        "body-md": ["Inter"],
-                        "body-lg": ["Inter"],
-                        "headline-lg-mobile": ["Inter"],
-                        "title-lg": ["Inter"]
-                    },
-                    "fontSize": {
-                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
-                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
-                        "code-md": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
-                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
-                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
-                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
-                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
-                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
-                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
-                    }
-                }
-            }
-        }
-    </script>
-<style>
-        body { font-family: 'Inter', sans-serif; }
-    </style>
-</head>
-<body class="bg-background text-on-background min-h-screen flex">
-<!-- SideNavBar -->
-<nav class="bg-secondary dark:bg-secondary-container docked fixed h-full w-sidebar-width left-0 top-0 border-r border-outline-variant flat no shadows flex flex-col h-full py-lg z-50 md:flex hidden">
-<div class="px-md mb-xl flex flex-col gap-sm">
-<h1 class="font-headline-md text-headline-md font-bold text-on-secondary dark:text-on-secondary-container">San Juan</h1>
-<p class="font-label-md text-label-md text-on-secondary/80">Gestión Integral</p>
-</div>
-<div class="flex-1 overflow-y-auto flex flex-col gap-sm">
-<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors" href="#">
-<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
-<span class="font-label-md text-label-md">Dashboard</span>
-</a>
-<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors" href="#">
-<span class="material-symbols-outlined" data-icon="group">group</span>
-<span class="font-label-md text-label-md">Usuarios</span>
-</a>
-<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors" href="#">
-<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
-<span class="font-label-md text-label-md">BI Gerencial</span>
-</a>
-<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors" href="#">
-<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
-<span class="font-label-md text-label-md">Compras</span>
-</a>
-<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors" href="#">
-<span class="material-symbols-outlined" data-icon="campaign">campaign</span>
-<span class="font-label-md text-label-md">Marketing</span>
-</a>
-<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors" href="#">
-<span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
-<span class="font-label-md text-label-md">Contabilidad</span>
-</a>
-<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors" href="#">
-<span class="material-symbols-outlined" data-icon="sell">sell</span>
-<span class="font-label-md text-label-md">Ventas</span>
-</a>
-<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors" href="#">
-<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
-<span class="font-label-md text-label-md">Inventario</span>
-</a>
-<a class="flex items-center gap-base bg-secondary-container text-on-secondary-container rounded-lg px-md py-sm mx-sm transition-all opacity-90" href="#">
-<span class="material-symbols-outlined" data-icon="warning">warning</span>
-<span class="font-label-md text-label-md">Alertas</span>
-</a>
-<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors" href="#">
-<span class="material-symbols-outlined" data-icon="description">description</span>
-<span class="font-label-md text-label-md">Reportes</span>
-</a>
-</div>
-</nav>
-<!-- Main Content Area -->
-<div class="flex-1 md:ml-[260px] flex flex-col min-h-screen">
-<!-- TopNavBar -->
-<header class="bg-surface dark:bg-surface-dim docked fixed top-0 right-0 w-full md:w-[calc(100%-260px)] z-40 border-b border-outline-variant shadow-sm flex justify-between items-center h-16 px-margin-desktop">
-<div class="flex items-center gap-md md:hidden">
-<span class="material-symbols-outlined text-primary cursor-pointer">menu</span>
-</div>
-<div class="flex-1 flex items-center justify-start md:justify-between h-full">
-<div class="hidden md:flex items-center h-full">
-<h2 class="font-title-lg text-title-lg font-black text-primary">Comercializadora San Juan</h2>
-</div>
-<div class="flex items-center gap-lg h-full">
-<div class="flex items-center gap-md">
-<button class="text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center h-full">
-<span class="material-symbols-outlined" data-icon="location_on">location_on</span>
-</button>
-<button class="text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center h-full relative">
-<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
-<span class="absolute top-1/2 right-0 -mt-2 -mr-1 w-2 h-2 bg-error rounded-full"></span>
-</button>
-<button class="text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center h-full">
-<span class="material-symbols-outlined" data-icon="settings">settings</span>
-</button>
-</div>
-<div class="w-8 h-8 rounded-full bg-surface-variant border border-outline-variant overflow-hidden flex-shrink-0">
-<img alt="Admin Profile" class="w-full h-full object-cover" data-alt="A close-up corporate portrait of a professional manager. The setting is bright and clean, lit with soft natural daylight typical of a modern light-mode office interface. The manager wears neat business attire against a subtly blurred bright grey background. The mood is confident and reliable." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuS2TKlqy6rKCcLTV7hO57MgOB9ZLwmCODwjJlcoTkb7yEPrfIEieebTcXltjFF_FNaTUzpMf_yOMQjbC7OhVY-TjvuoMVOAahtvdwOeQ6w5ktpicmhVYvgzV1o20HeEpEH84buNccHIiUHftUXRBoQDOK5TmHFTUduy5V9Zgit2di8EypJB3dM_KQFYvnbCDnac9_bsOEWuAmQtm82YMfHegd7Dw-376ksFHwQ872b8Qk85uzaSnzZmLiN_-g9nP4RwJeH-KJyfM">
-</div>
-</div>
-</div>
-</header>
-<!-- Canvas -->
-<main class="flex-1 mt-16 p-margin-mobile md:p-margin-desktop overflow-y-auto bg-surface-container-low">
-<div class="max-w-[1400px] mx-auto flex flex-col gap-xl">
-<!-- Page Header -->
-<div class="flex flex-col md:flex-row md:items-center justify-between gap-md">
-<div>
-<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Panel de Monitoreo Crítico</h1>
-<p class="font-body-md text-body-md text-on-surface-variant mt-sm">Centro unificado de alertas operativas y financieras.</p>
-</div>
-<div class="flex items-center gap-sm">
-<div class="relative flex-1 md:w-64">
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
-<input class="w-full pl-10 pr-4 py-2 bg-surface border border-outline-variant rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all" placeholder="Buscar alerta..." type="text">
-</div>
-<button class="p-2 bg-surface border border-outline-variant rounded-lg text-on-surface-variant hover:bg-surface-variant transition-colors flex items-center justify-center">
-<span class="material-symbols-outlined" data-icon="filter_list">filter_list</span>
-</button>
-</div>
-</div>
-<!-- Metrics Bento -->
-<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-<div class="bg-surface p-lg rounded-xl border border-outline-variant shadow-sm flex flex-col gap-md relative overflow-hidden">
-<div class="absolute top-0 left-0 w-1 h-full bg-error"></div>
-<div class="flex justify-between items-start">
-<div class="flex items-center gap-sm">
-<span class="material-symbols-outlined text-error bg-error-container p-2 rounded-lg">event_busy</span>
-<h3 class="font-headline-md text-headline-md text-on-surface">12</h3>
-</div>
-<span class="px-2 py-1 bg-error-container text-on-error-container font-label-md text-label-md rounded-full">Crítico</span>
-</div>
-<div>
-<p class="font-label-md text-label-md text-on-surface-variant uppercase">Vencimientos Próximos</p>
-<p class="font-body-md text-body-md text-on-surface mt-xs">Lotes que expiran en menos de 7 días.</p>
-</div>
-</div>
-<div class="bg-surface p-lg rounded-xl border border-outline-variant shadow-sm flex flex-col gap-md relative overflow-hidden">
-<div class="absolute top-0 left-0 w-1 h-full bg-[#f59e0b]"></div>
-<div class="flex justify-between items-start">
-<div class="flex items-center gap-sm">
-<span class="material-symbols-outlined text-[#d97706] bg-[#fef3c7] p-2 rounded-lg">inventory_2</span>
-<h3 class="font-headline-md text-headline-md text-on-surface">8</h3>
-</div>
-<span class="px-2 py-1 bg-[#fef3c7] text-[#92400e] font-label-md text-label-md rounded-full">Preventivo</span>
-</div>
-<div>
-<p class="font-label-md text-label-md text-on-surface-variant uppercase">Stock Mínimo</p>
-<p class="font-body-md text-body-md text-on-surface mt-xs">Productos por debajo del nivel de reorden.</p>
-</div>
-</div>
-<div class="bg-surface p-lg rounded-xl border border-outline-variant shadow-sm flex flex-col gap-md relative overflow-hidden">
-<div class="absolute top-0 left-0 w-1 h-full bg-secondary"></div>
-<div class="flex justify-between items-start">
-<div class="flex items-center gap-sm">
-<span class="material-symbols-outlined text-secondary bg-secondary-fixed p-2 rounded-lg">payments</span>
-<h3 class="font-headline-md text-headline-md text-on-surface">5</h3>
-</div>
-<span class="px-2 py-1 bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md rounded-full">Atención</span>
-</div>
-<div>
-<p class="font-label-md text-label-md text-on-surface-variant uppercase">Morosidad Clientes</p>
-<p class="font-body-md text-body-md text-on-surface mt-xs">Facturas vencidas por más de 30 días.</p>
-</div>
-</div>
-</div>
-<!-- Alerts List -->
-<div class="bg-surface rounded-xl border border-outline-variant shadow-sm flex flex-col overflow-hidden">
-<!-- Filters Header -->
-<div class="border-b border-outline-variant p-md flex flex-wrap gap-sm items-center bg-surface-bright">
-<span class="font-label-md text-label-md text-on-surface-variant mr-sm">Filtros Activos:</span>
-<button class="px-3 py-1.5 bg-surface border border-outline-variant rounded-full flex items-center gap-xs hover:bg-surface-variant transition-colors">
-<div class="w-2 h-2 rounded-full bg-error"></div>
-<span class="font-label-md text-label-md text-on-surface">Urgencia Alta</span>
-<span class="material-symbols-outlined text-[14px] ml-1">close</span>
-</button>
-<button class="px-3 py-1.5 bg-surface border border-outline-variant rounded-full flex items-center gap-xs hover:bg-surface-variant transition-colors">
-<span class="font-label-md text-label-md text-on-surface">Categoría: Vencimientos</span>
-<span class="material-symbols-outlined text-[14px] ml-1">close</span>
-</button>
-</div>
-<!-- List Content -->
-<div class="flex flex-col">
-<!-- Alert Item 1 (Red) -->
-<div class="p-md md:p-lg border-b border-outline-variant hover:bg-surface-variant/50 transition-colors flex flex-col md:flex-row gap-md md:items-center justify-between group">
-<div class="flex items-start gap-md">
-<div class="mt-1 w-10 h-10 rounded-full bg-error-container flex items-center justify-center flex-shrink-0">
-<span class="material-symbols-outlined text-on-error-container">warning</span>
-</div>
-<div>
-<div class="flex items-center gap-sm mb-xs">
-<span class="px-2 py-0.5 bg-error text-on-error font-label-md text-[10px] rounded uppercase tracking-wider">Crítico</span>
-<span class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1">
-<span class="material-symbols-outlined text-[14px]">schedule</span> Hace 2 horas
-                                        </span>
-</div>
-<h4 class="font-title-lg text-title-lg text-on-surface mb-xs">Lote L-2394 (Frijol Negro) próximo a expirar</h4>
-<p class="font-body-md text-body-md text-on-surface-variant">El lote L-2394 con 450 unidades de Frijol Negro caduca en 3 días (15/11/2023).</p>
-</div>
-</div>
-<div class="flex items-center gap-sm self-end md:self-center opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
-<button class="px-4 py-2 bg-surface border border-outline rounded-lg text-on-surface hover:bg-surface-variant transition-colors font-label-md text-label-md flex items-center gap-sm">
-<span class="material-symbols-outlined text-[18px]">visibility</span> Detalle
-                                </button>
-<button class="px-4 py-2 bg-primary-container text-on-primary-container rounded-lg hover:opacity-90 transition-opacity font-label-md text-label-md flex items-center gap-sm shadow-sm">
-<span class="material-symbols-outlined text-[18px]">check_circle</span> Atender
-                                </button>
-<button class="p-2 text-on-surface-variant hover:text-error transition-colors flex items-center justify-center rounded-lg hover:bg-surface-variant">
-<span class="material-symbols-outlined text-[20px]">delete</span>
-</button>
-</div>
-</div>
-<!-- Alert Item 2 (Yellow) -->
-<div class="p-md md:p-lg border-b border-outline-variant hover:bg-surface-variant/50 transition-colors flex flex-col md:flex-row gap-md md:items-center justify-between group">
-<div class="flex items-start gap-md">
-<div class="mt-1 w-10 h-10 rounded-full bg-[#fef3c7] flex items-center justify-center flex-shrink-0">
-<span class="material-symbols-outlined text-[#d97706]">inventory_2</span>
-</div>
-<div>
-<div class="flex items-center gap-sm mb-xs">
-<span class="px-2 py-0.5 bg-[#f59e0b] text-white font-label-md text-[10px] rounded uppercase tracking-wider">Preventivo</span>
-<span class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1">
-<span class="material-symbols-outlined text-[14px]">schedule</span> Hace 5 horas
-                                        </span>
-</div>
-<h4 class="font-title-lg text-title-lg text-on-surface mb-xs">Stock mínimo alcanzado: Harina de Trigo</h4>
-<p class="font-body-md text-body-md text-on-surface-variant">El inventario actual (25 kg) está por debajo del nivel de reorden (50 kg) en el Almacén Norte.</p>
-</div>
-</div>
-<div class="flex items-center gap-sm self-end md:self-center opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
-<button class="px-4 py-2 bg-surface border border-outline rounded-lg text-on-surface hover:bg-surface-variant transition-colors font-label-md text-label-md flex items-center gap-sm">
-<span class="material-symbols-outlined text-[18px]">shopping_cart</span> Reordenar
-                                </button>
-<button class="px-4 py-2 bg-primary-container text-on-primary-container rounded-lg hover:opacity-90 transition-opacity font-label-md text-label-md flex items-center gap-sm shadow-sm">
-<span class="material-symbols-outlined text-[18px]">check_circle</span> Atender
-                                </button>
-<button class="p-2 text-on-surface-variant hover:text-error transition-colors flex items-center justify-center rounded-lg hover:bg-surface-variant">
-<span class="material-symbols-outlined text-[20px]">delete</span>
-</button>
-</div>
-</div>
-<!-- Alert Item 3 (Blue/Yellowish context) -->
-<div class="p-md md:p-lg border-b border-outline-variant hover:bg-surface-variant/50 transition-colors flex flex-col md:flex-row gap-md md:items-center justify-between group">
-<div class="flex items-start gap-md">
-<div class="mt-1 w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center flex-shrink-0">
-<span class="material-symbols-outlined text-secondary">payments</span>
-</div>
-<div>
-<div class="flex items-center gap-sm mb-xs">
-<span class="px-2 py-0.5 bg-secondary text-on-secondary font-label-md text-[10px] rounded uppercase tracking-wider">Atención</span>
-<span class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1">
-<span class="material-symbols-outlined text-[14px]">schedule</span> Hace 1 día
-                                        </span>
-</div>
-<h4 class="font-title-lg text-title-lg text-on-surface mb-xs">Factura FAC-8921 vencida (Cliente: Supermercados del Valle)</h4>
-<p class="font-body-md text-body-md text-on-surface-variant">Factura por GTQ 12,450.00 tiene 15 días de atraso. Requiere seguimiento de cobranza.</p>
-</div>
-</div>
-<div class="flex items-center gap-sm self-end md:self-center opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
-<button class="px-4 py-2 bg-surface border border-outline rounded-lg text-on-surface hover:bg-surface-variant transition-colors font-label-md text-label-md flex items-center gap-sm">
-<span class="material-symbols-outlined text-[18px]">visibility</span> Detalle
-                                </button>
-<button class="px-4 py-2 bg-primary-container text-on-primary-container rounded-lg hover:opacity-90 transition-opacity font-label-md text-label-md flex items-center gap-sm shadow-sm">
-<span class="material-symbols-outlined text-[18px]">check_circle</span> Atender
-                                </button>
-<button class="p-2 text-on-surface-variant hover:text-error transition-colors flex items-center justify-center rounded-lg hover:bg-surface-variant">
-<span class="material-symbols-outlined text-[20px]">delete</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-</main>
-</div>
 
-<script>
-(function () {
-  const rutas = {
-    "Dashboard": "/Home/Dashboard",
-    "BI Gerencial": "/Home/GerenciaBI",
-    "Compras": "/Home/Compras",
-    "Marketing": "/Home/Marketing",
-    "Contabilidad": "/Home/Contabilidad",
-    "Ventas": "/Home/Ventas",
-    "Inventario": "/Home/SupervisorBodega",
-    "Alertas": "/Home/Alertas",
-    "Reportes": "/Home/Reportes",
-    "Usuarios": "/Home/Administracion"
-  };
+<section class="mb-6">
+    <div class="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+        <div>
+            <h1 class="text-2xl font-bold tracking-tight text-slate-900">Centro de Alertas</h1>
+            <p class="mt-1 text-sm text-slate-500">
+                Alertas operativas por vencimiento, stock mínimo, morosidad y eventos críticos.
+            </p>
+        </div>
 
-  document.querySelectorAll('a').forEach(function (a) {
-    const texto = (a.textContent || '').trim().replace(/\s+/g, ' ');
-    Object.keys(rutas).forEach(function (clave) {
-      if (texto === clave || texto.includes(clave)) {
-        a.setAttribute('href', rutas[clave]);
-      }
-    });
-  });
+        <button class="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50">
+            Filtrar alertas
+        </button>
+    </div>
+</section>
 
-  document.querySelectorAll('button').forEach(function (b) {
-    const texto = (b.textContent || '').trim().replace(/\s+/g, ' ');
-    if (texto.includes('Iniciar sesión')) b.onclick = function () { location.href = '/Home/Dashboard'; };
-    if (texto.includes('Nueva Venta')) b.onclick = function () { location.href = '/Home/Ventas'; };
-    if (texto.includes('Solicitar Cotización')) b.onclick = function () { location.href = '/Home/Compras'; };
-    if (texto.includes('Exportar Reporte')) b.onclick = function () { location.href = '/Home/Reportes'; };
-  });
-})();
-</script>
+<section class="grid gap-4 md:grid-cols-3">
+    <div class="rounded-2xl border border-red-100 bg-red-50 p-5">
+        <p class="text-sm font-medium text-red-700">Críticas</p>
+        <h2 class="mt-2 text-2xl font-bold text-red-700">12</h2>
+        <p class="mt-2 text-xs text-red-600">Lotes próximos a vencer</p>
+    </div>
 
-</body></html>
+    <div class="rounded-2xl border border-amber-100 bg-amber-50 p-5">
+        <p class="text-sm font-medium text-amber-700">Preventivas</p>
+        <h2 class="mt-2 text-2xl font-bold text-amber-700">8</h2>
+        <p class="mt-2 text-xs text-amber-600">Productos bajo mínimo</p>
+    </div>
+
+    <div class="rounded-2xl border border-slate-200 bg-white p-5">
+        <p class="text-sm font-medium text-slate-500">Financieras</p>
+        <h2 class="mt-2 text-2xl font-bold text-slate-900">5</h2>
+        <p class="mt-2 text-xs text-slate-500">Facturas vencidas</p>
+    </div>
+</section>
+
+<section class="mt-6 rounded-2xl border border-slate-200 bg-white">
+    <div class="border-b border-slate-200 p-5">
+        <h3 class="font-bold text-slate-900">Alertas activas</h3>
+        <p class="text-sm text-slate-500">Lista priorizada para atención operativa.</p>
+    </div>
+
+    <div class="divide-y divide-slate-100">
+        <div class="flex flex-col gap-3 p-5 md:flex-row md:items-center md:justify-between">
+            <div>
+                <span class="rounded-full bg-red-50 px-2 py-1 text-xs font-semibold text-red-700">Crítico</span>
+                <h4 class="mt-2 font-bold text-slate-900">Lote L-2394 próximo a expirar</h4>
+                <p class="text-sm text-slate-500">Frijol negro · 450 unidades · vence en 3 días.</p>
+            </div>
+            <a asp-action="DetalleLote" class="rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50">
+                Ver detalle
+            </a>
+        </div>
+
+        <div class="flex flex-col gap-3 p-5 md:flex-row md:items-center md:justify-between">
+            <div>
+                <span class="rounded-full bg-amber-50 px-2 py-1 text-xs font-semibold text-amber-700">Preventivo</span>
+                <h4 class="mt-2 font-bold text-slate-900">Stock mínimo alcanzado</h4>
+                <p class="text-sm text-slate-500">Harina de trigo · stock actual 25 kg · mínimo 50 kg.</p>
+            </div>
+            <a asp-action="Compras" class="rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50">
+                Reordenar
+            </a>
+        </div>
+
+        <div class="flex flex-col gap-3 p-5 md:flex-row md:items-center md:justify-between">
+            <div>
+                <span class="rounded-full bg-slate-100 px-2 py-1 text-xs font-semibold text-slate-600">Cobranza</span>
+                <h4 class="mt-2 font-bold text-slate-900">Factura FAC-8921 vencida</h4>
+                <p class="text-sm text-slate-500">Cliente Supermercados del Valle · Q 12,450 · 15 días de atraso.</p>
+            </div>
+            <a asp-action="Contabilidad" class="rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50">
+                Cobrar
+            </a>
+        </div>
+    </div>
+</section>

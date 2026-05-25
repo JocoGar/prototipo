@@ -1,501 +1,107 @@
 @{
-    Layout = null;
+    ViewData["Title"] = "Dashboard General";
 }
-<!-- Dashboard Principal - Actualizado -->
-<!DOCTYPE html><html class="light" lang="es"><svg class="inline-defs-container" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden"></svg><head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>Comercializadora San Juan - Dashboard</title>
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com" rel="preconnect">
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@@400;500;600;700;900&amp;display=swap" rel="stylesheet">
-<!-- Material Symbols -->
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@@100..700,0..1&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@@100..700,0..1&amp;display=swap" rel="stylesheet">
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .icon-fill {
-            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-    </style>
-<!-- Tailwind CSS -->
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "on-primary-fixed-variant": "#0c5216",
-                        "on-primary-fixed": "#002203",
-                        "on-tertiary-fixed": "#2c1600",
-                        "inverse-surface": "#2f3131",
-                        "secondary-container": "#759efd",
-                        "tertiary-fixed": "#ffdcbe",
-                        "surface": "#f9f9f9",
-                        "surface-container-high": "#e8e8e8",
-                        "tertiary": "#583100",
-                        "secondary-fixed-dim": "#b0c6ff",
-                        "surface-bright": "#f9f9f9",
-                        "on-secondary-fixed-variant": "#00429c",
-                        "primary-fixed": "#acf4a4",
-                        "on-surface": "#1a1c1c",
-                        "error": "#ba1a1a",
-                        "secondary": "#2b5bb5",
-                        "surface-container-lowest": "#ffffff",
-                        "surface-container": "#eeeeee",
-                        "background": "#f9f9f9",
-                        "primary": "#00450d",
-                        "error-container": "#ffdad6",
-                        "secondary-fixed": "#d9e2ff",
-                        "surface-dim": "#dadada",
-                        "surface-tint": "#2a6b2c",
-                        "on-background": "#1a1c1c",
-                        "on-secondary-container": "#00337c",
-                        "inverse-primary": "#91d78a",
-                        "surface-container-low": "#f3f3f3",
-                        "surface-variant": "#e2e2e2",
-                        "on-primary": "#ffffff",
-                        "on-tertiary": "#ffffff",
-                        "on-secondary-fixed": "#001945",
-                        "on-tertiary-container": "#ffb66b",
-                        "outline": "#717a6d",
-                        "on-error-container": "#93000a",
-                        "on-error": "#ffffff",
-                        "tertiary-fixed-dim": "#ffb870",
-                        "outline-variant": "#c0c9bb",
-                        "primary-fixed-dim": "#91d78a",
-                        "inverse-on-surface": "#f1f1f1",
-                        "on-tertiary-fixed-variant": "#693c00",
-                        "on-secondary": "#ffffff",
-                        "on-surface-variant": "#41493e",
-                        "on-primary-container": "#90d689",
-                        "primary-container": "#1b5e20",
-                        "surface-container-highest": "#e2e2e2",
-                        "tertiary-container": "#794500"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.125rem",
-                        "lg": "0.25rem",
-                        "xl": "0.5rem",
-                        "full": "0.75rem"
-                    },
-                    "spacing": {
-                        "lg": "24px",
-                        "margin-mobile": "16px",
-                        "xl": "32px",
-                        "xs": "4px",
-                        "sidebar-width": "260px",
-                        "margin-desktop": "32px",
-                        "md": "16px",
-                        "base": "8px",
-                        "gutter": "16px",
-                        "sm": "8px"
-                    },
-                    "fontFamily": {
-                        "display-lg": ["Inter"],
-                        "headline-lg": ["Inter"],
-                        "code-md": ["monospace"],
-                        "label-md": ["Inter"],
-                        "headline-md": ["Inter"],
-                        "body-md": ["Inter"],
-                        "body-lg": ["Inter"],
-                        "headline-lg-mobile": ["Inter"],
-                        "title-lg": ["Inter"]
-                    },
-                    "fontSize": {
-                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
-                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
-                        "code-md": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
-                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
-                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
-                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
-                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
-                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
-                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
-                    }
-                }
-            }
-        }
-    </script>
-</head>
-<body class="bg-background text-on-background flex min-h-screen overflow-x-hidden font-body-md">
-<!-- Shared Component: SideNavBar -->
-<nav class="bg-secondary dark:bg-secondary-container text-on-secondary dark:text-on-secondary-container docked fixed h-full w-sidebar-width left-0 top-0 border-r border-outline-variant flat no shadows flex flex-col h-full py-lg z-50">
-<!-- Brand Header -->
-<div class="px-lg mb-xl flex items-center gap-md">
-<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined text-primary font-bold">domain</span>
-</div>
-<div>
-<h1 class="font-headline-md text-headline-md font-bold text-on-secondary dark:text-on-secondary-container tracking-tight">San Juan</h1>
-<p class="font-label-md text-label-md opacity-80">Gestión Integral</p>
-</div>
-</div>
-<!-- Navigation Links -->
-<ul class="flex flex-col gap-xs flex-1 overflow-y-auto">
-<!-- Active Tab: Dashboard -->
-<li>
-<a class="flex items-center gap-base bg-secondary-container text-on-secondary-container rounded-lg px-md py-sm mx-sm opacity-90 transition-all font-label-md text-label-md" href="#">
-<span class="material-symbols-outlined icon-fill" data-icon="dashboard">dashboard</span>
-                    Dashboard
-                </a>
-</li>
-<!-- Inactive Tabs -->
-<li>
-<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors font-label-md text-label-md" href="#">
-<span class="material-symbols-outlined" data-icon="group">group</span>
-                    Usuarios
-                </a>
-</li>
-<li>
-<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors font-label-md text-label-md" href="#">
-<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
-                    BI Gerencial
-                </a>
-</li>
-<li>
-<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors font-label-md text-label-md" href="#">
-<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
-                    Compras
-                </a>
-</li>
-<li>
-<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors font-label-md text-label-md" href="#">
-<span class="material-symbols-outlined" data-icon="campaign">campaign</span>
-                    Marketing
-                </a>
-</li>
-<li>
-<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors font-label-md text-label-md" href="#">
-<span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
-                    Contabilidad
-                </a>
-</li>
-<li>
-<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors font-label-md text-label-md" href="#">
-<span class="material-symbols-outlined" data-icon="sell">sell</span>
-                    Ventas
-                </a>
-</li>
-<li>
-<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors font-label-md text-label-md" href="#">
-<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
-                    Inventario
-                </a>
-</li>
-<li>
-<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors font-label-md text-label-md" href="#">
-<span class="material-symbols-outlined" data-icon="warning">warning</span>
-                    Alertas
-                </a>
-</li>
-<li>
-<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors font-label-md text-label-md" href="#">
-<span class="material-symbols-outlined" data-icon="description">description</span>
-                    Reportes
-                </a>
-</li>
-</ul>
-</nav>
-<!-- Main Content Area -->
-<div class="flex-1 ml-sidebar-width flex flex-col min-h-screen relative">
-<!-- Shared Component: TopNavBar -->
-<header class="bg-surface dark:bg-surface-dim text-primary dark:text-primary-fixed docked fixed top-0 right-0 w-[calc(100%-260px)] z-40 border-b border-outline-variant shadow-sm flex justify-between items-center h-16 px-margin-desktop">
-<!-- Left Side: Product Name & Search -->
-<div class="flex items-center gap-lg">
-<span class="font-title-lg text-title-lg font-black text-primary hidden lg:block tracking-tight">Comercializadora San Juan</span>
-<!-- Search Bar Placeholder -->
-<div class="relative w-64 hidden md:block">
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
-<input class="w-full bg-surface-container-low border border-outline-variant rounded-full py-1.5 pl-10 pr-4 text-sm focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors text-on-surface placeholder-on-surface-variant" placeholder="Buscar..." type="text">
-</div>
-</div>
-<!-- Right Side: Actions & Profile -->
-<div class="flex items-center gap-sm">
-<button class="p-2 text-on-surface-variant hover:text-primary transition-colors rounded-full hover:bg-surface-container">
-<span class="material-symbols-outlined" data-icon="location_on">location_on</span>
-</button>
-<button class="p-2 text-on-surface-variant hover:text-primary transition-colors rounded-full hover:bg-surface-container relative">
-<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
-<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
-</button>
-<button class="p-2 text-on-surface-variant hover:text-primary transition-colors rounded-full hover:bg-surface-container mr-md">
-<span class="material-symbols-outlined" data-icon="settings">settings</span>
-</button>
-<!-- Profile Avatar -->
-<div class="w-8 h-8 rounded-full bg-secondary-container overflow-hidden border border-outline-variant cursor-pointer">
-<img alt="Admin Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-oUqDdG6dOoKQ04prgEnoT_yRk1pBaQOEzUvcouZ_uZrPb2vSoR-HfPcnwNo5nuGHqYmJewoO3PtlAoz96jXEzlGMPflq6Fkc9EBvkJGEUP4fkTaVzHw69Dmchv9MYnskGXuF5d1lcrQh4ODmONNxqZ9Z6CFtmsEw369hB2BLuaG0OXXRSZGJ-V-2V3pCe7jbQlz15wSaHfHgFUxhjeBYMRv2G37ethek63N5ahPktOa9l1Cu2ugnyq0T09SEqmYM-oUZJjygiJY">
-</div>
-</div>
-</header>
-<!-- Page Content Canvas -->
-<main class="flex-1 pt-24 px-margin-desktop pb-xl overflow-y-auto">
-<div class="max-w-[1400px] mx-auto">
-<!-- Page Header -->
-<div class="mb-lg flex justify-between items-end">
-<div>
-<h2 class="font-headline-lg text-headline-lg text-on-surface mb-xs">Vista General</h2>
-<p class="font-body-md text-body-md text-on-surface-variant">Resumen de operaciones y estado actual de inventario.</p>
-</div>
-<button class="flex items-center gap-2 bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md text-label-md hover:bg-primary-container transition-colors shadow-sm">
-<span class="material-symbols-outlined text-sm">download</span>
-                        Exportar Reporte
-                    </button>
-</div>
-<!-- KPI Cards Row (Bento Grid Style) -->
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-gutter mb-lg">
-<!-- KPI 1 -->
-<div class="bg-surface border border-outline-variant rounded-xl p-md shadow-sm relative overflow-hidden group hover:border-primary/30 transition-colors">
-<div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
-<div class="flex justify-between items-start mb-sm">
-<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Ventas del Mes</h3>
-<span class="material-symbols-outlined text-primary bg-primary-fixed/20 p-1.5 rounded-md">trending_up</span>
-</div>
-<div class="font-headline-lg text-headline-lg text-on-surface font-bold">GTQ450k</div>
-<div class="mt-2 text-sm text-primary font-medium flex items-center gap-1">
-<span class="material-symbols-outlined text-[16px]">arrow_upward</span>
-                            +12% vs mes anterior
-                        </div>
-</div>
-<!-- KPI 2 -->
-<div class="bg-surface border border-outline-variant rounded-xl p-md shadow-sm relative overflow-hidden hover:border-secondary/30 transition-colors">
-<div class="absolute top-0 left-0 w-1 h-full bg-secondary"></div>
-<div class="flex justify-between items-start mb-sm">
-<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Margen Estimado</h3>
-<span class="material-symbols-outlined text-secondary bg-secondary-fixed/50 p-1.5 rounded-md">monitoring</span>
-</div>
-<div class="font-headline-lg text-headline-lg text-on-surface font-bold">22%</div>
-<div class="mt-2 text-sm text-on-surface-variant font-medium flex items-center gap-1">
-                            En el objetivo
-                        </div>
-</div>
-<!-- KPI 3 -->
-<div class="bg-surface border border-outline-variant rounded-xl p-md shadow-sm relative overflow-hidden hover:border-error/30 transition-colors">
-<div class="absolute top-0 left-0 w-1 h-full bg-error"></div>
-<div class="flex justify-between items-start mb-sm">
-<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider line-clamp-1" title="Productos Próximos a Vencer">Próximos a Vencer</h3>
-<span class="material-symbols-outlined text-error bg-error-container p-1.5 rounded-md">event_busy</span>
-</div>
-<div class="font-headline-lg text-headline-lg text-on-surface font-bold">15</div>
-<div class="mt-2 text-sm text-error font-medium flex items-center gap-1">
-<span class="material-symbols-outlined text-[16px]">warning</span>
-                            Requiere acción
-                        </div>
-</div>
-<!-- KPI 4 -->
-<div class="bg-surface border border-outline-variant rounded-xl p-md shadow-sm relative overflow-hidden hover:border-tertiary/30 transition-colors">
-<div class="absolute top-0 left-0 w-1 h-full bg-tertiary"></div>
-<div class="flex justify-between items-start mb-sm">
-<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Stock Bajo</h3>
-<span class="material-symbols-outlined text-tertiary bg-tertiary-fixed p-1.5 rounded-md">inventory_2</span>
-</div>
-<div class="font-headline-lg text-headline-lg text-on-surface font-bold">8</div>
-<div class="mt-2 text-sm text-tertiary font-medium flex items-center gap-1">
-                            Revisar pedidos
-                        </div>
-</div>
-<!-- KPI 5 -->
-<div class="bg-surface border border-outline-variant rounded-xl p-md shadow-sm relative overflow-hidden hover:border-outline/30 transition-colors">
-<div class="absolute top-0 left-0 w-1 h-full bg-outline"></div>
-<div class="flex justify-between items-start mb-sm">
-<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Compras Recientes</h3>
-<span class="material-symbols-outlined text-on-surface-variant bg-surface-container-high p-1.5 rounded-md">receipt_long</span>
-</div>
-<div class="font-headline-lg text-headline-lg text-on-surface font-bold">42</div>
-<div class="mt-2 text-sm text-on-surface-variant font-medium flex items-center gap-1">
-                            Últimos 7 días
-                        </div>
-</div>
-</div>
-<!-- Charts Section -->
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter mb-lg">
-<!-- Line Chart Card -->
-<div class="bg-surface border border-outline-variant rounded-xl shadow-sm p-lg flex flex-col h-[400px]">
-<div class="flex justify-between items-center mb-md">
-<h3 class="font-title-lg text-title-lg text-on-surface">Ventas por Mes</h3>
-<button class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined">more_vert</span></button>
-</div>
-<div class="flex-1 relative w-full border-b border-l border-outline-variant/30 pt-4 pb-2 pr-2 pl-4 flex items-end gap-2">
-<!-- Simulated Line Chart using SVG -->
-<svg class="absolute inset-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100">
-<path class="opacity-80" d="M0,80 L20,60 L40,70 L60,30 L80,40 L100,10" fill="none" stroke="#00450d" stroke-width="2"></path>
-<path class="opacity-20" d="M0,100 L0,80 L20,60 L40,70 L60,30 L80,40 L100,10 L100,100 Z" fill="url(#grad)"></path>
-<defs>
-<linearGradient id="grad" x1="0" x2="0" y1="0" y2="1">
-<stop offset="0%" stop-color="#00450d" stop-opacity="0.5"></stop>
-<stop offset="100%" stop-color="#00450d" stop-opacity="0"></stop>
-</linearGradient>
-</defs>
-</svg>
-<!-- Y Axis Labels -->
-<div class="absolute left-0 top-0 bottom-0 flex flex-col justify-between text-xs text-on-surface-variant -ml-6 py-2">
-<span>500k</span>
-<span>250k</span>
-<span>0</span>
-</div>
-<!-- X Axis Labels -->
-<div class="absolute bottom-[-24px] left-0 w-full flex justify-between px-4 text-xs text-on-surface-variant">
-<span>Ene</span><span>Feb</span><span>Mar</span><span>Abr</span><span>May</span><span>Jun</span>
-</div>
-</div>
-</div>
-<!-- Bar Chart Card -->
-<div class="bg-surface border border-outline-variant rounded-xl shadow-sm p-lg flex flex-col h-[400px]">
-<div class="flex justify-between items-center mb-md">
-<h3 class="font-title-lg text-title-lg text-on-surface">Productos Más Vendidos</h3>
-<div class="flex items-center gap-2">
-<span class="w-3 h-3 rounded-full bg-secondary"></span>
-<span class="text-xs text-on-surface-variant">Unidades</span>
-</div>
-</div>
-<div class="flex-1 w-full border-b border-l border-outline-variant/30 p-4 flex items-end justify-around relative">
-<!-- Y Axis Labels -->
-<div class="absolute left-0 top-0 bottom-0 flex flex-col justify-between text-xs text-on-surface-variant -ml-6 py-4">
-<span>1k</span>
-<span>500</span>
-<span>0</span>
-</div>
-<!-- Bars -->
-<div class="w-12 bg-secondary rounded-t-sm h-[80%] hover:opacity-80 transition-opacity cursor-pointer relative group">
-<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">800 u.</div>
-</div>
-<div class="w-12 bg-secondary rounded-t-sm h-[65%] hover:opacity-80 transition-opacity cursor-pointer relative group">
-<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">650 u.</div>
-</div>
-<div class="w-12 bg-secondary rounded-t-sm h-[45%] hover:opacity-80 transition-opacity cursor-pointer relative group">
-<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">450 u.</div>
-</div>
-<div class="w-12 bg-secondary rounded-t-sm h-[30%] hover:opacity-80 transition-opacity cursor-pointer relative group">
-<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">300 u.</div>
-</div>
-<div class="w-12 bg-secondary rounded-t-sm h-[20%] hover:opacity-80 transition-opacity cursor-pointer relative group">
-<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">200 u.</div>
-</div>
-<!-- X Axis Labels -->
-<div class="absolute bottom-[-24px] w-full flex justify-around text-xs text-on-surface-variant font-medium">
-<span class="truncate w-12 text-center" title="Tomate Perita">Prod A</span>
-<span class="truncate w-12 text-center" title="Cebolla Blanca">Prod B</span>
-<span class="truncate w-12 text-center" title="Manzana Fuji">Prod C</span>
-<span class="truncate w-12 text-center" title="Papa Negra">Prod D</span>
-<span class="truncate w-12 text-center" title="Zanahoria">Prod E</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Table Section -->
-<div class="bg-surface border border-outline-variant rounded-xl shadow-sm overflow-hidden">
-<div class="p-md border-b border-outline-variant bg-surface-container-lowest flex justify-between items-center">
-<h3 class="font-title-lg text-title-lg text-on-surface">Alertas Recientes</h3>
-<a class="text-primary hover:underline font-label-md text-label-md" href="#">Ver todas</a>
-</div>
-<div class="overflow-x-auto">
-<table class="w-full text-left border-collapse">
-<thead>
-<tr class="border-b border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md uppercase">
-<th class="p-md font-medium">Producto</th>
-<th class="p-md font-medium">Tipo de Alerta</th>
-<th class="p-md font-medium">Fecha</th>
-<th class="p-md font-medium">Prioridad</th>
-<th class="p-md font-medium text-right">Acción</th>
-</tr>
-</thead>
-<tbody class="font-body-md text-body-md">
-<tr class="border-b border-outline-variant/50 hover:bg-surface-container-low/50 transition-colors">
-<td class="p-md font-medium text-on-surface">Maíz Blanco - Lote 45B</td>
-<td class="p-md text-error flex items-center gap-2">
-<span class="material-symbols-outlined text-sm">event_busy</span> Vencimiento Próximo
-                                    </td>
-<td class="p-md text-on-surface-variant">Hoy, 08:30 AM</td>
-<td class="p-md">
-<span class="inline-flex items-center px-2 py-1 rounded-full bg-error-container text-on-error-container font-label-md text-label-md">Alta</span>
-</td>
-<td class="p-md text-right">
-<button class="text-primary hover:text-primary-container"><span class="material-symbols-outlined">chevron_right</span></button>
-</td>
-</tr>
-<tr class="border-b border-outline-variant/50 bg-surface-container-lowest hover:bg-surface-container-low/50 transition-colors">
-<td class="p-md font-medium text-on-surface">Frijol Negro - Malla 20kg</td>
-<td class="p-md text-tertiary flex items-center gap-2">
-<span class="material-symbols-outlined text-sm">inventory_2</span> Stock Bajo
-                                    </td>
-<td class="p-md text-on-surface-variant">Ayer, 16:45 PM</td>
-<td class="p-md">
-<span class="inline-flex items-center px-2 py-1 rounded-full bg-tertiary-container text-on-tertiary-container font-label-md text-[10px] tracking-wider uppercase">Media</span>
-</td>
-<td class="p-md text-right">
-<button class="text-primary hover:text-primary-container"><span class="material-symbols-outlined">chevron_right</span></button>
-</td>
-</tr>
-<tr class="border-b border-outline-variant/50 hover:bg-surface-container-low/50 transition-colors">
-<td class="p-md font-medium text-on-surface">Harina de Trigo</td>
-<td class="p-md text-error flex items-center gap-2">
-<span class="material-symbols-outlined text-sm">event_busy</span> Vencido
-                                    </td>
-<td class="p-md text-on-surface-variant">Ayer, 09:15 AM</td>
-<td class="p-md">
-<span class="inline-flex items-center px-2 py-1 rounded-full bg-error text-on-error font-label-md text-[10px] tracking-wider uppercase">Crítica</span>
-</td>
-<td class="p-md text-right">
-<button class="text-primary hover:text-primary-container"><span class="material-symbols-outlined">chevron_right</span></button>
-</td>
-</tr>
-<tr class="hover:bg-surface-container-low/50 transition-colors bg-surface-container-lowest">
-<td class="p-md font-medium text-on-surface">Arroz Grano Largo - Bolsa 50kg</td>
-<td class="p-md text-secondary flex items-center gap-2">
-<span class="material-symbols-outlined text-sm">local_shipping</span> Retraso Entrega
-                                    </td>
-<td class="p-md text-on-surface-variant">12 Oct, 11:20 AM</td>
-<td class="p-md">
-<span class="inline-flex items-center px-2 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-[10px] tracking-wider uppercase">Baja</span>
-</td>
-<td class="p-md text-right">
-<button class="text-primary hover:text-primary-container"><span class="material-symbols-outlined">chevron_right</span></button>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</main>
-</div>
 
-<script>
-(function () {
-  const rutas = {
-    "Dashboard": "/Home/Dashboard",
-    "BI Gerencial": "/Home/GerenciaBI",
-    "Compras": "/Home/Compras",
-    "Marketing": "/Home/Marketing",
-    "Contabilidad": "/Home/Contabilidad",
-    "Ventas": "/Home/Ventas",
-    "Inventario": "/Home/SupervisorBodega",
-    "Alertas": "/Home/Alertas",
-    "Reportes": "/Home/Reportes",
-    "Usuarios": "/Home/Administracion"
-  };
+<section class="mb-6">
+    <div class="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+        <div>
+            <h1 class="text-2xl font-bold tracking-tight text-slate-900">Dashboard General</h1>
+            <p class="mt-1 text-sm text-slate-500">
+                Vista consolidada de ventas, inventario, cobranza, alertas y reportes gerenciales.
+            </p>
+        </div>
 
-  document.querySelectorAll('a').forEach(function (a) {
-    const texto = (a.textContent || '').trim().replace(/\s+/g, ' ');
-    Object.keys(rutas).forEach(function (clave) {
-      if (texto === clave || texto.includes(clave)) {
-        a.setAttribute('href', rutas[clave]);
-      }
-    });
-  });
+        <div class="flex flex-wrap gap-2">
+            <a asp-action="Reportes" class="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50">
+                Exportar reporte
+            </a>
+            <a asp-action="GerenciaBI" class="rounded-xl bg-emerald-900 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-800">
+                Ver BI gerencial
+            </a>
+        </div>
+    </div>
+</section>
 
-  document.querySelectorAll('button').forEach(function (b) {
-    const texto = (b.textContent || '').trim().replace(/\s+/g, ' ');
-    if (texto.includes('Iniciar sesión')) b.onclick = function () { location.href = '/Home/Dashboard'; };
-    if (texto.includes('Nueva Venta')) b.onclick = function () { location.href = '/Home/Ventas'; };
-    if (texto.includes('Solicitar Cotización')) b.onclick = function () { location.href = '/Home/Compras'; };
-    if (texto.includes('Exportar Reporte')) b.onclick = function () { location.href = '/Home/Reportes'; };
-  });
-})();
-</script>
+<section class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <div class="rounded-2xl border border-slate-200 bg-white p-5">
+        <p class="text-sm font-medium text-slate-500">Ventas del día</p>
+        <h2 class="mt-2 text-2xl font-bold text-slate-900">Q 48,250</h2>
+        <p class="mt-2 text-xs text-emerald-700">San Lucas + Antigua Guatemala</p>
+    </div>
 
-</body></html>
+    <div class="rounded-2xl border border-slate-200 bg-white p-5">
+        <p class="text-sm font-medium text-slate-500">Lotes próximos a vencer</p>
+        <h2 class="mt-2 text-2xl font-bold text-red-600">12</h2>
+        <p class="mt-2 text-xs text-slate-500">Prioridad para bodega y marketing</p>
+    </div>
+
+    <div class="rounded-2xl border border-slate-200 bg-white p-5">
+        <p class="text-sm font-medium text-slate-500">Productos bajo mínimo</p>
+        <h2 class="mt-2 text-2xl font-bold text-amber-600">8</h2>
+        <p class="mt-2 text-xs text-slate-500">Alertas automáticas para compras</p>
+    </div>
+
+    <div class="rounded-2xl border border-slate-200 bg-white p-5">
+        <p class="text-sm font-medium text-slate-500">Cartera en mora</p>
+        <h2 class="mt-2 text-2xl font-bold text-slate-900">Q 342,500</h2>
+        <p class="mt-2 text-xs text-red-600">Bloqueo automático de ventas</p>
+    </div>
+</section>
+
+<section class="mt-6 grid gap-4 xl:grid-cols-3">
+    <div class="rounded-2xl border border-slate-200 bg-white p-5 xl:col-span-2">
+        <div class="mb-4">
+            <h3 class="font-bold text-slate-900">Procesos principales del sistema</h3>
+            <p class="text-sm text-slate-500">
+                Flujo integrado basado en ventas, inventario, cobranza, seguridad, importación y reportes.
+            </p>
+        </div>
+
+        <div class="grid gap-3 md:grid-cols-3">
+            <div class="rounded-xl bg-slate-50 p-4">
+                <span class="material-symbols-outlined text-emerald-900">point_of_sale</span>
+                <h4 class="mt-2 font-semibold">Ventas y FEL</h4>
+                <p class="mt-1 text-sm text-slate-500">
+                    Registro de cliente, validación de morosidad y facturación electrónica.
+                </p>
+            </div>
+
+            <div class="rounded-xl bg-slate-50 p-4">
+                <span class="material-symbols-outlined text-emerald-900">inventory_2</span>
+                <h4 class="mt-2 font-semibold">Inventario por lote</h4>
+                <p class="mt-1 text-sm text-slate-500">
+                    Control de existencias, bodegas, vida útil y fechas de vencimiento.
+                </p>
+            </div>
+
+            <div class="rounded-xl bg-slate-50 p-4">
+                <span class="material-symbols-outlined text-emerald-900">monitoring</span>
+                <h4 class="mt-2 font-semibold">BI y reportes</h4>
+                <p class="mt-1 text-sm text-slate-500">
+                    Comparativos históricos, temporadas de demanda y oportunidades de compra.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="rounded-2xl border border-slate-200 bg-white p-5">
+        <h3 class="font-bold text-slate-900">Alertas recientes</h3>
+
+        <div class="mt-4 space-y-3">
+            <div class="rounded-xl border border-red-100 bg-red-50 p-3">
+                <p class="text-sm font-semibold text-red-700">Lote L-2394 vence en 3 días</p>
+                <p class="text-xs text-red-600">Frijol negro · Bodega San Lucas</p>
+            </div>
+
+            <div class="rounded-xl border border-amber-100 bg-amber-50 p-3">
+                <p class="text-sm font-semibold text-amber-700">Harina bajo nivel mínimo</p>
+                <p class="text-xs text-amber-600">Stock actual: 25 kg · mínimo: 50 kg</p>
+            </div>
+
+            <div class="rounded-xl border border-slate-200 bg-slate-50 p-3">
+                <p class="text-sm font-semibold text-slate-700">Factura FAC-8921 vencida</p>
+                <p class="text-xs text-slate-500">Cliente requiere seguimiento de cobranza</p>
+            </div>
+        </div>
+    </div>
+</section>

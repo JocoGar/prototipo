@@ -1,601 +1,96 @@
 @{
-    Layout = null;
+    ViewData["Title"] = "Cobranza y Mora";
 }
-<!-- Contabilidad y Cobros - Actualizado -->
-<!DOCTYPE html><html class="light" lang="es"><head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>Contabilidad - Comercializadora San Juan</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@@400;500;600;700;900&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@@100..700,0..1&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@@100..700,0..1&amp;display=swap" rel="stylesheet">
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "on-primary-fixed-variant": "#0c5216",
-                        "on-primary-fixed": "#002203",
-                        "on-tertiary-fixed": "#2c1600",
-                        "inverse-surface": "#2f3131",
-                        "secondary-container": "#759efd",
-                        "tertiary-fixed": "#ffdcbe",
-                        "surface": "#f9f9f9",
-                        "surface-container-high": "#e8e8e8",
-                        "tertiary": "#583100",
-                        "secondary-fixed-dim": "#b0c6ff",
-                        "surface-bright": "#f9f9f9",
-                        "on-secondary-fixed-variant": "#00429c",
-                        "primary-fixed": "#acf4a4",
-                        "on-surface": "#1a1c1c",
-                        "error": "#ba1a1a",
-                        "secondary": "#2b5bb5",
-                        "surface-container-lowest": "#ffffff",
-                        "surface-container": "#eeeeee",
-                        "background": "#f9f9f9",
-                        "primary": "#00450d",
-                        "error-container": "#ffdad6",
-                        "secondary-fixed": "#d9e2ff",
-                        "surface-dim": "#dadada",
-                        "surface-tint": "#2a6b2c",
-                        "on-background": "#1a1c1c",
-                        "on-secondary-container": "#00337c",
-                        "inverse-primary": "#91d78a",
-                        "surface-container-low": "#f3f3f3",
-                        "surface-variant": "#e2e2e2",
-                        "on-primary": "#ffffff",
-                        "on-tertiary": "#ffffff",
-                        "on-secondary-fixed": "#001945",
-                        "on-tertiary-container": "#ffb66b",
-                        "outline": "#717a6d",
-                        "on-error-container": "#93000a",
-                        "on-error": "#ffffff",
-                        "tertiary-fixed-dim": "#ffb870",
-                        "outline-variant": "#c0c9bb",
-                        "primary-fixed-dim": "#91d78a",
-                        "inverse-on-surface": "#f1f1f1",
-                        "on-tertiary-fixed-variant": "#693c00",
-                        "on-secondary": "#ffffff",
-                        "on-surface-variant": "#41493e",
-                        "on-primary-container": "#90d689",
-                        "primary-container": "#1b5e20",
-                        "surface-container-highest": "#e2e2e2",
-                        "tertiary-container": "#794500",
-                        "data-teal": "#006b5f",
-                        "data-violet": "#6b4fae"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.125rem",
-                        "lg": "0.25rem",
-                        "xl": "0.5rem",
-                        "full": "0.75rem"
-                    },
-                    "spacing": {
-                        "lg": "24px",
-                        "margin-mobile": "16px",
-                        "xl": "32px",
-                        "xs": "4px",
-                        "sidebar-width": "260px",
-                        "margin-desktop": "32px",
-                        "md": "16px",
-                        "base": "8px",
-                        "gutter": "16px",
-                        "sm": "8px"
-                    },
-                    "fontFamily": {
-                        "display-lg": ["Inter", "sans-serif"],
-                        "headline-lg": ["Inter", "sans-serif"],
-                        "code-md": ["monospace"],
-                        "label-md": ["Inter", "sans-serif"],
-                        "headline-md": ["Inter", "sans-serif"],
-                        "body-md": ["Inter", "sans-serif"],
-                        "body-lg": ["Inter", "sans-serif"],
-                        "headline-lg-mobile": ["Inter", "sans-serif"],
-                        "title-lg": ["Inter", "sans-serif"]
-                    },
-                    "fontSize": {
-                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
-                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
-                        "code-md": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
-                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
-                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
-                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
-                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
-                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
-                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
-                    }
-                }
-            }
-        }
-    </script>
-<style>
-        /* Custom styles for specific component nuances */
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-        }
-        
-        .table-row-hover:hover {
-            background-color: theme('colors.surface-container-high');
-        }
 
-        /* Modal Overlay Transition */
-        #payment-modal {
-            transition: opacity 0.3s ease-in-out;
-        }
-        #payment-modal.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-        #payment-modal:not(.hidden) {
-            opacity: 1;
-            pointer-events: auto;
-        }
-        #payment-panel {
-            transition: transform 0.3s ease-in-out;
-            transform: translateX(100%);
-        }
-        #payment-modal:not(.hidden) #payment-panel {
-            transform: translateX(0);
-        }
-    </style>
-</head>
-<body class="bg-background text-on-background font-body-md min-h-screen flex">
-<!-- SideNavBar -->
-<aside class="hidden md:flex flex-col h-full py-lg docked fixed w-sidebar-width left-0 top-0 border-r border-outline-variant bg-secondary dark:bg-secondary-container z-50">
-<div class="px-md mb-lg">
-<div class="flex items-center gap-base">
-<img alt="Comercializadora San Juan Logo" class="w-10 h-10 rounded-full border-2 border-surface" data-alt="A small, circular logo for a commercial distribution company, featuring an abstract geometric 'S' and 'J' in deep green and white. The logo sits on a crisp white background with a subtle drop shadow, typical of a modern corporate identity mark. High quality, sharp vector art style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlUZ5IaI9Qx0SqkOz_GsMMyNzykdzd0p9WfJQqjdpJXY_eb3-2oYQdKFgw_QadQatoNe4hrlpJ-JDVqdInDAkSZDmWAMNKnQ8FVMJAdEaMJoR2I0L_5RNEPuYQiH4kemMvWblGZXMgjisvUPaM9gJt7O0YA8cjVxwbvoMr2t195-5obOLMOvNKeBKmYxfuFjjN_lpypo2bnYlr1bXy5OSnZ5UFpHi2BM6Zb1o46IGOsiobh7ui351S7O9WMjE5Qzjz44N-xCSl3KU">
-<div>
-<h1 class="font-headline-md text-headline-md font-bold text-on-secondary dark:text-on-secondary-container">San Juan</h1>
-<p class="font-label-md text-label-md text-on-secondary/80">Gestión Integral</p>
-</div>
-</div>
-</div>
-<nav class="flex-1 overflow-y-auto space-y-xs">
-<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors group" href="#">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">dashboard</span>
-<span class="font-label-md text-label-md">Dashboard</span>
-</a>
-<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors group" href="#">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">group</span>
-<span class="font-label-md text-label-md">Usuarios</span>
-</a>
-<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors group" href="#">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">analytics</span>
-<span class="font-label-md text-label-md">BI Gerencial</span>
-</a>
-<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors group" href="#">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shopping_cart</span>
-<span class="font-label-md text-label-md">Compras</span>
-</a>
-<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors group" href="#">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">campaign</span>
-<span class="font-label-md text-label-md">Marketing</span>
-</a>
-<a class="flex items-center gap-base bg-secondary-container text-on-secondary-container rounded-lg px-md py-sm mx-sm opacity-90 transition-all" href="#">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_balance</span>
-<span class="font-label-md text-label-md">Contabilidad</span>
-</a>
-<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors group" href="#">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">sell</span>
-<span class="font-label-md text-label-md">Ventas</span>
-</a>
-<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors group" href="#">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">inventory_2</span>
-<span class="font-label-md text-label-md">Inventario</span>
-</a>
-<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors group" href="#">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">warning</span>
-<span class="font-label-md text-label-md">Alertas</span>
-</a>
-<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors group" href="#">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">description</span>
-<span class="font-label-md text-label-md">Reportes</span>
-</a>
-</nav>
-</aside>
-<!-- Main Content Wrapper -->
-<div class="flex-1 md:ml-[260px] flex flex-col min-h-screen overflow-x-hidden">
-<!-- TopNavBar -->
-<header class="flex justify-between items-center h-16 px-margin-desktop bg-surface dark:bg-surface-dim border-b border-outline-variant shadow-sm docked fixed top-0 right-0 w-full md:w-[calc(100%-260px)] z-40">
-<div class="flex items-center gap-md">
-<!-- Mobile menu toggle (visible only on mobile) -->
-<button class="md:hidden text-on-surface-variant hover:text-primary transition-colors">
-<span class="material-symbols-outlined">menu</span>
-</button>
-<div class="font-title-lg text-title-lg font-black text-primary hidden sm:block">Comercializadora San Juan</div>
-</div>
-<div class="flex items-center gap-md">
-<div class="relative hidden sm:block">
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
-<input class="pl-10 pr-4 py-2 border border-outline rounded-lg bg-surface-container-lowest focus:border-secondary focus:ring-1 focus:ring-secondary outline-none text-body-md w-64 transition-all" placeholder="Buscar..." type="text">
-</div>
-<div class="flex items-center gap-sm">
-<button class="p-2 text-on-surface-variant hover:text-primary transition-colors rounded-full hover:bg-surface-variant">
-<span class="material-symbols-outlined">location_on</span>
-</button>
-<button class="p-2 text-on-surface-variant hover:text-primary transition-colors rounded-full hover:bg-surface-variant relative">
-<span class="material-symbols-outlined">notifications</span>
-<span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span>
-</button>
-<button class="p-2 text-on-surface-variant hover:text-primary transition-colors rounded-full hover:bg-surface-variant">
-<span class="material-symbols-outlined">settings</span>
-</button>
-<img alt="Admin Profile" class="w-8 h-8 rounded-full ml-sm border border-outline-variant" data-alt="A small circular profile picture of a professional man in a business setting, smiling confidently. The image is cropped tightly to the face and shoulders, typical of a professional avatar. The lighting is bright and corporate, matching a modern UI light-mode aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBss1mHOulnm6BTTIb7ZJOc299FT0Gm2GxyyB5MwHvjckt1tTxpCCwql-nG8AjCQfyG2hrfQ7jkw7NIG40NHTPBTccOgFBApEo9BPubXSm5zpFqPGgj12GwFzLY3D7EtU2gH5R29x0LN9VbLp1Unj46YyrGvUHX1xLj31sdpQf5XONG1eiFAd3KP1Y9EV3gkxhpTBLvv5FczunjxmaOrrputv323lzqAi5sMIigHvzeMMeitd_7iTHkigf_S7IXv9Qe_CrcdHiMpzg">
-</div>
-</div>
-</header>
-<!-- Main Workspace -->
-<main class="flex-1 pt-24 px-margin-mobile md:px-margin-desktop pb-lg overflow-y-auto">
-<!-- Page Header & Actions -->
-<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-md mb-lg">
-<div>
-<h2 class="font-headline-lg text-headline-lg text-on-surface">Cuentas por Cobrar</h2>
-<p class="font-body-md text-body-md text-on-surface-variant mt-1">Gestión y seguimiento de cobranza</p>
-</div>
-<div class="flex gap-sm">
-<button class="px-4 py-2 border border-secondary text-secondary rounded-lg font-label-md text-label-md hover:bg-secondary/5 transition-colors flex items-center gap-2">
-<span class="material-symbols-outlined" style="font-size: 18px;">download</span>
-                        Exportar
-                    </button>
-<button class="px-4 py-2 bg-primary-container text-on-primary rounded-lg font-label-md text-label-md hover:bg-primary-container/90 transition-colors flex items-center gap-2 shadow-sm" onclick="document.getElementById('payment-modal').classList.remove('hidden')">
-<span class="material-symbols-outlined" style="font-size: 18px;">payments</span>
-                        Registrar Pago
-                    </button>
-</div>
-</div>
-<!-- KPI Bento Grid -->
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-md mb-xl">
-<!-- KPI 1 -->
-<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-sm relative overflow-hidden group hover:shadow-md transition-shadow">
-<div class="absolute top-0 right-0 p-3 opacity-10 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined" style="font-size: 48px;">account_balance_wallet</span>
-</div>
-<div class="font-label-md text-label-md text-on-surface-variant mb-2">Total Pendiente</div>
-<div class="font-headline-md text-headline-md text-on-surface">GTQ 1,245,000</div>
-<div class="mt-2 flex items-center gap-1 text-primary-container font-label-md text-label-md">
-<span class="material-symbols-outlined" style="font-size: 16px;">trending_down</span>
-<span>-5.2% vs mes ant.</span>
-</div>
-</div>
-<!-- KPI 2 -->
-<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-sm relative overflow-hidden group hover:shadow-md transition-shadow">
-<div class="absolute top-0 right-0 p-3 opacity-10 group-hover:scale-110 transition-transform text-error">
-<span class="material-symbols-outlined" style="font-size: 48px;">warning</span>
-</div>
-<div class="font-label-md text-label-md text-on-surface-variant mb-2">Mora Acumulada (&gt;30d)</div>
-<div class="font-headline-md text-headline-md text-error">GTQ 342,500</div>
-<div class="mt-2 flex items-center gap-1 text-error font-label-md text-label-md">
-<span class="material-symbols-outlined" style="font-size: 16px;">trending_up</span>
-<span>+2.1% vs mes ant.</span>
-</div>
-</div>
-<!-- KPI 3 -->
-<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-sm relative overflow-hidden group hover:shadow-md transition-shadow">
-<div class="absolute top-0 right-0 p-3 opacity-10 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined" style="font-size: 48px;">receipt_long</span>
-</div>
-<div class="font-label-md text-label-md text-on-surface-variant mb-2">Facturas Vencidas</div>
-<div class="font-headline-md text-headline-md text-on-surface">128</div>
-<div class="mt-2 flex items-center gap-1 text-on-surface-variant font-label-md text-label-md">
-<span>45 clientes afectados</span>
-</div>
-</div>
-<!-- KPI 4 -->
-<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-sm relative overflow-hidden group hover:shadow-md transition-shadow">
-<div class="absolute top-0 right-0 p-3 opacity-10 group-hover:scale-110 transition-transform text-secondary">
-<span class="material-symbols-outlined" style="font-size: 48px;">monetization_on</span>
-</div>
-<div class="font-label-md text-label-md text-on-surface-variant mb-2">Pagos Recibidos Hoy</div>
-<div class="font-headline-md text-headline-md text-secondary">GTQ 85,200</div>
-<div class="mt-2 flex items-center gap-1 text-on-surface-variant font-label-md text-label-md">
-<span>12 transacciones</span>
-</div>
-</div>
-</div>
-<!-- Filters Area -->
-<div class="bg-surface-container-lowest border border-outline-variant rounded-t-xl p-md flex flex-wrap gap-md items-end border-b-0">
-<div class="flex-1 min-w-[200px]">
-<label class="block font-label-md text-label-md text-on-surface-variant mb-1">Cliente</label>
-<div class="relative">
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
-<input class="w-full pl-9 pr-3 py-2 border border-outline rounded-lg bg-surface text-body-md focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all" placeholder="Buscar por nombre o ID..." type="text">
-</div>
-</div>
-<div class="w-full sm:w-auto min-w-[150px]">
-<label class="block font-label-md text-label-md text-on-surface-variant mb-1">Estado</label>
-<select class="w-full px-3 py-2 border border-outline rounded-lg bg-surface text-body-md focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all appearance-none">
-<option>Todos los estados</option>
-<option>Al Día</option>
-<option>Vencido</option>
-<option>En Mora (&gt;30d)</option>
-</select>
-</div>
-<div class="w-full sm:w-auto min-w-[200px]">
-<label class="block font-label-md text-label-md text-on-surface-variant mb-1">Rango de Vencimiento</label>
-<input class="w-full px-3 py-2 border border-outline rounded-lg bg-surface text-body-md focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all" type="date">
-</div>
-<button class="px-4 py-2 border border-outline-variant text-on-surface-variant rounded-lg font-label-md text-label-md hover:bg-surface-variant transition-colors flex items-center gap-2">
-<span class="material-symbols-outlined" style="font-size: 18px;">filter_list_off</span>
-                    Limpiar
-                </button>
-</div>
-<!-- Data Table (Compact Mode) -->
-<div class="bg-surface-container-lowest border border-outline-variant rounded-b-xl shadow-sm overflow-x-auto">
-<table class="w-full text-left border-collapse">
-<thead>
-<tr class="bg-surface-container-low border-b border-outline-variant">
-<th class="px-4 py-3 font-label-md text-label-md text-on-surface-variant font-semibold">Cliente</th>
-<th class="px-4 py-3 font-label-md text-label-md text-on-surface-variant font-semibold">Factura #</th>
-<th class="px-4 py-3 font-label-md text-label-md text-on-surface-variant font-semibold text-right">Saldo Original</th>
-<th class="px-4 py-3 font-label-md text-label-md text-on-surface-variant font-semibold text-right">Saldo Pendiente</th>
-<th class="px-4 py-3 font-label-md text-label-md text-on-surface-variant font-semibold text-center">Días Mora</th>
-<th class="px-4 py-3 font-label-md text-label-md text-on-surface-variant font-semibold">Fecha Venc.</th>
-<th class="px-4 py-3 font-label-md text-label-md text-on-surface-variant font-semibold text-center">Estado</th>
-<th class="px-4 py-3 font-label-md text-label-md text-on-surface-variant font-semibold text-center">Acciones</th>
-</tr>
-</thead>
-<tbody class="font-body-md text-body-md text-on-surface divide-y divide-outline-variant/50">
-<!-- Row 1 -->
-<tr class="table-row-hover transition-colors">
-<td class="px-4 py-xs font-medium">Distribuidora El Norte S.A.</td>
-<td class="px-4 py-xs text-on-surface-variant">FAC-2023-0891</td>
-<td class="px-4 py-xs text-right">GTQ 45,000.00</td>
-<td class="px-4 py-xs text-right font-semibold">GTQ 45,000.00</td>
-<td class="px-4 py-xs text-center text-error font-semibold">45</td>
-<td class="px-4 py-xs">15 Oct 2023</td>
-<td class="px-4 py-xs text-center">
-<span class="inline-flex items-center px-2 py-1 rounded-full bg-error-container text-on-error-container font-label-md text-[10px]">
-                                    En Mora
-                                </span>
-</td>
-<td class="px-4 py-xs text-center">
-<div class="flex items-center justify-center gap-1">
-<button class="p-1 text-on-surface-variant hover:text-secondary transition-colors" title="Ver Detalle">
-<span class="material-symbols-outlined" style="font-size: 18px;">visibility</span>
-</button>
-<button class="p-1 text-on-surface-variant hover:text-primary transition-colors" title="Notificar Cobro">
-<span class="material-symbols-outlined" style="font-size: 18px;">mail</span>
-</button>
-</div>
-</td>
-</tr>
-<!-- Row 2 -->
-<tr class="table-row-hover transition-colors bg-surface/50">
-<td class="px-4 py-xs font-medium">Supermercados La Vega</td>
-<td class="px-4 py-xs text-on-surface-variant">FAC-2023-0902</td>
-<td class="px-4 py-xs text-right">GTQ 120,500.00</td>
-<td class="px-4 py-xs text-right font-semibold">GTQ 60,250.00</td>
-<td class="px-4 py-xs text-center text-tertiary font-semibold">12</td>
-<td class="px-4 py-xs">17 Nov 2023</td>
-<td class="px-4 py-xs text-center">
-<span class="inline-flex items-center px-2 py-1 rounded-full bg-tertiary-container/30 text-tertiary font-label-md text-[10px]">
-                                    Vencido
-                                </span>
-</td>
-<td class="px-4 py-xs text-center">
-<div class="flex items-center justify-center gap-1">
-<button class="p-1 text-on-surface-variant hover:text-secondary transition-colors" title="Ver Detalle">
-<span class="material-symbols-outlined" style="font-size: 18px;">visibility</span>
-</button>
-<button class="p-1 text-on-surface-variant hover:text-primary transition-colors" title="Notificar Cobro">
-<span class="material-symbols-outlined" style="font-size: 18px;">mail</span>
-</button>
-</div>
-</td>
-</tr>
-<!-- Row 3 -->
-<tr class="table-row-hover transition-colors">
-<td class="px-4 py-xs font-medium">Comercial Los Andes</td>
-<td class="px-4 py-xs text-on-surface-variant">FAC-2023-0915</td>
-<td class="px-4 py-xs text-right">GTQ 18,200.00</td>
-<td class="px-4 py-xs text-right font-semibold">GTQ 18,200.00</td>
-<td class="px-4 py-xs text-center text-on-surface-variant">0</td>
-<td class="px-4 py-xs">05 Dic 2023</td>
-<td class="px-4 py-xs text-center">
-<span class="inline-flex items-center px-2 py-1 rounded-full bg-primary-container/20 text-on-primary-fixed-variant font-label-md text-[10px]">
-                                    Al Día
-                                </span>
-</td>
-<td class="px-4 py-xs text-center">
-<div class="flex items-center justify-center gap-1">
-<button class="p-1 text-on-surface-variant hover:text-secondary transition-colors" title="Ver Detalle">
-<span class="material-symbols-outlined" style="font-size: 18px;">visibility</span>
-</button>
-<button class="p-1 text-on-surface-variant hover:text-primary transition-colors opacity-50 cursor-not-allowed" disabled="" title="Notificar Cobro">
-<span class="material-symbols-outlined" style="font-size: 18px;">mail</span>
-</button>
-</div>
-</td>
-</tr>
-<!-- Row 4 -->
-<tr class="table-row-hover transition-colors bg-surface/50">
-<td class="px-4 py-xs font-medium">Almacenes Roma SRL</td>
-<td class="px-4 py-xs text-on-surface-variant">FAC-2023-0850</td>
-<td class="px-4 py-xs text-right">GTQ 85,000.00</td>
-<td class="px-4 py-xs text-right font-semibold">GTQ 85,000.00</td>
-<td class="px-4 py-xs text-center text-error font-semibold">62</td>
-<td class="px-4 py-xs">28 Sep 2023</td>
-<td class="px-4 py-xs text-center">
-<span class="inline-flex items-center px-2 py-1 rounded-full bg-error-container text-on-error-container font-label-md text-[10px]">
-                                    En Mora
-                                </span>
-</td>
-<td class="px-4 py-xs text-center">
-<div class="flex items-center justify-center gap-1">
-<button class="p-1 text-on-surface-variant hover:text-secondary transition-colors" title="Ver Detalle">
-<span class="material-symbols-outlined" style="font-size: 18px;">visibility</span>
-</button>
-<button class="p-1 text-on-surface-variant hover:text-primary transition-colors" title="Notificar Cobro">
-<span class="material-symbols-outlined" style="font-size: 18px;">mail</span>
-</button>
-</div>
-</td>
-</tr>
-<!-- Row 5 -->
-<tr class="table-row-hover transition-colors">
-<td class="px-4 py-xs font-medium">Minimarket San José</td>
-<td class="px-4 py-xs text-on-surface-variant">FAC-2023-0918</td>
-<td class="px-4 py-xs text-right">GTQ 5,400.00</td>
-<td class="px-4 py-xs text-right font-semibold">GTQ 5,400.00</td>
-<td class="px-4 py-xs text-center text-on-surface-variant">0</td>
-<td class="px-4 py-xs">10 Dic 2023</td>
-<td class="px-4 py-xs text-center">
-<span class="inline-flex items-center px-2 py-1 rounded-full bg-primary-container/20 text-on-primary-fixed-variant font-label-md text-[10px]">
-                                    Al Día
-                                </span>
-</td>
-<td class="px-4 py-xs text-center">
-<div class="flex items-center justify-center gap-1">
-<button class="p-1 text-on-surface-variant hover:text-secondary transition-colors" title="Ver Detalle">
-<span class="material-symbols-outlined" style="font-size: 18px;">visibility</span>
-</button>
-<button class="p-1 text-on-surface-variant hover:text-primary transition-colors opacity-50 cursor-not-allowed" disabled="" title="Notificar Cobro">
-<span class="material-symbols-outlined" style="font-size: 18px;">mail</span>
-</button>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="p-4 border-t border-outline-variant flex justify-between items-center bg-surface-container-low">
-<span class="font-body-md text-body-md text-on-surface-variant">Mostrando 1-5 de 128 registros</span>
-<div class="flex gap-1">
-<button class="px-3 py-1 border border-outline-variant rounded bg-surface-container-lowest text-on-surface-variant hover:bg-surface-variant transition-colors disabled:opacity-50">Anterior</button>
-<button class="px-3 py-1 border border-secondary bg-secondary text-on-secondary rounded transition-colors">1</button>
-<button class="px-3 py-1 border border-outline-variant rounded bg-surface-container-lowest text-on-surface hover:bg-surface-variant transition-colors">2</button>
-<button class="px-3 py-1 border border-outline-variant rounded bg-surface-container-lowest text-on-surface hover:bg-surface-variant transition-colors">3</button>
-<button class="px-3 py-1 border border-outline-variant rounded bg-surface-container-lowest text-on-surface-variant hover:bg-surface-variant transition-colors">Siguiente</button>
-</div>
-</div>
-</div>
-</main>
-</div>
-<!-- Side Panel Modal: Registrar Pago -->
-<div class="fixed inset-0 z-[100] hidden" id="payment-modal">
-<!-- Backdrop -->
-<div class="absolute inset-0 bg-on-surface/40 backdrop-blur-sm" onclick="document.getElementById('payment-modal').classList.add('hidden')"></div>
-<!-- Panel -->
-<div class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-surface-container-lowest shadow-2xl border-l border-outline-variant flex flex-col" id="payment-panel">
-<!-- Header -->
-<div class="flex items-center justify-between p-lg border-b border-outline-variant bg-surface">
-<h3 class="font-headline-md text-headline-md text-on-surface">Registrar Pago</h3>
-<button class="text-on-surface-variant hover:text-error transition-colors p-1 rounded-full hover:bg-surface-variant" onclick="document.getElementById('payment-modal').classList.add('hidden')">
-<span class="material-symbols-outlined">close</span>
-</button>
-</div>
-<!-- Body -->
-<div class="flex-1 overflow-y-auto p-lg space-y-md">
-<!-- Info Alert -->
-<div class="bg-secondary-fixed/50 border border-secondary/30 rounded-lg p-sm flex gap-sm items-start mb-4">
-<span class="material-symbols-outlined text-secondary" style="font-size: 20px;">info</span>
-<p class="font-body-md text-body-md text-on-secondary-container text-sm">Asegúrese de vincular el pago a la factura correcta para actualizar el saldo inmediatamente.</p>
-</div>
-<!-- Form Fields -->
-<div>
-<label class="block font-label-md text-label-md text-on-surface-variant mb-1">Cliente / Cuenta</label>
-<div class="relative">
-<select class="w-full px-3 py-2 border border-outline rounded-lg bg-surface text-body-md focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all appearance-none">
-<option value="">Seleccione un cliente...</option>
-<option>Distribuidora El Norte S.A. (FAC-2023-0891)</option>
-<option>Supermercados La Vega (FAC-2023-0902)</option>
-<option>Almacenes Roma SRL (FAC-2023-0850)</option>
-</select>
-<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">arrow_drop_down</span>
-</div>
-</div>
-<div>
-<label class="block font-label-md text-label-md text-on-surface-variant mb-1">Monto a Pagar</label>
-<div class="relative">
-<span class="absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant font-body-md">GTQ</span>
-<input class="w-full pl-8 pr-3 py-2 border border-outline rounded-lg bg-surface text-body-md focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all" placeholder="0.00" type="number">
-</div>
-</div>
-<div>
-<label class="block font-label-md text-label-md text-on-surface-variant mb-1">Método de Pago</label>
-<div class="grid grid-cols-3 gap-2">
-<label class="border border-outline-variant rounded-lg p-2 flex flex-col items-center justify-center cursor-pointer hover:bg-surface-variant transition-colors group">
-<input class="sr-only peer" name="payment_method" type="radio">
-<span class="material-symbols-outlined text-on-surface-variant mb-1 group-hover:text-primary peer-checked:text-primary">account_balance</span>
-<span class="font-label-md text-[10px] text-on-surface-variant peer-checked:text-primary font-medium">Transferencia</span>
-<div class="absolute inset-0 border-2 border-transparent peer-checked:border-primary rounded-lg pointer-events-none"></div>
-</label>
-<label class="border border-outline-variant rounded-lg p-2 flex flex-col items-center justify-center cursor-pointer hover:bg-surface-variant transition-colors group">
-<input class="sr-only peer" name="payment_method" type="radio">
-<span class="material-symbols-outlined text-on-surface-variant mb-1 group-hover:text-primary peer-checked:text-primary">payments</span>
-<span class="font-label-md text-[10px] text-on-surface-variant peer-checked:text-primary font-medium">Efectivo</span>
-<div class="absolute inset-0 border-2 border-transparent peer-checked:border-primary rounded-lg pointer-events-none"></div>
-</label>
-<label class="border border-outline-variant rounded-lg p-2 flex flex-col items-center justify-center cursor-pointer hover:bg-surface-variant transition-colors group">
-<input class="sr-only peer" name="payment_method" type="radio">
-<span class="material-symbols-outlined text-on-surface-variant mb-1 group-hover:text-primary peer-checked:text-primary">receipt</span>
-<span class="font-label-md text-[10px] text-on-surface-variant peer-checked:text-primary font-medium">Cheque</span>
-<div class="absolute inset-0 border-2 border-transparent peer-checked:border-primary rounded-lg pointer-events-none"></div>
-</label>
-</div>
-</div>
-<div>
-<label class="block font-label-md text-label-md text-on-surface-variant mb-1">Número de Referencia / Baucher</label>
-<input class="w-full px-3 py-2 border border-outline rounded-lg bg-surface text-body-md focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all" placeholder="Ej: TR-492019" type="text">
-</div>
-<div>
-<label class="block font-label-md text-label-md text-on-surface-variant mb-1">Fecha de Pago</label>
-<input class="w-full px-3 py-2 border border-outline rounded-lg bg-surface text-body-md focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all" type="date">
-</div>
-<div>
-<label class="block font-label-md text-label-md text-on-surface-variant mb-1">Notas Adicionales</label>
-<textarea class="w-full px-3 py-2 border border-outline rounded-lg bg-surface text-body-md focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all resize-none" rows="3"></textarea>
-</div>
-</div>
-<!-- Footer Actions -->
-<div class="p-lg border-t border-outline-variant bg-surface flex justify-end gap-sm">
-<button class="px-4 py-2 border border-outline-variant text-on-surface rounded-lg font-label-md text-label-md hover:bg-surface-variant transition-colors" onclick="document.getElementById('payment-modal').classList.add('hidden')">
-                    Cancelar
-                </button>
-<button class="px-4 py-2 bg-primary-container text-on-primary rounded-lg font-label-md text-label-md hover:bg-primary-container/90 transition-colors shadow-sm">
-                    Guardar Pago
-                </button>
-</div>
-</div>
-</div>
+<section class="mb-6">
+    <div class="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+        <div>
+            <h1 class="text-2xl font-bold tracking-tight text-slate-900">Cobranza y Mora</h1>
+            <p class="mt-1 text-sm text-slate-500">
+                Seguimiento de facturas vencidas, saldos pendientes y recargos automáticos.
+            </p>
+        </div>
 
-<script>
-(function () {
-  const rutas = {
-    "Dashboard": "/Home/Dashboard",
-    "BI Gerencial": "/Home/GerenciaBI",
-    "Compras": "/Home/Compras",
-    "Marketing": "/Home/Marketing",
-    "Contabilidad": "/Home/Contabilidad",
-    "Ventas": "/Home/Ventas",
-    "Inventario": "/Home/SupervisorBodega",
-    "Alertas": "/Home/Alertas",
-    "Reportes": "/Home/Reportes",
-    "Usuarios": "/Home/Administracion"
-  };
+        <button class="rounded-xl bg-emerald-900 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-800">
+            Registrar pago
+        </button>
+    </div>
+</section>
 
-  document.querySelectorAll('a').forEach(function (a) {
-    const texto = (a.textContent || '').trim().replace(/\s+/g, ' ');
-    Object.keys(rutas).forEach(function (clave) {
-      if (texto === clave || texto.includes(clave)) {
-        a.setAttribute('href', rutas[clave]);
-      }
-    });
-  });
+<section class="grid gap-4 md:grid-cols-4">
+    <div class="rounded-2xl border border-slate-200 bg-white p-5">
+        <p class="text-sm font-medium text-slate-500">Total pendiente</p>
+        <h2 class="mt-2 text-2xl font-bold text-slate-900">Q 1,245,000</h2>
+        <p class="mt-2 text-xs text-slate-500">Cuentas por cobrar</p>
+    </div>
 
-  document.querySelectorAll('button').forEach(function (b) {
-    const texto = (b.textContent || '').trim().replace(/\s+/g, ' ');
-    if (texto.includes('Iniciar sesión')) b.onclick = function () { location.href = '/Home/Dashboard'; };
-    if (texto.includes('Nueva Venta')) b.onclick = function () { location.href = '/Home/Ventas'; };
-    if (texto.includes('Solicitar Cotización')) b.onclick = function () { location.href = '/Home/Compras'; };
-    if (texto.includes('Exportar Reporte')) b.onclick = function () { location.href = '/Home/Reportes'; };
-  });
-})();
-</script>
+    <div class="rounded-2xl border border-slate-200 bg-white p-5">
+        <p class="text-sm font-medium text-slate-500">Mora acumulada</p>
+        <h2 class="mt-2 text-2xl font-bold text-red-600">Q 342,500</h2>
+        <p class="mt-2 text-xs text-red-600">Clientes con más de 30 días</p>
+    </div>
 
-</body></html>
+    <div class="rounded-2xl border border-slate-200 bg-white p-5">
+        <p class="text-sm font-medium text-slate-500">Facturas vencidas</p>
+        <h2 class="mt-2 text-2xl font-bold text-slate-900">128</h2>
+        <p class="mt-2 text-xs text-slate-500">45 clientes afectados</p>
+    </div>
+
+    <div class="rounded-2xl border border-slate-200 bg-white p-5">
+        <p class="text-sm font-medium text-slate-500">Pagos recibidos hoy</p>
+        <h2 class="mt-2 text-2xl font-bold text-emerald-700">Q 85,200</h2>
+        <p class="mt-2 text-xs text-slate-500">12 transacciones</p>
+    </div>
+</section>
+
+<section class="mt-6 rounded-2xl border border-slate-200 bg-white">
+    <div class="border-b border-slate-200 p-5">
+        <h3 class="font-bold text-slate-900">Clientes con seguimiento de cobranza</h3>
+        <p class="text-sm text-slate-500">Ordenados por prioridad según días de mora.</p>
+    </div>
+
+    <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm">
+            <thead class="bg-slate-50 text-xs uppercase text-slate-500">
+                <tr>
+                    <th class="px-5 py-3">Cliente</th>
+                    <th class="px-5 py-3">Factura</th>
+                    <th class="px-5 py-3">Saldo</th>
+                    <th class="px-5 py-3">Días mora</th>
+                    <th class="px-5 py-3 text-right">Estado</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+                <tr>
+                    <td class="px-5 py-3 font-medium">Distribuidora El Norte S.A.</td>
+                    <td class="px-5 py-3 text-slate-600">FAC-2026-0891</td>
+                    <td class="px-5 py-3">Q 45,000</td>
+                    <td class="px-5 py-3 text-red-600 font-semibold">45</td>
+                    <td class="px-5 py-3 text-right">
+                        <span class="rounded-full bg-red-50 px-2 py-1 text-xs font-semibold text-red-700">En mora</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="px-5 py-3 font-medium">Supermercados La Vega</td>
+                    <td class="px-5 py-3 text-slate-600">FAC-2026-0902</td>
+                    <td class="px-5 py-3">Q 60,250</td>
+                    <td class="px-5 py-3 text-amber-600 font-semibold">12</td>
+                    <td class="px-5 py-3 text-right">
+                        <span class="rounded-full bg-amber-50 px-2 py-1 text-xs font-semibold text-amber-700">Vencido</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="px-5 py-3 font-medium">Comercial Los Andes</td>
+                    <td class="px-5 py-3 text-slate-600">FAC-2026-0915</td>
+                    <td class="px-5 py-3">Q 18,200</td>
+                    <td class="px-5 py-3">0</td>
+                    <td class="px-5 py-3 text-right">
+                        <span class="rounded-full bg-emerald-50 px-2 py-1 text-xs font-semibold text-emerald-700">Al día</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

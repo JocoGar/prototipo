@@ -1,548 +1,65 @@
 @{
-    Layout = null;
+    ViewData["Title"] = "Marketing";
 }
-<!-- Marketing y Promociones - Actualizado -->
-<!DOCTYPE html><html class="light" lang="es"><head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>Comercializadora San Juan - Marketing / Alertas de Vencimiento</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@@400;500;600;700&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@@100..700,0..1&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@@100..700,0..1&amp;display=swap" rel="stylesheet">
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                    "on-primary-fixed-variant": "#0c5216",
-                    "on-primary-fixed": "#002203",
-                    "on-tertiary-fixed": "#2c1600",
-                    "inverse-surface": "#2f3131",
-                    "secondary-container": "#759efd",
-                    "tertiary-fixed": "#ffdcbe",
-                    "surface": "#f9f9f9",
-                    "surface-container-high": "#e8e8e8",
-                    "tertiary": "#583100",
-                    "secondary-fixed-dim": "#b0c6ff",
-                    "surface-bright": "#f9f9f9",
-                    "on-secondary-fixed-variant": "#00429c",
-                    "primary-fixed": "#acf4a4",
-                    "on-surface": "#1a1c1c",
-                    "error": "#ba1a1a",
-                    "secondary": "#2b5bb5",
-                    "surface-container-lowest": "#ffffff",
-                    "surface-container": "#eeeeee",
-                    "background": "#f9f9f9",
-                    "primary": "#00450d",
-                    "error-container": "#ffdad6",
-                    "secondary-fixed": "#d9e2ff",
-                    "surface-dim": "#dadada",
-                    "surface-tint": "#2a6b2c",
-                    "on-background": "#1a1c1c",
-                    "on-secondary-container": "#00337c",
-                    "inverse-primary": "#91d78a",
-                    "surface-container-low": "#f3f3f3",
-                    "surface-variant": "#e2e2e2",
-                    "on-primary": "#ffffff",
-                    "on-tertiary": "#ffffff",
-                    "on-secondary-fixed": "#001945",
-                    "on-tertiary-container": "#ffb66b",
-                    "outline": "#717a6d",
-                    "on-error-container": "#93000a",
-                    "on-error": "#ffffff",
-                    "tertiary-fixed-dim": "#ffb870",
-                    "outline-variant": "#c0c9bb",
-                    "primary-fixed-dim": "#91d78a",
-                    "inverse-on-surface": "#f1f1f1",
-                    "on-tertiary-fixed-variant": "#693c00",
-                    "on-secondary": "#ffffff",
-                    "on-surface-variant": "#41493e",
-                    "on-primary-container": "#90d689",
-                    "primary-container": "#1b5e20",
-                    "surface-container-highest": "#e2e2e2",
-                    "tertiary-container": "#794500"
-            },
-            "borderRadius": {
-                    "DEFAULT": "0.125rem",
-                    "lg": "0.25rem",
-                    "xl": "0.5rem",
-                    "full": "0.75rem"
-            },
-            "spacing": {
-                    "lg": "24px",
-                    "margin-mobile": "16px",
-                    "xl": "32px",
-                    "xs": "4px",
-                    "sidebar-width": "260px",
-                    "margin-desktop": "32px",
-                    "md": "16px",
-                    "base": "8px",
-                    "gutter": "16px",
-                    "sm": "8px"
-            },
-            "fontFamily": {
-                    "display-lg": ["Inter"],
-                    "headline-lg": ["Inter"],
-                    "code-md": ["monospace"],
-                    "label-md": ["Inter"],
-                    "headline-md": ["Inter"],
-                    "body-md": ["Inter"],
-                    "body-lg": ["Inter"],
-                    "headline-lg-mobile": ["Inter"],
-                    "title-lg": ["Inter"]
-            },
-            "fontSize": {
-                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
-                    "code-md": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
-                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
-                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
-                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
-                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
-                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
-            }
-          },
-        },
-      }
-    </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .material-symbols-outlined[data-weight="fill"] {
-            font-variation-settings: 'FILL' 1;
-        }
-        
-        /* Custom scrollbar for better UI */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1; 
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #c0c9bb; 
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #717a6d; 
-        }
-    </style>
-</head>
-<body class="bg-background text-on-background font-body-md h-screen overflow-hidden flex">
-<!-- SideNavBar -->
-<nav aria-label="Sidebar Navigation" class="bg-secondary dark:bg-secondary-container text-on-secondary dark:text-on-secondary-container docked fixed h-full w-sidebar-width left-0 top-0 border-r border-outline-variant z-50 flex flex-col h-full py-lg hidden md:flex">
-<!-- Brand / Header -->
-<div class="px-lg mb-xl flex items-center gap-md">
-<div class="w-10 h-10 rounded-full bg-secondary-fixed-dim/20 flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined text-on-secondary" data-weight="fill">storefront</span>
-</div>
-<div>
-<h1 class="font-headline-md text-headline-md font-bold text-on-secondary dark:text-on-secondary-container">San Juan</h1>
-<p class="font-label-md text-label-md opacity-80">Gestión Integral</p>
-</div>
-</div>
-<!-- Navigation Links -->
-<div class="flex-1 overflow-y-auto px-xs">
-<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm mb-xs transition-colors group" href="#">
-<span class="material-symbols-outlined opacity-80 group-hover:opacity-100 transition-opacity" data-icon="dashboard">dashboard</span>
-<span class="font-label-md text-label-md">Dashboard</span>
-</a>
-<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm mb-xs transition-colors group" href="#">
-<span class="material-symbols-outlined opacity-80 group-hover:opacity-100 transition-opacity" data-icon="group">group</span>
-<span class="font-label-md text-label-md">Usuarios</span>
-</a>
-<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm mb-xs transition-colors group" href="#">
-<span class="material-symbols-outlined opacity-80 group-hover:opacity-100 transition-opacity" data-icon="analytics">analytics</span>
-<span class="font-label-md text-label-md">BI Gerencial</span>
-</a>
-<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm mb-xs transition-colors group" href="#">
-<span class="material-symbols-outlined opacity-80 group-hover:opacity-100 transition-opacity" data-icon="shopping_cart">shopping_cart</span>
-<span class="font-label-md text-label-md">Compras</span>
-</a>
-<!-- ACTIVE TAB -->
-<a class="flex items-center gap-base bg-secondary-container text-on-secondary-container rounded-lg px-md py-sm mx-sm mb-xs opacity-90 transition-all" href="#">
-<span class="material-symbols-outlined" data-icon="campaign" data-weight="fill">campaign</span>
-<span class="font-label-md text-label-md font-semibold">Marketing</span>
-</a>
-<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm mb-xs transition-colors group" href="#">
-<span class="material-symbols-outlined opacity-80 group-hover:opacity-100 transition-opacity" data-icon="account_balance">account_balance</span>
-<span class="font-label-md text-label-md">Contabilidad</span>
-</a>
-<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm mb-xs transition-colors group" href="#">
-<span class="material-symbols-outlined opacity-80 group-hover:opacity-100 transition-opacity" data-icon="sell">sell</span>
-<span class="font-label-md text-label-md">Ventas</span>
-</a>
-<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm mb-xs transition-colors group" href="#">
-<span class="material-symbols-outlined opacity-80 group-hover:opacity-100 transition-opacity" data-icon="inventory_2">inventory_2</span>
-<span class="font-label-md text-label-md">Inventario</span>
-</a>
-<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm mb-xs transition-colors group" href="#">
-<span class="material-symbols-outlined opacity-80 group-hover:opacity-100 transition-opacity" data-icon="warning">warning</span>
-<span class="font-label-md text-label-md">Alertas</span>
-</a>
-<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm mb-xs transition-colors group" href="#">
-<span class="material-symbols-outlined opacity-80 group-hover:opacity-100 transition-opacity" data-icon="description">description</span>
-<span class="font-label-md text-label-md">Reportes</span>
-</a>
-</div>
-</nav>
-<!-- Main Content Area Wrapper -->
-<div class="flex-1 flex flex-col md:ml-[260px] h-full overflow-hidden relative">
-<!-- TopNavBar -->
-<header class="docked fixed top-0 right-0 w-full md:w-[calc(100%-260px)] z-40 border-b border-outline-variant shadow-sm flex justify-between items-center h-16 px-margin-mobile md:px-margin-desktop bg-surface dark:bg-surface-dim">
-<!-- Left Side: Product Name & Mobile Menu -->
-<div class="flex items-center gap-md">
-<button class="md:hidden text-on-surface-variant hover:text-primary transition-colors p-sm rounded-full hover:bg-surface-container">
-<span class="material-symbols-outlined">menu</span>
-</button>
-<div class="font-title-lg text-title-lg font-black text-primary truncate hidden sm:block">Comercializadora San Juan</div>
-</div>
-<!-- Search (Left aligned relative to actions) -->
-<div class="flex-1 max-w-md mx-md hidden md:block">
-<div class="relative">
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
-<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded-full text-body-md focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all" placeholder="Buscar productos, lotes, campañas..." type="text">
-</div>
-</div>
-<!-- Trailing Actions -->
-<div class="flex items-center gap-sm md:gap-md">
-<button class="text-on-surface-variant hover:text-primary transition-colors p-sm rounded-full hover:bg-surface-container flex items-center justify-center">
-<span class="material-symbols-outlined" data-icon="location_on">location_on</span>
-</button>
-<button class="text-on-surface-variant hover:text-primary transition-colors p-sm rounded-full hover:bg-surface-container flex items-center justify-center relative">
-<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
-<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full"></span>
-</button>
-<button class="text-on-surface-variant hover:text-primary transition-colors p-sm rounded-full hover:bg-surface-container flex items-center justify-center hidden sm:flex">
-<span class="material-symbols-outlined" data-icon="settings">settings</span>
-</button>
-<div class="w-8 h-8 rounded-full bg-surface-container-high overflow-hidden border border-outline-variant ml-sm cursor-pointer hover:ring-2 hover:ring-primary transition-all">
-<!-- Placeholder avatar -->
-<img alt="Admin Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMvpg1g3BlMJmKbXwhGQsJjradjAFpEbKCRcmYvcrsRZQabEIHpvfVH9pdtVG6tfbH6Bj4-ZN8CdXkwzeRoAAqH7xZQPFe4IDToxc80115Uusf500cvT_iS1VuQKkTzFmnJ-yBSrV_kgQJMwRmTfWgryqMCXOPcWmbOQZb0BTqXHpAJ-vqtYexpA4VeKTZq-HAl7N3sFT7TcwXdyMXVJGkmh9EKF1HXg0_GnZF_C5jrSX2AliXrueqY5OoCB6Abej_QtxwCg3lHDU">
-</div>
-</div>
-</header>
-<!-- Main Scrollable Canvas -->
-<main class="flex-1 overflow-y-auto pt-16 p-margin-mobile md:p-margin-desktop bg-background">
-<!-- Page Header -->
-<div class="mb-lg flex flex-col md:flex-row md:items-end justify-between gap-md">
-<div>
-<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background mb-xs">Marketing &amp; Alertas</h2>
-<p class="font-body-md text-body-md text-on-surface-variant">Gestión de rotación de inventario y campañas preventivas de vencimiento.</p>
-</div>
-<div class="flex gap-sm">
-<button class="px-md py-2 border border-outline-variant rounded-lg text-body-md font-medium text-on-surface hover:bg-surface-container-low transition-colors flex items-center gap-xs">
-<span class="material-symbols-outlined text-sm">download</span>
-                        Exportar
-                    </button>
-<button class="px-md py-2 bg-primary-container text-on-primary rounded-lg text-body-md font-medium hover:bg-primary transition-colors shadow-sm flex items-center gap-xs">
-<span class="material-symbols-outlined text-sm">add</span>
-                        Nueva Campaña
-                    </button>
-</div>
-</div>
-<!-- Bento Grid Layout -->
-<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
-<!-- Main Area: Alert Table (Spans 8 cols on desktop) -->
-<div class="md:col-span-8 lg:col-span-8 xl:col-span-9 flex flex-col gap-gutter">
-<!-- KPI Summary Cards -->
-<div class="grid grid-cols-1 sm:grid-cols-3 gap-gutter">
-<div class="bg-surface rounded-xl border border-outline-variant p-md shadow-sm flex flex-col">
-<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mb-sm">Riesgo Alto (&lt; 15 días)</span>
-<div class="flex items-end justify-between mt-auto">
-<span class="font-headline-lg text-headline-lg text-error">24</span>
-<span class="material-symbols-outlined text-error opacity-50 text-3xl">warning</span>
-</div>
-</div>
-<div class="bg-surface rounded-xl border border-outline-variant p-md shadow-sm flex flex-col">
-<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mb-sm">Riesgo Medio (15-30 días)</span>
-<div class="flex items-end justify-between mt-auto">
-<span class="font-headline-lg text-headline-lg text-[#F57F17]">56</span> <!-- Custom Warning Color -->
-<span class="material-symbols-outlined text-[#F57F17] opacity-50 text-3xl">schedule</span>
-</div>
-</div>
-<div class="bg-surface rounded-xl border border-outline-variant p-md shadow-sm flex flex-col">
-<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mb-sm">Valor en Riesgo</span>
-<div class="flex items-end justify-between mt-auto">
-<span class="font-headline-lg text-headline-lg text-on-background">GTQ 14.2K</span>
-<span class="material-symbols-outlined text-on-surface-variant opacity-50 text-3xl">payments</span>
-</div>
-</div>
-</div>
-<!-- Products Near Expiry Table -->
-<div class="bg-surface rounded-xl border border-outline-variant shadow-sm overflow-hidden flex flex-col">
-<div class="p-md border-b border-outline-variant flex justify-between items-center bg-surface-bright">
-<h3 class="font-title-lg text-title-lg text-on-background flex items-center gap-sm">
-<span class="material-symbols-outlined text-error">event_busy</span>
-                                Próximos a Vencer
-                            </h3>
-<!-- Filters -->
-<div class="flex gap-sm">
-<span class="inline-flex items-center px-2 py-1 rounded-full border border-outline-variant bg-surface-container-low text-label-md text-on-surface-variant cursor-pointer hover:bg-surface-container">
-                                    Bodega Norte <span class="material-symbols-outlined text-[14px] ml-1">close</span>
-</span>
-<button class="text-on-surface-variant hover:text-primary p-xs rounded hover:bg-surface-container">
-<span class="material-symbols-outlined">filter_list</span>
-</button>
-</div>
-</div>
-<div class="overflow-x-auto">
-<table class="w-full text-left border-collapse">
-<thead>
-<tr class="border-b border-outline-variant bg-surface-container-lowest">
-<th class="p-3 font-label-md text-label-md text-on-surface-variant whitespace-nowrap">Producto / Lote</th>
-<th class="p-3 font-label-md text-label-md text-on-surface-variant whitespace-nowrap">Bodega</th>
-<th class="p-3 font-label-md text-label-md text-on-surface-variant text-right whitespace-nowrap">Cantidad</th>
-<th class="p-3 font-label-md text-label-md text-on-surface-variant whitespace-nowrap">Fecha Venc.</th>
-<th class="p-3 font-label-md text-label-md text-on-surface-variant text-center whitespace-nowrap">Días</th>
-<th class="p-3 font-label-md text-label-md text-on-surface-variant whitespace-nowrap">Estado</th>
-<th class="p-3 font-label-md text-label-md text-on-surface-variant text-right whitespace-nowrap">Acción</th>
-</tr>
-</thead>
-<tbody class="font-body-md text-body-md text-on-background divide-y divide-surface-variant">
-<!-- Row 1: High Risk -->
-<tr class="hover:bg-surface-container-lowest transition-colors bg-error-container/20">
-<td class="p-3">
-<div class="font-medium">Ma1z Amarillo</div>
-<div class="text-label-md text-on-surface-variant">Lote: TC-8892</div>
-</td>
-<td class="p-3">San Lucas (Norte)</td>
-<td class="p-3 text-right">450 kg</td>
-<td class="p-3">24 Oct, 2023</td>
-<td class="p-3 text-center font-bold text-error">4</td>
-<td class="p-3">
-<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-error-container text-on-error-container text-[11px] font-bold uppercase tracking-wide">
-                                                Crítico
-                                            </span>
-</td>
-<td class="p-3 text-right">
-<button class="text-secondary hover:text-on-secondary-fixed-variant p-1 rounded hover:bg-secondary-fixed-dim/20 transition-colors" title="Crear Promoción">
-<span class="material-symbols-outlined text-[20px]">campaign</span>
-</button>
-</td>
-</tr>
-<!-- Row 2: High Risk -->
-<tr class="hover:bg-surface-container-lowest transition-colors bg-error-container/10">
-<td class="p-3">
-<div class="font-medium">Harina de Soya</div>
-<div class="text-label-md text-on-surface-variant">Lote: QF-1024</div>
-</td>
-<td class="p-3">Central (Sur)</td>
-<td class="p-3 text-right">120 un</td>
-<td class="p-3">28 Oct, 2023</td>
-<td class="p-3 text-center font-bold text-error">8</td>
-<td class="p-3">
-<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-error-container text-on-error-container text-[11px] font-bold uppercase tracking-wide">
-                                                Crítico
-                                            </span>
-</td>
-<td class="p-3 text-right">
-<button class="text-secondary hover:text-on-secondary-fixed-variant p-1 rounded hover:bg-secondary-fixed-dim/20 transition-colors" title="Crear Promoción">
-<span class="material-symbols-outlined text-[20px]">campaign</span>
-</button>
-</td>
-</tr>
-<!-- Row 3: Medium Risk -->
-<tr class="hover:bg-surface-container-lowest transition-colors">
-<td class="p-3">
-<div class="font-medium">Maíz Amarillo Dulce</div>
-<div class="text-label-md text-on-surface-variant">Lote: MA-5510</div>
-</td>
-<td class="p-3">San Lucas (Norte)</td>
-<td class="p-3 text-right">1,200 kg</td>
-<td class="p-3">05 Nov, 2023</td>
-<td class="p-3 text-center font-medium text-[#F57F17]">16</td>
-<td class="p-3">
-<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-[#FFF9C4] text-[#F57F17] text-[11px] font-bold uppercase tracking-wide">
-                                                Alerta
-                                            </span>
-</td>
-<td class="p-3 text-right">
-<button class="text-secondary hover:text-on-secondary-fixed-variant p-1 rounded hover:bg-secondary-fixed-dim/20 transition-colors" title="Crear Promoción">
-<span class="material-symbols-outlined text-[20px]">campaign</span>
-</button>
-</td>
-</tr>
-<!-- Row 4: Medium Risk -->
-<tr class="hover:bg-surface-container-lowest transition-colors">
-<td class="p-3">
-<div class="font-medium">Sal Refinada</div>
-<div class="text-label-md text-on-surface-variant">Lote: LH-9921</div>
-</td>
-<td class="p-3">Este (Bodega 2)</td>
-<td class="p-3 text-right">300 un</td>
-<td class="p-3">08 Nov, 2023</td>
-<td class="p-3 text-center font-medium text-[#F57F17]">19</td>
-<td class="p-3">
-<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-[#FFF9C4] text-[#F57F17] text-[11px] font-bold uppercase tracking-wide">
-                                                Alerta
-                                            </span>
-</td>
-<td class="p-3 text-right">
-<button class="text-secondary hover:text-on-secondary-fixed-variant p-1 rounded hover:bg-secondary-fixed-dim/20 transition-colors" title="Crear Promoción">
-<span class="material-symbols-outlined text-[20px]">campaign</span>
-</button>
-</td>
-</tr>
-<!-- Row 5: Low/Normal Risk but approaching -->
-<tr class="hover:bg-surface-container-lowest transition-colors">
-<td class="p-3">
-<div class="font-medium">Az3car</div>
-<div class="text-label-md text-on-surface-variant">Lote: PM-3302</div>
-</td>
-<td class="p-3">Central (Sur)</td>
-<td class="p-3 text-right">850 kg</td>
-<td class="p-3">15 Nov, 2023</td>
-<td class="p-3 text-center text-on-surface-variant">26</td>
-<td class="p-3">
-<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant text-[11px] font-bold uppercase tracking-wide">
-                                                Vigilancia
-                                            </span>
-</td>
-<td class="p-3 text-right">
-<button class="text-outline hover:text-on-surface-variant p-1 rounded hover:bg-surface-container transition-colors" title="Ver Detalles">
-<span class="material-symbols-outlined text-[20px]">visibility</span>
-</button>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="p-3 border-t border-outline-variant bg-surface-container-lowest flex justify-between items-center text-label-md text-on-surface-variant">
-<span>Mostrando 5 de 42 lotes en seguimiento</span>
-<div class="flex gap-1">
-<button class="p-1 rounded hover:bg-surface-container disabled:opacity-50"><span class="material-symbols-outlined text-[18px]">chevron_left</span></button>
-<button class="p-1 rounded hover:bg-surface-container"><span class="material-symbols-outlined text-[18px]">chevron_right</span></button>
-</div>
-</div>
-</div>
-</div>
-<!-- Right Sidebar Area (Spans 4 cols on desktop) -->
-<div class="md:col-span-4 lg:col-span-4 xl:col-span-3 flex flex-col gap-gutter">
-<!-- Action Panel: Marketing Suggestions -->
-<div class="bg-surface rounded-xl border border-secondary/30 p-md shadow-sm relative overflow-hidden flex flex-col h-full">
-<!-- Subtle gradient background accent -->
-<div class="absolute top-0 right-0 w-32 h-32 bg-secondary/5 rounded-bl-full pointer-events-none"></div>
-<div class="flex items-center gap-2 mb-md z-10">
-<span class="material-symbols-outlined text-secondary">tips_and_updates</span>
-<h3 class="font-title-lg text-title-lg text-on-background">Sugerencias Automáticas</h3>
-</div>
-<div class="flex-1 flex flex-col gap-sm z-10">
-<!-- Suggestion 1 -->
-<div class="p-3 rounded-lg border border-outline-variant bg-surface-container-lowest hover:border-secondary transition-colors cursor-pointer group">
-<div class="flex justify-between items-start mb-1">
-<span class="font-label-md text-label-md font-bold text-[#F57F17]">Alta Prioridad</span>
-<span class="text-[10px] text-on-surface-variant">Hace 2h</span>
-</div>
-<h4 class="font-body-md text-body-md font-semibold text-on-background mb-1">Promo 2x1 Ma1z Amarillo</h4>
-<p class="font-label-md text-label-md text-on-surface-variant mb-2">450kg en San Lucas expiran en 4 d1as. Hist3ricamente las promos 2x1 logran 80% de clearance aqu1.</p>
-<button class="w-full py-1.5 border border-secondary text-secondary rounded text-label-md font-medium group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
-                                    Aplicar Sugerencia
-                                </button>
-</div>
-<!-- Suggestion 2 -->
-<div class="p-3 rounded-lg border border-outline-variant bg-surface-container-lowest hover:border-secondary transition-colors cursor-pointer group">
-<div class="flex justify-between items-start mb-1">
-<span class="font-label-md text-label-md font-bold text-secondary">Oportunidad</span>
-<span class="text-[10px] text-on-surface-variant">Hace 5h</span>
-</div>
-<h4 class="font-body-md text-body-md font-semibold text-on-background mb-1">Descuento B2B Ma1z Amarillo</h4>
-<p class="font-label-md text-label-md text-on-surface-variant mb-2">Exceso de inventario (1,200kg). Sugerimos ofrecer 15% desc. a restaurantes locales hoy.</p>
-<button class="w-full py-1.5 border border-secondary text-secondary rounded text-label-md font-medium group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
-                                    Aplicar Sugerencia
-                                </button>
-</div>
-</div>
-<button class="mt-md w-full py-2 bg-secondary text-on-secondary rounded-lg text-body-md font-medium hover:bg-on-secondary-fixed-variant transition-colors shadow-sm flex items-center justify-center gap-xs z-10">
-<span class="material-symbols-outlined text-sm">campaign</span>
-                            Crear Campaña Manual
-                        </button>
-</div>
-<!-- Small Chart: Top Movers -->
-<div class="bg-surface rounded-xl border border-outline-variant p-md shadow-sm">
-<h3 class="font-title-lg text-title-lg text-on-background mb-sm text-sm">Mayor Rotación (Últimos 7 días)</h3>
-<!-- Pseudo Horizontal Bar Chart -->
-<div class="space-y-3 mt-sm">
-<div>
-<div class="flex justify-between text-label-md mb-1">
-<span class="text-on-surface-variant">Papa Blanca</span>
-<span class="font-medium">92%</span>
-</div>
-<div class="w-full bg-surface-container-highest rounded-full h-1.5">
-<div class="bg-primary-container h-1.5 rounded-full" style="width: 92%"></div>
-</div>
-</div>
-<div>
-<div class="flex justify-between text-label-md mb-1">
-<span class="text-on-surface-variant">Cebolla Cabezona</span>
-<span class="font-medium">85%</span>
-</div>
-<div class="w-full bg-surface-container-highest rounded-full h-1.5">
-<div class="bg-primary-container h-1.5 rounded-full" style="width: 85%"></div>
-</div>
-</div>
-<div>
-<div class="flex justify-between text-label-md mb-1">
-<span class="text-on-surface-variant">Zanahoria</span>
-<span class="font-medium">78%</span>
-</div>
-<div class="w-full bg-surface-container-highest rounded-full h-1.5">
-<div class="bg-primary-fixed-dim h-1.5 rounded-full" style="width: 78%"></div>
-</div>
-</div>
-<div>
-<div class="flex justify-between text-label-md mb-1">
-<span class="text-on-surface-variant">Tomate Aliño</span>
-<span class="font-medium">64%</span>
-</div>
-<div class="w-full bg-surface-container-highest rounded-full h-1.5">
-<div class="bg-secondary h-1.5 rounded-full" style="width: 64%"></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</main>
-</div>
 
-<script>
-(function () {
-  const rutas = {
-    "Dashboard": "/Home/Dashboard",
-    "BI Gerencial": "/Home/GerenciaBI",
-    "Compras": "/Home/Compras",
-    "Marketing": "/Home/Marketing",
-    "Contabilidad": "/Home/Contabilidad",
-    "Ventas": "/Home/Ventas",
-    "Inventario": "/Home/SupervisorBodega",
-    "Alertas": "/Home/Alertas",
-    "Reportes": "/Home/Reportes",
-    "Usuarios": "/Home/Administracion"
-  };
+<section class="mb-6">
+    <div class="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+        <div>
+            <h1 class="text-2xl font-bold tracking-tight text-slate-900">Marketing</h1>
+            <p class="mt-1 text-sm text-slate-500">
+                Planeación de promociones basada en vencimientos, temporadas y comportamiento de ventas.
+            </p>
+        </div>
 
-  document.querySelectorAll('a').forEach(function (a) {
-    const texto = (a.textContent || '').trim().replace(/\s+/g, ' ');
-    Object.keys(rutas).forEach(function (clave) {
-      if (texto === clave || texto.includes(clave)) {
-        a.setAttribute('href', rutas[clave]);
-      }
-    });
-  });
+        <button class="rounded-xl bg-emerald-900 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-800">
+            Crear campaña
+        </button>
+    </div>
+</section>
 
-  document.querySelectorAll('button').forEach(function (b) {
-    const texto = (b.textContent || '').trim().replace(/\s+/g, ' ');
-    if (texto.includes('Iniciar sesión')) b.onclick = function () { location.href = '/Home/Dashboard'; };
-    if (texto.includes('Nueva Venta')) b.onclick = function () { location.href = '/Home/Ventas'; };
-    if (texto.includes('Solicitar Cotización')) b.onclick = function () { location.href = '/Home/Compras'; };
-    if (texto.includes('Exportar Reporte')) b.onclick = function () { location.href = '/Home/Reportes'; };
-  });
-})();
-</script>
+<section class="grid gap-4 md:grid-cols-3">
+    <div class="rounded-2xl border border-slate-200 bg-white p-5">
+        <p class="text-sm font-medium text-slate-500">Productos para promoción</p>
+        <h2 class="mt-2 text-2xl font-bold text-red-600">12</h2>
+        <p class="mt-2 text-xs text-slate-500">Por vencimiento cercano</p>
+    </div>
 
-</body></html>
+    <div class="rounded-2xl border border-slate-200 bg-white p-5">
+        <p class="text-sm font-medium text-slate-500">Mes de mayor demanda</p>
+        <h2 class="mt-2 text-2xl font-bold text-slate-900">Diciembre</h2>
+        <p class="mt-2 text-xs text-emerald-700">+22% en ventas históricas</p>
+    </div>
+
+    <div class="rounded-2xl border border-slate-200 bg-white p-5">
+        <p class="text-sm font-medium text-slate-500">Campañas activas</p>
+        <h2 class="mt-2 text-2xl font-bold text-slate-900">3</h2>
+        <p class="mt-2 text-xs text-slate-500">Granos, harinas y condimentos</p>
+    </div>
+</section>
+
+<section class="mt-6 rounded-2xl border border-slate-200 bg-white">
+    <div class="border-b border-slate-200 p-5">
+        <h3 class="font-bold text-slate-900">Productos sugeridos para promoción</h3>
+        <p class="text-sm text-slate-500">Priorizados por vencimiento y cantidad disponible.</p>
+    </div>
+
+    <div class="grid gap-4 p-5 md:grid-cols-3">
+        <div class="rounded-2xl bg-red-50 p-4 border border-red-100">
+            <p class="text-sm font-bold text-red-700">Frijol negro</p>
+            <p class="mt-1 text-sm text-slate-600">Lote L-2394 · vence en 3 días</p>
+            <p class="mt-3 text-xs font-semibold text-red-700">Sugerencia: descuento por volumen</p>
+        </div>
+
+        <div class="rounded-2xl bg-amber-50 p-4 border border-amber-100">
+            <p class="text-sm font-bold text-amber-700">Harina de trigo</p>
+            <p class="mt-1 text-sm text-slate-600">Stock bajo, alta rotación histórica</p>
+            <p class="mt-3 text-xs font-semibold text-amber-700">Sugerencia: campaña preventiva</p>
+        </div>
+
+        <div class="rounded-2xl bg-slate-50 p-4 border border-slate-200">
+            <p class="text-sm font-bold text-slate-700">Arroz blanco</p>
+            <p class="mt-1 text-sm text-slate-600">Demanda alta en temporada</p>
+            <p class="mt-3 text-xs font-semibold text-slate-600">Sugerencia: paquete promocional</p>
+        </div>
+    </div>
+</section>
