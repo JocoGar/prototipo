@@ -1,0 +1,489 @@
+@{
+    Layout = null;
+}
+<!-- Detalle del Lote - Actualizado -->
+<!DOCTYPE html><html lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Comercializadora San Juan - Detalle de Lote</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@@400;500;600;700;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed-variant": "#0c5216",
+                    "on-primary-fixed": "#002203",
+                    "on-tertiary-fixed": "#2c1600",
+                    "inverse-surface": "#2f3131",
+                    "secondary-container": "#759efd",
+                    "tertiary-fixed": "#ffdcbe",
+                    "surface": "#f9f9f9",
+                    "surface-container-high": "#e8e8e8",
+                    "tertiary": "#583100",
+                    "secondary-fixed-dim": "#b0c6ff",
+                    "surface-bright": "#f9f9f9",
+                    "on-secondary-fixed-variant": "#00429c",
+                    "primary-fixed": "#acf4a4",
+                    "on-surface": "#1a1c1c",
+                    "error": "#ba1a1a",
+                    "secondary": "#2b5bb5",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container": "#eeeeee",
+                    "background": "#f9f9f9",
+                    "primary": "#00450d",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed": "#d9e2ff",
+                    "surface-dim": "#dadada",
+                    "surface-tint": "#2a6b2c",
+                    "on-background": "#1a1c1c",
+                    "on-secondary-container": "#00337c",
+                    "inverse-primary": "#91d78a",
+                    "surface-container-low": "#f3f3f3",
+                    "surface-variant": "#e2e2e2",
+                    "on-primary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed": "#001945",
+                    "on-tertiary-container": "#ffb66b",
+                    "outline": "#717a6d",
+                    "on-error-container": "#93000a",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed-dim": "#ffb870",
+                    "outline-variant": "#c0c9bb",
+                    "primary-fixed-dim": "#91d78a",
+                    "inverse-on-surface": "#f1f1f1",
+                    "on-tertiary-fixed-variant": "#693c00",
+                    "on-secondary": "#ffffff",
+                    "on-surface-variant": "#41493e",
+                    "on-primary-container": "#90d689",
+                    "primary-container": "#1b5e20",
+                    "surface-container-highest": "#e2e2e2",
+                    "tertiary-container": "#794500"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "lg": "24px",
+                    "margin-mobile": "16px",
+                    "xl": "32px",
+                    "xs": "4px",
+                    "sidebar-width": "260px",
+                    "margin-desktop": "32px",
+                    "md": "16px",
+                    "base": "8px",
+                    "gutter": "16px",
+                    "sm": "8px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "code-md": ["monospace"],
+                    "label-md": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "title-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                    "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                    "code-md": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                    "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                    "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                    "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                    "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                    "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                    "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+            }
+          }
+        }
+      }
+    </script>
+<style type="text/tailwindcss">
+        @@layer utilities {
+            .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+            }
+            .scrollbar-hide {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex">
+<!-- SideNavBar -->
+<nav class="docked fixed h-full w-sidebar-width left-0 top-0 border-r border-outline-variant bg-secondary text-on-secondary hidden md:flex flex-col py-lg z-50 shadow-none">
+<div class="px-lg mb-xl">
+<h1 class="font-headline-md text-headline-md font-bold text-on-secondary">San Juan</h1>
+<p class="font-label-md text-label-md opacity-80">Gestión Integral</p>
+</div>
+<ul class="flex-1 overflow-y-auto space-y-sm px-sm scrollbar-hide">
+<li>
+<a class="flex items-center gap-base text-on-secondary hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-base text-on-secondary hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">group</span>
+<span class="font-label-md text-label-md">Usuarios</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-base text-on-secondary hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">analytics</span>
+<span class="font-label-md text-label-md">BI Gerencial</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-base text-on-secondary hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shopping_cart</span>
+<span class="font-label-md text-label-md">Compras</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-base text-on-secondary hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">campaign</span>
+<span class="font-label-md text-label-md">Marketing</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-base text-on-secondary hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">account_balance</span>
+<span class="font-label-md text-label-md">Contabilidad</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-base text-on-secondary hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">sell</span>
+<span class="font-label-md text-label-md">Ventas</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-base bg-secondary-container text-on-secondary-container rounded-lg px-md py-sm mx-sm opacity-90 transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span class="font-label-md text-label-md">Inventario</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-base text-on-secondary hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">warning</span>
+<span class="font-label-md text-label-md">Alertas</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-base text-on-secondary hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">description</span>
+<span class="font-label-md text-label-md">Reportes</span>
+</a>
+</li>
+</ul>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-sidebar-width w-full bg-surface-container-lowest min-h-screen relative">
+<!-- TopNavBar -->
+<header class="docked fixed top-0 right-0 w-full md:w-[calc(100%-260px)] z-40 border-b border-outline-variant shadow-sm flex justify-between items-center h-16 px-margin-mobile md:px-margin-desktop bg-surface dark:bg-surface-dim">
+<div class="flex items-center gap-md">
+<!-- Mobile Menu Button (Hidden on Desktop) -->
+<button class="md:hidden text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="font-title-lg text-title-lg font-black text-primary hidden sm:block">Comercializadora San Juan</div>
+</div>
+<!-- Search Bar -->
+<div class="flex-1 max-w-md mx-md hidden lg:block">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-secondary transition-colors">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all" placeholder="Buscar lote, producto..." type="text">
+</div>
+</div>
+<div class="flex items-center gap-md text-on-surface-variant">
+<button class="hover:text-primary transition-colors lg:hidden">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="hover:text-primary transition-colors">
+<span class="material-symbols-outlined">location_on</span>
+</button>
+<button class="hover:text-primary transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="hover:text-primary transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant ml-sm cursor-pointer hover:border-primary transition-colors">
+<img alt="Admin Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHH9Amc0FyKOslxatF79VXWO-Q-4GAAKQxDtc-IcbCr29BRmKc5ZdEjKfSqWALFatq82VMMrf5JeIbURCoRJX7ay4TebJsoET-wNN-d_qhnKQ7fnlqDJosgqEN5EO2s1sAJdh3Dh-vhPpS7j2mNpMidKIi79TfHqQ0O0uS1j_KgtwScuWarLtIhRDmFvLEIC-cN509EwKx_sXCoKlzgM5M6T75ZJbPO9ctE30NdMqECcf4ojRxG50IX2KE_yv_YE2mJw13z-ODyLU">
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="pt-24 pb-xl px-margin-mobile md:px-margin-desktop w-full max-w-7xl mx-auto">
+<!-- Breadcrumbs & Actions -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-md mb-lg">
+<nav class="flex items-center gap-sm text-on-surface-variant font-label-md text-label-md">
+<a class="hover:text-primary transition-colors" href="#">Inventario</a>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Lotes</a>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<span class="font-bold text-on-surface">MA-SJ-2023-01</span>
+</nav>
+<div class="flex gap-sm">
+<button class="flex items-center gap-xs px-md py-2 border border-outline-variant rounded-lg font-label-md text-label-md text-on-surface hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-sm">print</span>
+                        Imprimir
+                    </button>
+<button class="flex items-center gap-xs px-md py-2 border border-secondary text-secondary rounded-lg font-label-md text-label-md hover:bg-secondary/5 transition-colors">
+<span class="material-symbols-outlined text-sm">edit</span>
+                        Editar
+                    </button>
+</div>
+</div>
+<!-- Cabecera -->
+<div class="bg-surface border border-outline-variant shadow-[0_2px_4px_rgba(0,0,0,0.04)] rounded-xl p-lg mb-lg flex flex-col md:flex-row md:items-start justify-between gap-lg">
+<div>
+<div class="flex items-center gap-md mb-sm">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">MA-SJ-2023-01</h2>
+<span class="px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-md text-label-md inline-flex items-center gap-xs border border-primary-fixed-dim/20">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+                            Activo
+                        </span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Maíz Blanco Seleccionado - Calidad Superior</p>
+</div>
+<div class="flex items-center gap-lg">
+<div class="text-right hidden sm:block">
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mb-xs">Valor Inventario</p>
+<p class="font-headline-md text-headline-md text-primary">GTQ 12,450.00</p>
+</div>
+<div class="w-16 h-16 bg-surface-container flex items-center justify-center rounded-lg border border-outline-variant">
+<span class="material-symbols-outlined text-3xl text-secondary">qr_code_2</span>
+</div>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-lg mb-lg">
+<!-- Panel de Datos (Left Column) -->
+<div class="md:col-span-8 flex flex-col gap-lg">
+<!-- Core Stats -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-md">
+<div class="bg-surface border border-outline-variant shadow-[0_2px_4px_rgba(0,0,0,0.04)] rounded-xl p-md flex flex-col justify-between h-full">
+<div class="flex items-center gap-xs text-on-surface-variant mb-sm">
+<span class="material-symbols-outlined text-sm">calendar_month</span>
+<span class="font-label-md text-label-md uppercase">Producción</span>
+</div>
+<div class="font-title-lg text-title-lg text-on-surface">15 Oct 2023</div>
+<div class="font-body-md text-body-md text-on-surface-variant mt-xs">Lote Origen: Silo Norte - Cosecha 2023</div>
+</div>
+<div class="bg-surface border border-outline-variant shadow-[0_2px_4px_rgba(0,0,0,0.04)] rounded-xl p-md flex flex-col justify-between h-full relative overflow-hidden group">
+<div class="absolute inset-0 bg-error/5 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-xs text-error mb-sm">
+<span class="material-symbols-outlined text-sm">warning</span>
+<span class="font-label-md text-label-md uppercase">Vencimiento</span>
+</div>
+<div class="font-title-lg text-title-lg text-on-surface">15 Dic 2023</div>
+<div class="font-body-md text-body-md text-error mt-xs font-medium">Faltan 12 días</div>
+</div>
+</div>
+<div class="bg-surface border border-outline-variant shadow-[0_2px_4px_rgba(0,0,0,0.04)] rounded-xl p-md flex flex-col justify-between h-full">
+<div class="flex items-center gap-xs text-on-surface-variant mb-sm">
+<span class="material-symbols-outlined text-sm">warehouse</span>
+<span class="font-label-md text-label-md uppercase">Ubicación</span>
+</div>
+<div class="font-title-lg text-title-lg text-on-surface">Bodega Central</div>
+<div class="font-body-md text-body-md text-on-surface-variant mt-xs">Pasillo 4, Rack B2</div>
+</div>
+<div class="bg-surface border border-outline-variant shadow-[0_2px_4px_rgba(0,0,0,0.04)] rounded-xl p-md flex flex-col justify-between h-full">
+<div class="flex items-center gap-xs text-on-surface-variant mb-sm">
+<span class="material-symbols-outlined text-sm">scale</span>
+<span class="font-label-md text-label-md uppercase">Condiciones</span>
+</div>
+<div class="font-title-lg text-title-lg text-on-surface">Almacén Seco</div>
+<div class="font-body-md text-body-md text-secondary mt-xs">Humedad: 12% - 14%</div>
+</div>
+</div>
+<!-- Timeline de Vida -->
+<div class="bg-surface border border-outline-variant shadow-[0_2px_4px_rgba(0,0,0,0.04)] rounded-xl p-lg flex-1">
+<h3 class="font-title-lg text-title-lg text-on-surface border-b border-outline-variant pb-sm mb-lg">Timeline de Vida del Lote</h3>
+<div class="relative pl-6 space-y-lg before:absolute before:inset-y-0 before:left-[11px] before:w-px before:bg-outline-variant">
+<!-- Timeline Item 1 -->
+<div class="relative">
+<div class="absolute -left-6 top-1 w-6 h-6 bg-surface border-2 border-outline-variant rounded-full flex items-center justify-center">
+<div class="w-2 h-2 bg-outline rounded-full"></div>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-xs mb-xs">
+<h4 class="font-label-md text-label-md font-bold text-on-surface">Compra de materia prima</h4>
+<span class="font-code-md text-code-md text-on-surface-variant">10 Oct 2023, 08:30 AM</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Recepción de 5,000 kg de Finca Los Pinos. OC-2023-892.</p>
+</div>
+<!-- Timeline Item 2 -->
+<div class="relative">
+<div class="absolute -left-6 top-1 w-6 h-6 bg-surface border-2 border-outline-variant rounded-full flex items-center justify-center">
+<div class="w-2 h-2 bg-outline rounded-full"></div>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-xs mb-xs">
+<h4 class="font-label-md text-label-md font-bold text-on-surface">Creación del lote en planta</h4>
+<span class="font-code-md text-code-md text-on-surface-variant">15 Oct 2023, 11:00 AM</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Limpieza, secado y ensacado. Mermas por impurezas: 1.5%.</p>
+</div>
+<!-- Timeline Item 3 -->
+<div class="relative">
+<div class="absolute -left-6 top-1 w-6 h-6 bg-surface border-2 border-primary rounded-full flex items-center justify-center">
+<div class="w-2 h-2 bg-primary rounded-full"></div>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-xs mb-xs">
+<h4 class="font-label-md text-label-md font-bold text-on-surface">Ingreso a inventario</h4>
+<span class="font-code-md text-code-md text-on-surface-variant">15 Oct 2023, 04:45 PM</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Traslado a Bodega Central. Cantidad inicial: 4,900 cajas.</p>
+</div>
+<!-- Timeline Item 4 (Active/Recent) -->
+<div class="relative">
+<div class="absolute -left-6 top-1 w-6 h-6 bg-surface border-2 border-secondary rounded-full flex items-center justify-center shadow-[0_0_0_4px_rgba(43,91,181,0.1)]">
+<div class="w-2 h-2 bg-secondary rounded-full animate-pulse"></div>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-xs mb-xs">
+<h4 class="font-label-md text-label-md font-bold text-secondary">Venta parcial asociada</h4>
+<span class="font-code-md text-code-md text-secondary font-medium">02 Nov 2023, 09:15 AM</span>
+</div>
+<div class="bg-surface-container-low p-sm rounded border border-outline-variant mt-sm">
+<p class="font-body-md text-body-md text-on-surface">Pedido #VP-4451 - Cliente: Supermercados del Valle</p>
+<p class="font-label-md text-label-md text-on-surface-variant mt-xs">Cantidad reservada: 1,200 cajas. Estado: Preparando despacho.</p>
+</div>
+</div>
+<!-- Timeline Item 5 (Pending) -->
+<div class="relative opacity-50">
+<div class="absolute -left-6 top-1 w-6 h-6 bg-surface border-2 border-outline-variant border-dashed rounded-full flex items-center justify-center">
+</div>
+<div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-xs mb-xs">
+<h4 class="font-label-md text-label-md font-bold text-on-surface">Despacho realizado</h4>
+<span class="font-code-md text-code-md text-on-surface-variant">Pendiente</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">A la espera de confirmación de logística.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column (Gráficos y Resumen) -->
+<div class="md:col-span-4 flex flex-col gap-lg">
+<!-- Gráfico Circular Disponibilidad -->
+<div class="bg-surface border border-outline-variant shadow-[0_2px_4px_rgba(0,0,0,0.04)] rounded-xl p-lg flex flex-col items-center">
+<h3 class="font-title-lg text-title-lg text-on-surface w-full border-b border-outline-variant pb-sm mb-lg">Disponibilidad</h3>
+<!-- Simulated Donut Chart -->
+<div class="relative w-48 h-48 mb-lg mt-sm">
+<svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+<!-- Background Circle -->
+<path class="text-surface-container-high" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="100, 100" stroke-width="4"></path>
+<!-- Segment 1: Disponible (Green) -->
+<path class="text-primary-container transition-all duration-1000 ease-out" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="60, 100" stroke-width="4"></path>
+<!-- Segment 2: Reservado (Blue) - Offset by 60 -->
+<path class="text-secondary transition-all duration-1000 ease-out" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="25, 100" stroke-dashoffset="-60" stroke-width="4"></path>
+<!-- The remaining 15% is the background circle (Despachado/Merma) -->
+</svg>
+<!-- Center Text -->
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-headline-md text-headline-md font-bold text-primary-container">60%</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Disponible</span>
+</div>
+</div>
+<!-- Legend -->
+<div class="w-full space-y-md">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-sm">
+<span class="w-3 h-3 rounded-full bg-primary-container"></span>
+<span class="font-body-md text-body-md text-on-surface">Disponible</span>
+</div>
+<span class="font-label-md text-label-md font-bold">2,940 ud</span>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-sm">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<span class="font-body-md text-body-md text-on-surface">Reservado</span>
+</div>
+<span class="font-label-md text-label-md font-bold">1,225 ud</span>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-sm">
+<span class="w-3 h-3 rounded-full bg-surface-container-high border border-outline-variant"></span>
+<span class="font-body-md text-body-md text-on-surface">Despachado/Mermas</span>
+</div>
+<span class="font-label-md text-label-md font-bold">735 ud</span>
+</div>
+<div class="border-t border-outline-variant pt-sm mt-sm flex justify-between items-center">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">Total Inicial</span>
+<span class="font-body-md text-body-md font-bold text-on-surface">4,900 ud</span>
+</div>
+</div>
+</div>
+<!-- Quick Actions / Info Glassmorphism Card -->
+<div class="relative overflow-hidden rounded-xl border border-outline-variant p-lg bg-surface/80 backdrop-blur-md shadow-sm">
+<!-- Decorative gradient background -->
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-secondary/10 rounded-full blur-2xl"></div>
+<div class="absolute -bottom-10 -left-10 w-32 h-32 bg-primary/10 rounded-full blur-2xl"></div>
+<div class="relative z-10">
+<h3 class="font-label-md text-label-md font-bold text-on-surface uppercase tracking-wider mb-md">Gestión Rápida</h3>
+<div class="space-y-sm">
+<button class="w-full bg-primary-container text-on-primary font-label-md text-label-md py-2 px-4 rounded-lg flex justify-center items-center gap-sm hover:bg-on-primary-fixed-variant transition-colors">
+<span class="material-symbols-outlined text-sm">local_shipping</span>
+                                    Crear Despacho
+                                </button>
+<button class="w-full bg-surface border border-outline-variant text-on-surface font-label-md text-label-md py-2 px-4 rounded-lg flex justify-center items-center gap-sm hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-sm">assignment_turned_in</span>
+                                    Ajuste de Inventario
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+
+<script>
+(function () {
+  const rutas = {
+    "Dashboard": "/Home/Dashboard",
+    "BI Gerencial": "/Home/GerenciaBI",
+    "Compras": "/Home/Compras",
+    "Marketing": "/Home/Marketing",
+    "Contabilidad": "/Home/Contabilidad",
+    "Ventas": "/Home/Ventas",
+    "Inventario": "/Home/SupervisorBodega",
+    "Alertas": "/Home/Alertas",
+    "Reportes": "/Home/Reportes",
+    "Usuarios": "/Home/Administracion"
+  };
+
+  document.querySelectorAll('a').forEach(function (a) {
+    const texto = (a.textContent || '').trim().replace(/\s+/g, ' ');
+    Object.keys(rutas).forEach(function (clave) {
+      if (texto === clave || texto.includes(clave)) {
+        a.setAttribute('href', rutas[clave]);
+      }
+    });
+  });
+
+  document.querySelectorAll('button').forEach(function (b) {
+    const texto = (b.textContent || '').trim().replace(/\s+/g, ' ');
+    if (texto.includes('Iniciar sesión')) b.onclick = function () { location.href = '/Home/Dashboard'; };
+    if (texto.includes('Nueva Venta')) b.onclick = function () { location.href = '/Home/Ventas'; };
+    if (texto.includes('Solicitar Cotización')) b.onclick = function () { location.href = '/Home/Compras'; };
+    if (texto.includes('Exportar Reporte')) b.onclick = function () { location.href = '/Home/Reportes'; };
+  });
+})();
+</script>
+
+</body></html>

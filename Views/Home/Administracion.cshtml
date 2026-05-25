@@ -1,0 +1,419 @@
+@{
+    Layout = null;
+}
+<!-- Administración del Sistema - Actualizado -->
+<!DOCTYPE html><html class="light" lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Vista de Administrador del Sistema - Comercializadora San Juan</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@@400;500;600;700;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-fixed-variant": "#0c5216",
+                      "on-primary-fixed": "#002203",
+                      "on-tertiary-fixed": "#2c1600",
+                      "inverse-surface": "#2f3131",
+                      "secondary-container": "#759efd",
+                      "tertiary-fixed": "#ffdcbe",
+                      "surface": "#f9f9f9",
+                      "surface-container-high": "#e8e8e8",
+                      "tertiary": "#583100",
+                      "secondary-fixed-dim": "#b0c6ff",
+                      "surface-bright": "#f9f9f9",
+                      "on-secondary-fixed-variant": "#00429c",
+                      "primary-fixed": "#acf4a4",
+                      "on-surface": "#1a1c1c",
+                      "error": "#ba1a1a",
+                      "secondary": "#2b5bb5",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container": "#eeeeee",
+                      "background": "#f9f9f9",
+                      "primary": "#00450d",
+                      "error-container": "#ffdad6",
+                      "secondary-fixed": "#d9e2ff",
+                      "surface-dim": "#dadada",
+                      "surface-tint": "#2a6b2c",
+                      "on-background": "#1a1c1c",
+                      "on-secondary-container": "#00337c",
+                      "inverse-primary": "#91d78a",
+                      "surface-container-low": "#f3f3f3",
+                      "surface-variant": "#e2e2e2",
+                      "on-primary": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary-fixed": "#001945",
+                      "on-tertiary-container": "#ffb66b",
+                      "outline": "#717a6d",
+                      "on-error-container": "#93000a",
+                      "on-error": "#ffffff",
+                      "tertiary-fixed-dim": "#ffb870",
+                      "outline-variant": "#c0c9bb",
+                      "primary-fixed-dim": "#91d78a",
+                      "inverse-on-surface": "#f1f1f1",
+                      "on-tertiary-fixed-variant": "#693c00",
+                      "on-secondary": "#ffffff",
+                      "on-surface-variant": "#41493e",
+                      "on-primary-container": "#90d689",
+                      "primary-container": "#1b5e20",
+                      "surface-container-highest": "#e2e2e2",
+                      "tertiary-container": "#794500"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "lg": "24px",
+                      "margin-mobile": "16px",
+                      "xl": "32px",
+                      "xs": "4px",
+                      "sidebar-width": "260px",
+                      "margin-desktop": "32px",
+                      "md": "16px",
+                      "base": "8px",
+                      "gutter": "16px",
+                      "sm": "8px"
+              },
+              "fontFamily": {
+                      "display-lg": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "code-md": ["monospace"],
+                      "label-md": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "body-md": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "headline-lg-mobile": ["Inter"],
+                      "title-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                      "code-md": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                      "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #F5F5F5; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .icon-fill { font-variation-settings: 'FILL' 1; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex">
+<!-- SideNavBar -->
+<nav aria-label="Sidebar Navigation" class="docked fixed h-full w-sidebar-width left-0 top-0 bg-secondary dark:bg-secondary-container border-r border-outline-variant z-50 flex flex-col py-lg">
+<div class="px-md mb-lg">
+<h1 class="font-headline-md text-headline-md font-bold text-on-secondary dark:text-on-secondary-container">San Juan</h1>
+<p class="font-label-md text-label-md text-on-secondary/80">Gestión Integral</p>
+</div>
+<ul class="flex flex-col gap-sm flex-grow overflow-y-auto">
+<li>
+<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-base bg-secondary-container text-on-secondary-container rounded-lg px-md py-sm mx-sm opacity-90 transition-all" href="#">
+<span class="material-symbols-outlined icon-fill" data-icon="group" data-weight="fill">group</span>
+<span class="font-label-md text-label-md font-bold">Usuarios</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-md text-label-md">BI Gerencial</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="font-label-md text-label-md">Compras</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="campaign">campaign</span>
+<span class="font-label-md text-label-md">Marketing</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
+<span class="font-label-md text-label-md">Contabilidad</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="sell">sell</span>
+<span class="font-label-md text-label-md">Ventas</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-label-md text-label-md">Inventario</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="warning">warning</span>
+<span class="font-label-md text-label-md">Alertas</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-label-md text-label-md">Reportes</span>
+</a>
+</li>
+</ul>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-grow ml-sidebar-width flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center h-16 px-margin-desktop bg-surface dark:bg-surface-dim border-b border-outline-variant shadow-sm sticky top-0 z-40">
+<div class="flex items-center">
+<span class="font-title-lg text-title-lg font-black text-primary">Comercializadora San Juan</span>
+</div>
+<div class="flex items-center gap-lg">
+<!-- Search Bar (Left aligned relative to actions) -->
+<div class="relative hidden md:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="pl-10 pr-4 py-2 border border-outline rounded-lg bg-surface-container-lowest focus:border-secondary focus:ring-1 focus:ring-secondary text-body-md font-body-md w-64 outline-none" placeholder="Buscar..." type="text">
+</div>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-sm">
+<button class="p-2 rounded-full text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+</button>
+<button class="p-2 rounded-full text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="p-2 rounded-full text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+<!-- Profile -->
+<div class="w-8 h-8 rounded-full bg-secondary-container overflow-hidden border border-outline-variant cursor-pointer">
+<img alt="Admin Profile" class="w-full h-full object-cover" data-alt="A professional headshot of an administrator in a corporate setting. Light mode aesthetic with clean background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMVahVtqP2GRrZmj8lNlI5JHebDE55aItjtWOYt136fv8qJq-VEyQ6qx2ghzl8DRHB7Q9NnB4HH3Sw0EJWe6EaEZspQoeY2fXTMJ-Bd0Hwrc8SHv1GMf1YVav03KUc8JAIdo__jIPIIMSGW-7hHeTOVYouW1-9IcLD_oAxFGZ61mjZ_Cw8wf_6kxJqRAmyVZyoTIgBL3ibrKAGbYgNmnBbA4pmNOHgIROoKiH58VpKYbW4rJItJjQMeYu-xeeQHaSQzAPFi4QZoKs">
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow p-margin-mobile md:p-margin-desktop">
+<div class="mb-lg flex justify-between items-end">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-xs">Administración del Sistema</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Gestione usuarios, permisos y supervise la actividad de la plataforma.</p>
+</div>
+<div class="flex gap-sm">
+<button class="bg-primary-container text-on-primary font-label-md text-label-md px-md py-sm rounded-lg hover:opacity-90 flex items-center gap-2 shadow-[0_1px_2px_rgba(0,0,0,0.05)]">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                        Nuevo Usuario
+                    </button>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Users Table Section (Spans 8 cols) -->
+<section class="lg:col-span-8 bg-surface-container-lowest rounded-xl border border-outline-variant shadow-[0_2px_4px_rgba(0,0,0,0.04)] flex flex-col h-[500px]">
+<div class="p-md border-b border-outline-variant flex justify-between items-center bg-surface">
+<h3 class="font-title-lg text-title-lg text-on-background flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">manage_accounts</span>
+                            Gestión de Usuarios
+                        </h3>
+<div class="flex gap-sm">
+<button class="text-secondary border border-secondary font-label-md text-label-md px-sm py-1 rounded hover:bg-secondary-container/20 transition-colors">Roles</button>
+<button class="text-error border border-error font-label-md text-label-md px-sm py-1 rounded hover:bg-error-container/20 transition-colors">Bloqueados</button>
+</div>
+</div>
+<div class="flex-grow overflow-auto p-0">
+<table class="w-full text-left border-collapse">
+<thead class="sticky top-0 bg-surface z-10 shadow-[0_1px_0_var(--tw-colors-outline-variant)]">
+<tr>
+<th class="font-label-md text-label-md text-on-surface-variant py-sm px-md font-semibold">Usuario</th>
+<th class="font-label-md text-label-md text-on-surface-variant py-sm px-md font-semibold">Rol</th>
+<th class="font-label-md text-label-md text-on-surface-variant py-sm px-md font-semibold">Estado</th>
+<th class="font-label-md text-label-md text-on-surface-variant py-sm px-md font-semibold text-right">Acciones</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md text-on-background">
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors">
+<td class="py-sm px-md">
+<div class="font-medium">Carlos Mendoza</div>
+<div class="text-on-surface-variant text-[12px]">cmendoza@@sanjuan.com</div>
+</td>
+<td class="py-sm px-md">
+<span class="bg-secondary-fixed text-on-secondary-fixed px-2 py-0.5 rounded text-[12px] font-medium">Asesor de Ventas</span>
+</td>
+<td class="py-sm px-md">
+<span class="bg-primary-fixed text-on-primary-fixed px-2 py-0.5 rounded-full text-[12px] font-medium flex items-center gap-1 w-max">
+<span class="w-2 h-2 rounded-full bg-primary"></span> Activo
+                                        </span>
+</td>
+<td class="py-sm px-md text-right">
+<button class="text-secondary hover:bg-secondary-container/30 p-1 rounded transition-colors"><span class="material-symbols-outlined text-[20px]">edit</span></button>
+<button class="text-error hover:bg-error-container/30 p-1 rounded transition-colors ml-1"><span class="material-symbols-outlined text-[20px]">block</span></button>
+</td>
+</tr>
+<tr class="border-b border-outline-variant bg-surface-container-lowest hover:bg-surface-container-low transition-colors">
+<td class="py-sm px-md">
+<div class="font-medium">Ana Torres</div>
+<div class="text-on-surface-variant text-[12px]">atorres@@sanjuan.com</div>
+</td>
+<td class="py-sm px-md">
+<span class="bg-surface-container-high text-on-surface px-2 py-0.5 rounded text-[12px] font-medium">Supervisor de Bodega</span>
+</td>
+<td class="py-sm px-md">
+<span class="bg-primary-fixed text-on-primary-fixed px-2 py-0.5 rounded-full text-[12px] font-medium flex items-center gap-1 w-max">
+<span class="w-2 h-2 rounded-full bg-primary"></span> Activo
+                                        </span>
+</td>
+<td class="py-sm px-md text-right">
+<button class="text-secondary hover:bg-secondary-container/30 p-1 rounded transition-colors"><span class="material-symbols-outlined text-[20px]">edit</span></button>
+<button class="text-error hover:bg-error-container/30 p-1 rounded transition-colors ml-1"><span class="material-symbols-outlined text-[20px]">block</span></button>
+</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors opacity-60">
+<td class="py-sm px-md">
+<div class="font-medium">Luis Gómez</div>
+<div class="text-on-surface-variant text-[12px]">lgomez@@sanjuan.com</div>
+</td>
+<td class="py-sm px-md">
+<span class="bg-surface-container-high text-on-surface px-2 py-0.5 rounded text-[12px] font-medium">Contabilidad</span>
+</td>
+<td class="py-sm px-md">
+<span class="bg-surface-variant text-on-surface-variant px-2 py-0.5 rounded-full text-[12px] font-medium flex items-center gap-1 w-max">
+<span class="w-2 h-2 rounded-full bg-outline"></span> Inactivo
+                                        </span>
+</td>
+<td class="py-sm px-md text-right">
+<button class="text-secondary hover:bg-secondary-container/30 p-1 rounded transition-colors"><span class="material-symbols-outlined text-[20px]">edit</span></button>
+<button class="text-primary hover:bg-primary-fixed/30 p-1 rounded transition-colors ml-1" title="Desbloquear"><span class="material-symbols-outlined text-[20px]">lock_open</span></button>
+</td>
+</tr>
+<!-- More rows would follow -->
+<tr class="border-b border-outline-variant bg-surface-container-lowest hover:bg-surface-container-low transition-colors"><td class="py-sm px-md"><div class="font-medium">María López</div><div class="text-on-surface-variant text-[12px]">mlopez@@sanjuan.com</div></td><td class="py-sm px-md"><span class="bg-surface-container-high text-on-surface px-2 py-0.5 rounded text-[12px] font-medium">Encargado de Créditos</span></td><td class="py-sm px-md"><span class="bg-primary-fixed text-on-primary-fixed px-2 py-0.5 rounded-full text-[12px] font-medium flex items-center gap-1 w-max"><span class="w-2 h-2 rounded-full bg-primary"></span> Activo</span></td><td class="py-sm px-md text-right"><button class="text-secondary hover:bg-secondary-container/30 p-1 rounded transition-colors"><span class="material-symbols-outlined text-[20px]">edit</span></button><button class="text-error hover:bg-error-container/30 p-1 rounded transition-colors ml-1"><span class="material-symbols-outlined text-[20px]">block</span></button></td></tr></tbody>
+</table>
+</div>
+</section>
+<!-- Side Panel (Spans 4 cols) -->
+<div class="lg:col-span-4 flex flex-col gap-gutter h-[500px]">
+<!-- Data Import Dropzone -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant p-md flex-grow flex flex-col shadow-[0_2px_4px_rgba(0,0,0,0.04)]">
+<h3 class="font-title-lg text-title-lg text-on-background mb-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">upload_file</span>
+                            Importación de Datos
+                        </h3>
+<div class="mb-sm">
+<label class="font-label-md text-label-md text-on-surface-variant block mb-1">Tipo de Plantilla</label>
+<select class="w-full border border-outline rounded bg-surface p-2 text-body-md focus:border-secondary focus:ring-1 focus:ring-secondary outline-none"><option>Inventario (Lotes y Caducidad)</option><option>Ventas (Granos y Harinas)</option><option>Directorio de Clientes</option><option>Catálogo de Productos</option></select>
+</div>
+<div class="flex-grow border-2 border-dashed border-outline-variant rounded-lg bg-surface-container flex flex-col items-center justify-center p-md hover:bg-secondary-fixed/30 hover:border-secondary transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-[48px] text-on-surface-variant group-hover:text-secondary mb-2 transition-colors">cloud_upload</span>
+<p class="font-body-md text-body-md text-center text-on-background font-medium">Arrastre archivo Excel aquí</p>
+<p class="font-label-md text-label-md text-on-surface-variant text-center mt-1">o haga clic para examinar (.xlsx, .csv)</p>
+</div>
+</section>
+</div>
+</div>
+<!-- Activity Log Section (Full width below) -->
+<section class="mt-gutter bg-surface-container-lowest rounded-xl border border-outline-variant shadow-[0_2px_4px_rgba(0,0,0,0.04)] overflow-hidden">
+<div class="p-md border-b border-outline-variant bg-surface">
+<h3 class="font-title-lg text-title-lg text-on-background flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">history</span>
+                        Bitácora de Actividades (Auditoría)
+                    </h3>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left text-body-md font-body-md border-collapse">
+<thead class="bg-surface-container-lowest border-b border-outline-variant">
+<tr>
+<th class="py-sm px-md font-label-md text-label-md font-semibold text-on-surface-variant">Fecha/Hora</th>
+<th class="py-sm px-md font-label-md text-label-md font-semibold text-on-surface-variant">Usuario</th>
+<th class="py-sm px-md font-label-md text-label-md font-semibold text-on-surface-variant">Módulo</th>
+<th class="py-sm px-md font-label-md text-label-md font-semibold text-on-surface-variant">Acción</th>
+<th class="py-sm px-md font-label-md text-label-md font-semibold text-on-surface-variant">Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-surface-container-high hover:bg-surface-container-low">
+<td class="py-xs px-md text-on-surface-variant whitespace-nowrap">24/10/2023 14:32:10</td>
+<td class="py-xs px-md font-medium">cmendoza</td>
+<td class="py-xs px-md">Inventario</td>
+<td class="py-xs px-md">Edit (Lote #4920)</td>
+<td class="py-xs px-md"><span class="text-primary font-medium flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">check_circle</span> Éxito</span></td>
+</tr>
+<tr class="border-b border-surface-container-high bg-surface-container-lowest hover:bg-surface-container-low">
+<td class="py-xs px-md text-on-surface-variant whitespace-nowrap">24/10/2023 14:15:00</td>
+<td class="py-xs px-md font-medium">admin_sys</td>
+<td class="py-xs px-md">Importación</td>
+<td class="py-xs px-md">Import (Catálogo_v2.xlsx)</td>
+<td class="py-xs px-md"><span class="text-error font-medium flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">error</span> Error (Fila 42)</span></td>
+</tr>
+<tr class="border-b border-surface-container-high hover:bg-surface-container-low">
+<td class="py-xs px-md text-on-surface-variant whitespace-nowrap">24/10/2023 13:50:22</td>
+<td class="py-xs px-md font-medium">atorres</td>
+<td class="py-xs px-md">Sistema</td>
+<td class="py-xs px-md">Login</td>
+<td class="py-xs px-md"><span class="text-primary font-medium flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">check_circle</span> Éxito</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</main>
+</div>
+
+<script>
+(function () {
+  const rutas = {
+    "Dashboard": "/Home/Dashboard",
+    "BI Gerencial": "/Home/GerenciaBI",
+    "Compras": "/Home/Compras",
+    "Marketing": "/Home/Marketing",
+    "Contabilidad": "/Home/Contabilidad",
+    "Ventas": "/Home/Ventas",
+    "Inventario": "/Home/SupervisorBodega",
+    "Alertas": "/Home/Alertas",
+    "Reportes": "/Home/Reportes",
+    "Usuarios": "/Home/Administracion"
+  };
+
+  document.querySelectorAll('a').forEach(function (a) {
+    const texto = (a.textContent || '').trim().replace(/\s+/g, ' ');
+    Object.keys(rutas).forEach(function (clave) {
+      if (texto === clave || texto.includes(clave)) {
+        a.setAttribute('href', rutas[clave]);
+      }
+    });
+  });
+
+  document.querySelectorAll('button').forEach(function (b) {
+    const texto = (b.textContent || '').trim().replace(/\s+/g, ' ');
+    if (texto.includes('Iniciar sesión')) b.onclick = function () { location.href = '/Home/Dashboard'; };
+    if (texto.includes('Nueva Venta')) b.onclick = function () { location.href = '/Home/Ventas'; };
+    if (texto.includes('Solicitar Cotización')) b.onclick = function () { location.href = '/Home/Compras'; };
+    if (texto.includes('Exportar Reporte')) b.onclick = function () { location.href = '/Home/Reportes'; };
+  });
+})();
+</script>
+
+</body></html>

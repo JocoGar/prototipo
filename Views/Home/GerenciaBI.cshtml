@@ -1,0 +1,494 @@
+@{
+    Layout = null;
+}
+<!-- Gerencia y BI - Actualizado -->
+<!DOCTYPE html><html class="light" lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Comercializadora San Juan - Gerencia / BI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@@400;500;600;700;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#0c5216",
+                        "on-primary-fixed": "#002203",
+                        "on-tertiary-fixed": "#2c1600",
+                        "inverse-surface": "#2f3131",
+                        "secondary-container": "#759efd",
+                        "tertiary-fixed": "#ffdcbe",
+                        "surface": "#f9f9f9",
+                        "surface-container-high": "#e8e8e8",
+                        "tertiary": "#583100",
+                        "secondary-fixed-dim": "#b0c6ff",
+                        "surface-bright": "#f9f9f9",
+                        "on-secondary-fixed-variant": "#00429c",
+                        "primary-fixed": "#acf4a4",
+                        "on-surface": "#1a1c1c",
+                        "error": "#ba1a1a",
+                        "secondary": "#2b5bb5",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#eeeeee",
+                        "background": "#f9f9f9",
+                        "primary": "#00450d",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#d9e2ff",
+                        "surface-dim": "#dadada",
+                        "surface-tint": "#2a6b2c",
+                        "on-background": "#1a1c1c",
+                        "on-secondary-container": "#00337c",
+                        "inverse-primary": "#91d78a",
+                        "surface-container-low": "#f3f3f3",
+                        "surface-variant": "#e2e2e2",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#001945",
+                        "on-tertiary-container": "#ffb66b",
+                        "outline": "#717a6d",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb870",
+                        "outline-variant": "#c0c9bb",
+                        "primary-fixed-dim": "#91d78a",
+                        "inverse-on-surface": "#f1f1f1",
+                        "on-tertiary-fixed-variant": "#693c00",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#41493e",
+                        "on-primary-container": "#90d689",
+                        "primary-container": "#1b5e20",
+                        "surface-container-highest": "#e2e2e2",
+                        "tertiary-container": "#794500"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "margin-mobile": "16px",
+                        "xl": "32px",
+                        "xs": "4px",
+                        "sidebar-width": "260px",
+                        "margin-desktop": "32px",
+                        "md": "16px",
+                        "base": "8px",
+                        "gutter": "16px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "code-md": ["monospace"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "title-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "code-md": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f9f9f9; color: #1a1c1c; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .filled-icon { font-variation-settings: 'FILL' 1; }
+        
+        /* Custom scrollbar for data tables */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #c0c9bb; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #717a6d; }
+    </style>
+</head>
+<body class="bg-background min-h-screen flex text-on-background">
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col docked fixed h-full w-sidebar-width left-0 top-0 border-r border-outline-variant bg-secondary text-on-secondary py-lg z-50">
+<div class="px-lg mb-lg">
+<h1 class="font-headline-md text-headline-md font-bold text-on-secondary">San Juan</h1>
+<p class="font-label-md text-label-md opacity-80 mt-1">Gestión Integral</p>
+</div>
+<div class="flex-1 overflow-y-auto">
+<ul class="space-y-sm">
+<!-- Inactive items -->
+<li>
+<a class="flex items-center gap-base text-on-secondary hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-base text-on-secondary hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-md text-label-md">Usuarios</span>
+</a>
+</li>
+<!-- Active Item: BI Gerencial -->
+<li>
+<a class="flex items-center gap-base bg-secondary-container text-on-secondary-container rounded-lg px-md py-sm mx-sm opacity-90 transition-all" href="#">
+<span class="material-symbols-outlined filled-icon" data-icon="analytics" data-weight="fill">analytics</span>
+<span class="font-label-md text-label-md font-bold">BI Gerencial</span>
+</a>
+</li>
+<!-- More Inactive Items -->
+<li><a class="flex items-center gap-base text-on-secondary hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors" href="#"><span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span><span class="font-label-md text-label-md">Compras</span></a></li>
+<li><a class="flex items-center gap-base text-on-secondary hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors" href="#"><span class="material-symbols-outlined" data-icon="campaign">campaign</span><span class="font-label-md text-label-md">Marketing</span></a></li>
+<li><a class="flex items-center gap-base text-on-secondary hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors" href="#"><span class="material-symbols-outlined" data-icon="account_balance">account_balance</span><span class="font-label-md text-label-md">Contabilidad</span></a></li>
+<li><a class="flex items-center gap-base text-on-secondary hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors" href="#"><span class="material-symbols-outlined" data-icon="sell">sell</span><span class="font-label-md text-label-md">Ventas</span></a></li>
+<li><a class="flex items-center gap-base text-on-secondary hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors" href="#"><span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span><span class="font-label-md text-label-md">Inventario</span></a></li>
+<li><a class="flex items-center gap-base text-on-secondary hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors" href="#"><span class="material-symbols-outlined" data-icon="warning">warning</span><span class="font-label-md text-label-md">Alertas</span></a></li>
+<li><a class="flex items-center gap-base text-on-secondary hover:bg-secondary-fixed-dim/20 rounded-lg px-md py-sm mx-sm transition-colors" href="#"><span class="material-symbols-outlined" data-icon="description">description</span><span class="font-label-md text-label-md">Reportes</span></a></li>
+</ul>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-[260px] min-h-screen flex flex-col relative w-full">
+<!-- TopNavBar -->
+<header class="docked fixed top-0 right-0 w-full md:w-[calc(100%-260px)] z-40 bg-surface border-b border-outline-variant shadow-sm h-16 px-margin-desktop flex justify-between items-center">
+<div class="flex items-center gap-md">
+<!-- Mobile menu trigger -->
+<button class="md:hidden text-on-surface-variant p-sm hover:text-primary transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="font-title-lg text-title-lg font-black text-primary hidden sm:block">Comercializadora San Juan</div>
+</div>
+<!-- Global Search (Left Aligned roughly) -->
+<div class="flex-1 max-w-md mx-md hidden lg:block">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">search</span>
+<input class="w-full pl-xl pr-md py-sm rounded-full border border-outline-variant bg-surface-container-low text-body-md font-body-md focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all placeholder:text-on-surface-variant/70" placeholder="Buscar reportes, productos..." type="text">
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="text-on-surface-variant hover:text-primary transition-colors p-sm relative group">
+<span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+<div class="absolute inset-0 rounded-full bg-primary/10 scale-0 group-hover:scale-100 transition-transform"></div>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors p-sm relative group">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<div class="absolute inset-0 rounded-full bg-primary/10 scale-0 group-hover:scale-100 transition-transform"></div>
+<span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors p-sm relative group">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<div class="absolute inset-0 rounded-full bg-primary/10 scale-0 group-hover:scale-100 transition-transform"></div>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-variant border border-outline overflow-hidden ml-sm cursor-pointer hover:ring-2 hover:ring-secondary transition-all">
+<!-- Placeholder avatar -->
+<div class="w-full h-full flex items-center justify-center text-on-surface-variant font-bold text-label-md">AD</div>
+</div>
+</div>
+</header>
+<!-- Page Content Canvas -->
+<div class="flex-1 mt-16 p-margin-mobile md:p-margin-desktop overflow-x-hidden max-w-7xl mx-auto w-full">
+<!-- Page Header & Global Filters -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-lg mb-xl">
+<div>
+<h2 class="font-headline-lg text-headline-lg md:font-headline-lg md:text-headline-lg text-on-background">Inteligencia de Negocios</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Resumen ejecutivo y KPIs estratégicos al día de hoy.</p>
+</div>
+<!-- Dynamic Filters Bar -->
+<div class="flex flex-wrap items-center gap-sm bg-surface-container-lowest p-xs rounded-xl border border-outline-variant shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
+<div class="relative group">
+<select class="appearance-none bg-transparent border-none py-sm pl-md pr-xl font-label-md text-label-md text-on-surface focus:ring-0 cursor-pointer">
+<option>Últimos 30 días</option>
+<option>Este Trimestre</option>
+<option>Año Actual</option>
+<option>Personalizado...</option>
+</select>
+<span class="material-symbols-outlined absolute right-sm top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none text-[18px]">calendar_today</span>
+</div>
+<div class="w-[1px] h-6 bg-outline-variant"></div>
+<div class="relative group">
+<select class="appearance-none bg-transparent border-none py-sm pl-md pr-xl font-label-md text-label-md text-on-surface focus:ring-0 cursor-pointer">
+<option>Todas las Sedes</option>
+<option>San Juan</option>
+<option>San Lucas</option>
+<option>Antigua</option>
+</select>
+<span class="material-symbols-outlined absolute right-sm top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none text-[18px]">storefront</span>
+</div>
+<div class="w-[1px] h-6 bg-outline-variant"></div>
+<div class="relative group">
+<select class="appearance-none bg-transparent border-none py-sm pl-md pr-xl font-label-md text-label-md text-on-surface focus:ring-0 cursor-pointer">
+<option>Todas las Categorías</option>
+<option>Granos</option>
+<option>Harinas</option>
+<option>Abarrotes</option>
+</select>
+<span class="material-symbols-outlined absolute right-sm top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none text-[18px]">category</span>
+</div>
+<button class="bg-secondary text-on-secondary p-sm rounded-lg hover:bg-on-secondary-fixed-variant transition-colors ml-xs">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+</button>
+</div>
+</div>
+<!-- KPI Cards Bento Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-gutter mb-xl">
+<!-- Ventas Totales (Primary Focus) -->
+<div class="col-span-1 sm:col-span-2 bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-[0_2px_12px_rgba(0,0,0,0.04)] relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-primary/5 rounded-full blur-xl group-hover:bg-primary/10 transition-colors duration-500"></div>
+<div class="flex justify-between items-start mb-md relative z-10">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Ventas Totales</span>
+<span class="material-symbols-outlined text-primary bg-primary/10 p-xs rounded-md">trending_up</span>
+</div>
+<div class="font-display-lg text-display-lg text-on-background relative z-10">GTQ 1.2M</div>
+<div class="mt-xs flex items-center gap-xs font-label-md text-label-md text-on-surface-variant relative z-10">
+<span class="text-primary-container font-semibold flex items-center gap-xs"><span class="material-symbols-outlined text-[14px]">arrow_upward</span> +12.5%</span> vs mes anterior
+                    </div>
+</div>
+<!-- Costos Estimados -->
+<div class="col-span-1 bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-[0_2px_8px_rgba(0,0,0,0.04)] flex flex-col justify-between">
+<div class="flex justify-between items-start mb-sm">
+<span class="font-label-md text-label-md text-on-surface-variant">Costos Estimados</span>
+<span class="material-symbols-outlined text-on-surface-variant/50 text-[18px]">request_quote</span>
+</div>
+<div>
+<div class="font-headline-md text-headline-md text-on-background">GTQ 840K</div>
+<div class="mt-xs flex items-center gap-xs font-label-md text-label-md text-on-surface-variant">
+<span class="text-error font-semibold flex items-center gap-xs"><span class="material-symbols-outlined text-[14px]">arrow_upward</span> +2.1%</span>
+</div>
+</div>
+</div>
+<!-- Margen de Ganancia -->
+<div class="col-span-1 bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-[0_2px_8px_rgba(0,0,0,0.04)] flex flex-col justify-between">
+<div class="flex justify-between items-start mb-sm">
+<span class="font-label-md text-label-md text-on-surface-variant">Margen Promedio</span>
+<span class="material-symbols-outlined text-secondary text-[18px]">pie_chart</span>
+</div>
+<div>
+<div class="font-headline-md text-headline-md text-on-background">28.5%</div>
+<div class="mt-xs flex items-center gap-xs font-label-md text-label-md text-on-surface-variant">
+<span class="text-primary-container font-semibold flex items-center gap-xs"><span class="material-symbols-outlined text-[14px]">arrow_upward</span> +1.2%</span>
+</div>
+</div>
+</div>
+<!-- Riesgo de Vencimiento (Alert Focus) -->
+<div class="col-span-1 bg-error-container border border-error/20 rounded-xl p-md shadow-[0_2px_8px_rgba(0,0,0,0.04)] flex flex-col justify-between">
+<div class="flex justify-between items-start mb-sm">
+<span class="font-label-md text-label-md text-on-error-container font-bold">Riesgo Vencimiento</span>
+<span class="material-symbols-outlined text-on-error-container text-[18px] filled-icon">warning</span>
+</div>
+<div>
+<div class="font-headline-md text-headline-md text-on-error-container">GTQ 42K</div>
+<div class="mt-xs font-label-md text-label-md text-on-error-container/80">
+                            En riesgo (&lt; 15 días)
+                        </div>
+</div>
+</div>
+</div>
+<!-- Middle Section: AI Recommendations & Charts -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter mb-xl">
+<!-- Recomendaciones de Inteligencia (Left Column - Span 1) -->
+<div class="col-span-1 bg-surface-container-lowest border border-outline-variant rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.04)] flex flex-col overflow-hidden">
+<div class="p-md border-b border-outline-variant bg-surface-container-low flex justify-between items-center">
+<h3 class="font-title-lg text-title-lg text-on-surface flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary filled-icon">lightbulb</span>
+                            Recomendaciones IA
+                        </h3>
+</div>
+<div class="p-md flex-1 flex flex-col gap-md overflow-y-auto">
+<!-- Recommendation Item: Sell -->
+<div class="p-sm rounded-lg border border-outline-variant bg-surface relative pl-xl">
+<div class="absolute left-sm top-sm w-8 h-8 rounded-full bg-error-container text-on-error-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">timer</span>
+</div>
+<div class="font-label-md text-label-md font-bold text-on-surface uppercase mb-xs tracking-wider">Vender Pronto</div>
+<div class="font-body-md text-body-md text-on-background font-medium mb-xs">Lote de Maíz SJ-2026-001</div>
+<div class="font-label-md text-label-md text-on-surface-variant flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-error inline-block"></span>
+                                Vence en 7 días (Valor: Q15K)
+                            </div>
+<div class="mt-sm flex gap-sm">
+<button class="font-label-md text-label-md bg-secondary text-on-secondary px-sm py-xs rounded hover:bg-secondary/90 transition-colors">Crear Promoción</button>
+</div>
+</div>
+<!-- Recommendation Item: Buy -->
+<div class="p-sm rounded-lg border border-outline-variant bg-surface relative pl-xl">
+<div class="absolute left-sm top-sm w-8 h-8 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">shopping_basket</span>
+</div>
+<div class="font-label-md text-label-md font-bold text-on-surface uppercase mb-xs tracking-wider">Comprar Ahora</div>
+<div class="font-body-md text-body-md text-on-background font-medium mb-xs">Harina de Trigo (Saco 50lb)</div>
+<div class="font-label-md text-label-md text-on-surface-variant">
+                                Precio mercado 8% menor al promedio histórico.
+                            </div>
+</div>
+<!-- Recommendation Item: Promote -->
+<div class="p-sm rounded-lg border border-outline-variant bg-surface relative pl-xl">
+<div class="absolute left-sm top-sm w-8 h-8 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">campaign</span>
+</div>
+<div class="font-label-md text-label-md font-bold text-on-surface uppercase mb-xs tracking-wider">Promocionar</div>
+<div class="font-body-md text-body-md text-on-background font-medium mb-xs">Arroz Blanco Grado 1</div>
+<div class="font-label-md text-label-md text-on-surface-variant">
+                                Alto stock en bodega Central, baja rotación (-12% este mes).
+                            </div>
+</div>
+</div>
+</div>
+<!-- Charts Area (Right Column - Span 2) -->
+<div class="col-span-1 lg:col-span-2 flex flex-col gap-gutter">
+<!-- Ventas por Sede (Bar Chart Placeholder) -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-[0_2px_8px_rgba(0,0,0,0.04)] h-64 flex flex-col">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-title-lg text-title-lg text-on-surface">Ventas por Sede</h3>
+<button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">more_vert</span></button>
+</div>
+<!-- CSS-based Bar Chart Representation -->
+<div class="flex-1 flex flex-col justify-end gap-md relative pb-md">
+<!-- Y Axis labels -->
+<div class="absolute left-0 top-0 bottom-0 w-12 flex flex-col justify-between text-on-surface-variant font-label-md text-label-md text-right pr-sm border-r border-outline-variant/30">
+<span>600K</span>
+<span>400K</span>
+<span>200K</span>
+<span>0</span>
+</div>
+<div class="ml-14 flex items-end justify-around h-full border-b border-outline-variant/30 pt-md">
+<!-- Bar 1 -->
+<div class="flex flex-col items-center w-1/4 group cursor-pointer">
+<div class="w-full max-w-[48px] bg-primary rounded-t-sm h-[80%] relative group-hover:bg-primary/90 transition-colors">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface font-label-md text-label-md px-xs py-[2px] rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10 pointer-events-none">Q480K</div>
+</div>
+<span class="font-label-md text-label-md mt-sm text-on-surface">San Juan</span>
+</div>
+<!-- Bar 2 -->
+<div class="flex flex-col items-center w-1/4 group cursor-pointer">
+<div class="w-full max-w-[48px] bg-secondary rounded-t-sm h-[55%] relative group-hover:bg-secondary/90 transition-colors">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface font-label-md text-label-md px-xs py-[2px] rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10 pointer-events-none">Q330K</div>
+</div>
+<span class="font-label-md text-label-md mt-sm text-on-surface">San Lucas</span>
+</div>
+<!-- Bar 3 -->
+<div class="flex flex-col items-center w-1/4 group cursor-pointer">
+<div class="w-full max-w-[48px] bg-outline rounded-t-sm h-[65%] relative group-hover:bg-outline/90 transition-colors">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface font-label-md text-label-md px-xs py-[2px] rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10 pointer-events-none">Q390K</div>
+</div>
+<span class="font-label-md text-label-md mt-sm text-on-surface">Antigua</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Margen por Categoría & Productos Estrella -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter flex-1">
+<!-- Donut Chart Placeholder -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-[0_2px_8px_rgba(0,0,0,0.04)] flex flex-col items-center justify-center relative min-h-[200px]">
+<h3 class="font-title-lg text-title-lg text-on-surface absolute top-md left-md">Margen por Categoría</h3>
+<!-- Simple CSS Donut representation -->
+<div class="relative w-32 h-32 mt-xl">
+<svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+<!-- Background circle -->
+<path class="text-surface-variant stroke-current" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke-width="4"></path>
+<!-- Slice 1: Granos (Primary) -->
+<path class="text-primary stroke-current" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke-dasharray="60, 100" stroke-width="4"></path>
+<!-- Slice 2: Harinas (Secondary) -->
+<path class="text-secondary stroke-current" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke-dasharray="25, 100" stroke-dashoffset="-60" stroke-width="4"></path>
+<!-- Slice 3: Other (Outline) -->
+<path class="text-outline stroke-current" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke-dasharray="15, 100" stroke-dashoffset="-85" stroke-width="4"></path>
+</svg>
+<!-- Center Text -->
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-title-lg text-title-lg font-bold text-on-background">28%</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Promedio</span>
+</div>
+</div>
+<!-- Legend -->
+<div class="flex gap-md mt-md justify-center w-full font-label-md text-label-md">
+<div class="flex items-center gap-xs"><span class="w-3 h-3 rounded-sm bg-primary"></span> Granos (60%)</div>
+<div class="flex items-center gap-xs"><span class="w-3 h-3 rounded-sm bg-secondary"></span> Harinas (25%)</div>
+</div>
+</div>
+<!-- Top Products Mini Table -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-[0_2px_8px_rgba(0,0,0,0.04)] overflow-hidden flex flex-col">
+<div class="flex justify-between items-center mb-sm">
+<h3 class="font-title-lg text-title-lg text-on-surface">Productos Estrella</h3>
+</div>
+<div class="flex-1 overflow-y-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant">
+<th class="py-xs font-label-md text-label-md text-on-surface-variant font-normal">Producto</th>
+<th class="py-xs font-label-md text-label-md text-on-surface-variant font-normal text-right">Volumen</th>
+<th class="py-xs font-label-md text-label-md text-on-surface-variant font-normal text-right">Margen</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md">
+<tr class="border-b border-surface-variant hover:bg-surface-container-low transition-colors">
+<td class="py-sm truncate max-w-[120px]" title="Frijol Negro (Quintal)">Frijol Negro (QQ)</td>
+<td class="py-sm text-right font-medium">1,240</td>
+<td class="py-sm text-right text-primary-container font-semibold">32%</td>
+</tr>
+<tr class="border-b border-surface-variant bg-surface-container-low/30 hover:bg-surface-container-low transition-colors">
+<td class="py-sm truncate max-w-[120px]" title="Arroz Precocido">Arroz Precocido</td>
+<td class="py-sm text-right font-medium">850</td>
+<td class="py-sm text-right text-primary-container font-semibold">28%</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-sm truncate max-w-[120px]" title="Harina de Maíz">Harina de Maíz</td>
+<td class="py-sm text-right font-medium">620</td>
+<td class="py-sm text-right text-on-surface-variant font-semibold">22%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+
+<script>
+(function () {
+  const rutas = {
+    "Dashboard": "/Home/Dashboard",
+    "BI Gerencial": "/Home/GerenciaBI",
+    "Compras": "/Home/Compras",
+    "Marketing": "/Home/Marketing",
+    "Contabilidad": "/Home/Contabilidad",
+    "Ventas": "/Home/Ventas",
+    "Inventario": "/Home/SupervisorBodega",
+    "Alertas": "/Home/Alertas",
+    "Reportes": "/Home/Reportes",
+    "Usuarios": "/Home/Administracion"
+  };
+
+  document.querySelectorAll('a').forEach(function (a) {
+    const texto = (a.textContent || '').trim().replace(/\s+/g, ' ');
+    Object.keys(rutas).forEach(function (clave) {
+      if (texto === clave || texto.includes(clave)) {
+        a.setAttribute('href', rutas[clave]);
+      }
+    });
+  });
+
+  document.querySelectorAll('button').forEach(function (b) {
+    const texto = (b.textContent || '').trim().replace(/\s+/g, ' ');
+    if (texto.includes('Iniciar sesión')) b.onclick = function () { location.href = '/Home/Dashboard'; };
+    if (texto.includes('Nueva Venta')) b.onclick = function () { location.href = '/Home/Ventas'; };
+    if (texto.includes('Solicitar Cotización')) b.onclick = function () { location.href = '/Home/Compras'; };
+    if (texto.includes('Exportar Reporte')) b.onclick = function () { location.href = '/Home/Reportes'; };
+  });
+})();
+</script>
+
+</body></html>

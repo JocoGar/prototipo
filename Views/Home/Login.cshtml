@@ -1,0 +1,271 @@
+@{
+    Layout = null;
+}
+<!-- Login - Comercializadora San Juan -->
+<!DOCTYPE html><html class="h-full" lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Login - Comercializadora San Juan</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@@400;500;600;700;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#0c5216",
+                        "on-primary-fixed": "#002203",
+                        "on-tertiary-fixed": "#2c1600",
+                        "inverse-surface": "#2f3131",
+                        "secondary-container": "#759efd",
+                        "tertiary-fixed": "#ffdcbe",
+                        "surface": "#f9f9f9",
+                        "surface-container-high": "#e8e8e8",
+                        "tertiary": "#583100",
+                        "secondary-fixed-dim": "#b0c6ff",
+                        "surface-bright": "#f9f9f9",
+                        "on-secondary-fixed-variant": "#00429c",
+                        "primary-fixed": "#acf4a4",
+                        "on-surface": "#1a1c1c",
+                        "error": "#ba1a1a",
+                        "secondary": "#2b5bb5",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#eeeeee",
+                        "background": "#f9f9f9",
+                        "primary": "#00450d",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#d9e2ff",
+                        "surface-dim": "#dadada",
+                        "surface-tint": "#2a6b2c",
+                        "on-background": "#1a1c1c",
+                        "on-secondary-container": "#00337c",
+                        "inverse-primary": "#91d78a",
+                        "surface-container-low": "#f3f3f3",
+                        "surface-variant": "#e2e2e2",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#001945",
+                        "on-tertiary-container": "#ffb66b",
+                        "outline": "#717a6d",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb870",
+                        "outline-variant": "#c0c9bb",
+                        "primary-fixed-dim": "#91d78a",
+                        "inverse-on-surface": "#f1f1f1",
+                        "on-tertiary-fixed-variant": "#693c00",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#41493e",
+                        "on-primary-container": "#90d689",
+                        "primary-container": "#1b5e20",
+                        "surface-container-highest": "#e2e2e2",
+                        "tertiary-container": "#794500"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "margin-mobile": "16px",
+                        "xl": "32px",
+                        "xs": "4px",
+                        "sidebar-width": "260px",
+                        "margin-desktop": "32px",
+                        "md": "16px",
+                        "base": "8px",
+                        "gutter": "16px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "code-md": ["monospace"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "title-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "code-md": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+        }
+        .bg-gradient-corporate {
+            background: linear-gradient(135deg, #00450d 0%, #1b5e20 40%, #0D47A1 100%);
+        }
+    </style>
+</head>
+<body class="h-full bg-background font-body-md text-on-surface antialiased overflow-hidden">
+<div class="flex min-h-full">
+<!-- Left Side: Branding / Atmospheric -->
+<div class="hidden lg:flex lg:w-1/2 relative bg-gradient-corporate items-center justify-center p-xl overflow-hidden">
+<!-- Decorative Elements -->
+<div class="absolute top-0 left-0 w-full h-full opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
+<div class="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-primary-fixed blur-3xl opacity-20"></div>
+<div class="absolute top-1/4 right-1/4 w-64 h-64 rounded-full bg-secondary-fixed blur-3xl opacity-20"></div>
+<div class="relative z-10 max-w-lg text-center">
+<div class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-surface-container-lowest/10 backdrop-blur-md mb-lg border border-white/20">
+<span class="material-symbols-outlined text-white text-[48px]" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-white mb-md">Comercializadora San Juan</h1>
+<p class="font-body-lg text-body-lg text-white/80">Sistema de gestión integral con inteligencia de negocio.</p>
+<!-- Abstract Data Visualization Placeholder -->
+<div class="mt-xl grid grid-cols-3 gap-base opacity-70">
+<div class="h-32 bg-white/10 rounded-lg relative overflow-hidden">
+<div class="absolute bottom-0 left-0 w-full bg-white/20 h-3/4 transition-all duration-1000 ease-in-out hover:h-full"></div>
+</div>
+<div class="h-32 bg-white/10 rounded-lg relative overflow-hidden">
+<div class="absolute bottom-0 left-0 w-full bg-white/20 h-1/2 transition-all duration-1000 ease-in-out hover:h-3/4"></div>
+</div>
+<div class="h-32 bg-white/10 rounded-lg relative overflow-hidden">
+<div class="absolute bottom-0 left-0 w-full bg-white/20 h-5/6 transition-all duration-1000 ease-in-out hover:h-full"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Side: Login Form -->
+<div class="flex flex-1 flex-col justify-center px-4 py-12 sm:px-6 lg:px-20 xl:px-24 bg-surface relative">
+<!-- Mobile Brand Header (Visible only on small screens) -->
+<div class="lg:hidden text-center mb-xl">
+<div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary-container text-on-primary mb-md">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary">San Juan</h2>
+</div>
+<div class="mx-auto w-full max-w-sm lg:w-96 glass-panel p-xl rounded-xl">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-sm">Iniciar sesión</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-lg">Accede a tu panel de control.</p>
+</div>
+<div class="mt-8">
+<form action="/Home/Dashboard" class="space-y-6" method="GET">
+<!-- Role Selector (Simulated) -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-base">Perfil de Acceso</label>
+<div class="grid grid-cols-2 gap-sm">
+<label class="relative flex cursor-pointer rounded-lg border border-primary bg-surface-container-low p-sm focus:outline-none">
+<input checked="" class="sr-only" name="role" type="radio" value="admin">
+<div class="flex w-full items-center justify-between">
+<div class="flex items-center">
+<span class="material-symbols-outlined text-primary mr-sm" style="font-variation-settings: 'FILL' 1;">admin_panel_settings</span>
+<span class="font-label-md text-label-md text-primary font-bold">Administrador</span>
+</div>
+</div>
+<span aria-hidden="true" class="pointer-events-none absolute -inset-px rounded-lg border-2 border-primary"></span>
+</label>
+<label class="relative flex cursor-pointer rounded-lg border border-outline-variant bg-surface-container-lowest p-sm focus:outline-none hover:bg-surface-container-low transition-colors">
+<input class="sr-only" name="role" type="radio" value="staff">
+<div class="flex w-full items-center justify-between">
+<div class="flex items-center">
+<span class="material-symbols-outlined text-on-surface-variant mr-sm">badge</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Operativo</span>
+</div>
+</div>
+</label>
+</div>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-xs" for="email">Correo electrónico</label>
+<div class="mt-1 relative rounded-md shadow-sm">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline">mail</span>
+</div>
+<input autocomplete="email" class="block w-full pl-10 sm:text-sm border-outline-variant rounded-md focus:ring-secondary focus:border-secondary bg-surface-container-lowest py-2 text-on-surface placeholder-outline" id="email" name="email" placeholder="usuario@@sanjuan.com" required="" type="email">
+</div>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-xs" for="password">Contraseña</label>
+<div class="mt-1 relative rounded-md shadow-sm">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline">lock</span>
+</div>
+<input autocomplete="current-password" class="block w-full pl-10 sm:text-sm border-outline-variant rounded-md focus:ring-secondary focus:border-secondary bg-surface-container-lowest py-2 text-on-surface placeholder-outline" id="password" name="password" placeholder="••••••••" required="" type="password">
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<input class="h-4 w-4 text-primary focus:ring-primary border-outline-variant rounded" id="remember-me" name="remember-me" type="checkbox">
+<label class="ml-2 block font-body-md text-body-md text-on-surface-variant" for="remember-me">
+                                    Recordarme
+                                </label>
+</div>
+<div class="text-sm">
+<a class="font-label-md text-label-md text-secondary hover:text-on-secondary-fixed-variant transition-colors" href="#">
+                                    ¿Olvidaste tu contraseña?
+                                </a>
+</div>
+</div>
+<div>
+<button class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm font-label-md text-label-md text-on-primary bg-primary-container hover:bg-on-primary-fixed-variant focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors" type="submit">
+                                Iniciar sesión
+                            </button>
+</div>
+</form>
+</div>
+</div>
+<div class="mt-auto pt-lg text-center lg:hidden">
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Sistema de gestión integral con inteligencia de negocio.</p>
+</div>
+</div>
+</div>
+
+<script>
+(function () {
+  const rutas = {
+    "Dashboard": "/Home/Dashboard",
+    "BI Gerencial": "/Home/GerenciaBI",
+    "Compras": "/Home/Compras",
+    "Marketing": "/Home/Marketing",
+    "Contabilidad": "/Home/Contabilidad",
+    "Ventas": "/Home/Ventas",
+    "Inventario": "/Home/SupervisorBodega",
+    "Alertas": "/Home/Alertas",
+    "Reportes": "/Home/Reportes",
+    "Usuarios": "/Home/Administracion"
+  };
+
+  document.querySelectorAll('a').forEach(function (a) {
+    const texto = (a.textContent || '').trim().replace(/\s+/g, ' ');
+    Object.keys(rutas).forEach(function (clave) {
+      if (texto === clave || texto.includes(clave)) {
+        a.setAttribute('href', rutas[clave]);
+      }
+    });
+  });
+
+  document.querySelectorAll('button').forEach(function (b) {
+    const texto = (b.textContent || '').trim().replace(/\s+/g, ' ');
+    if (texto.includes('Iniciar sesión')) b.onclick = function () { location.href = '/Home/Dashboard'; };
+    if (texto.includes('Nueva Venta')) b.onclick = function () { location.href = '/Home/Ventas'; };
+    if (texto.includes('Solicitar Cotización')) b.onclick = function () { location.href = '/Home/Compras'; };
+    if (texto.includes('Exportar Reporte')) b.onclick = function () { location.href = '/Home/Reportes'; };
+  });
+})();
+</script>
+
+</body></html>

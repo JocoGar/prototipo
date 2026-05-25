@@ -1,0 +1,402 @@
+@{
+    Layout = null;
+}
+<!-- Supervisor de Bodega - Actualizado -->
+<!DOCTYPE html><html lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Comercializadora San Juan - Supervisor de Bodega</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@@400;500;600;700;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#0c5216",
+                        "on-primary-fixed": "#002203",
+                        "on-tertiary-fixed": "#2c1600",
+                        "inverse-surface": "#2f3131",
+                        "secondary-container": "#759efd",
+                        "tertiary-fixed": "#ffdcbe",
+                        "surface": "#f9f9f9",
+                        "surface-container-high": "#e8e8e8",
+                        "tertiary": "#583100",
+                        "secondary-fixed-dim": "#b0c6ff",
+                        "surface-bright": "#f9f9f9",
+                        "on-secondary-fixed-variant": "#00429c",
+                        "primary-fixed": "#acf4a4",
+                        "on-surface": "#1a1c1c",
+                        "error": "#ba1a1a",
+                        "secondary": "#2b5bb5",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#eeeeee",
+                        "background": "#f9f9f9",
+                        "primary": "#00450d",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#d9e2ff",
+                        "surface-dim": "#dadada",
+                        "surface-tint": "#2a6b2c",
+                        "on-background": "#1a1c1c",
+                        "on-secondary-container": "#00337c",
+                        "inverse-primary": "#91d78a",
+                        "surface-container-low": "#f3f3f3",
+                        "surface-variant": "#e2e2e2",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#001945",
+                        "on-tertiary-container": "#ffb66b",
+                        "outline": "#717a6d",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb870",
+                        "outline-variant": "#c0c9bb",
+                        "primary-fixed-dim": "#91d78a",
+                        "inverse-on-surface": "#f1f1f1",
+                        "on-tertiary-fixed-variant": "#693c00",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#41493e",
+                        "on-primary-container": "#90d689",
+                        "primary-container": "#1b5e20",
+                        "surface-container-highest": "#e2e2e2",
+                        "tertiary-container": "#794500"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "margin-mobile": "16px",
+                        "xl": "32px",
+                        "xs": "4px",
+                        "sidebar-width": "260px",
+                        "margin-desktop": "32px",
+                        "md": "16px",
+                        "base": "8px",
+                        "gutter": "16px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "code-md": ["monospace"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "title-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "code-md": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background h-screen overflow-hidden flex">
+<!-- SideNavBar -->
+<nav class="bg-secondary dark:bg-secondary-container docked fixed h-full w-sidebar-width left-0 top-0 border-r border-outline-variant flex flex-col py-lg z-50">
+<div class="px-md mb-lg">
+<h1 class="font-headline-md text-headline-md font-bold text-on-secondary dark:text-on-secondary-container">San Juan</h1>
+<p class="font-label-md text-label-md text-on-secondary/80 mt-xs">Gestión Integral</p>
+</div>
+<div class="flex-1 overflow-y-auto">
+<ul class="space-y-sm">
+<li>
+<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 transition-colors rounded-lg px-md py-sm mx-sm" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 transition-colors rounded-lg px-md py-sm mx-sm" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-md text-label-md">Usuarios</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 transition-colors rounded-lg px-md py-sm mx-sm" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-md text-label-md">BI Gerencial</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 transition-colors rounded-lg px-md py-sm mx-sm" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="font-label-md text-label-md">Compras</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 transition-colors rounded-lg px-md py-sm mx-sm" href="#">
+<span class="material-symbols-outlined" data-icon="campaign">campaign</span>
+<span class="font-label-md text-label-md">Marketing</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 transition-colors rounded-lg px-md py-sm mx-sm" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
+<span class="font-label-md text-label-md">Contabilidad</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 transition-colors rounded-lg px-md py-sm mx-sm" href="#">
+<span class="material-symbols-outlined" data-icon="sell">sell</span>
+<span class="font-label-md text-label-md">Ventas</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-base bg-secondary-container text-on-secondary-container rounded-lg px-md py-sm mx-sm opacity-90 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2" data-weight="fill" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span class="font-label-md text-label-md">Inventario</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 transition-colors rounded-lg px-md py-sm mx-sm" href="#">
+<span class="material-symbols-outlined" data-icon="warning">warning</span>
+<span class="font-label-md text-label-md">Alertas</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-base text-on-secondary dark:text-on-secondary-container hover:bg-secondary-fixed-dim/20 transition-colors rounded-lg px-md py-sm mx-sm" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-label-md text-label-md">Reportes</span>
+</a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 ml-[260px] flex flex-col relative h-full">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center h-16 px-margin-desktop bg-surface dark:bg-surface-dim docked fixed top-0 right-0 w-[calc(100%-260px)] z-40 border-b border-outline-variant shadow-sm">
+<div class="flex-1">
+<!-- Search could go here, but requirements say central large search -->
+</div>
+<div class="flex items-center gap-lg">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden border border-outline-variant">
+<img alt="Admin Profile" class="w-full h-full object-cover" data-alt="A close up professional headshot of a warehouse manager in a clean, brightly lit corporate environment. The lighting is soft and neutral, typical of modern light-mode enterprise software interfaces. The overall aesthetic implies reliability and efficiency." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOIlKrBFAjZzIU-JWR7Kc--62VWErWAXqUyVITnVJl7Xa10bDuv5FiBNiM9eVJ-LpCXhTepoh5lWhx9nJSR4FFHe-DaoR-JKeeebhWeoLUxOeo10_DyBdEnuDFwYNpBtHt0PiRtO3McUbJg-_lftJh3QGA62Y5PorDqQxVCsmNYHFgQAwtqTsQDvpfd3cFFLgcUM50eVs4yViZYQVXN8L8cxAqeClRBdvMt_2_mnlUAR9wHR1TqnzjS5_-_0wv3XRa6klziylwQLM">
+</div>
+</div>
+</header>
+<!-- Canvas -->
+<main class="flex-1 mt-16 p-lg lg:p-xl overflow-y-auto bg-background">
+<!-- Large Central Search -->
+<div class="max-w-4xl mx-auto mb-xl relative">
+<div class="relative flex items-center w-full h-16 rounded-xl bg-surface shadow-[0_4px_12px_rgba(0,0,0,0.08)] border border-outline-variant focus-within:border-secondary focus-within:ring-2 focus-within:ring-secondary/20 transition-all px-lg">
+<span class="material-symbols-outlined text-outline text-[28px] mr-md" data-icon="search">search</span>
+<input class="w-full h-full bg-transparent border-none focus:ring-0 text-title-lg font-title-lg text-on-surface placeholder:text-outline-variant outline-none" placeholder="Buscar granos, harinas o condimentos..." type="text">
+<button class="bg-primary-container text-on-primary rounded-lg px-lg py-sm ml-md hover:bg-primary-container/90 transition-colors font-label-md text-label-md h-10 flex items-center">
+                        Buscar
+                    </button>
+</div>
+</div>
+<!-- Touch Filters -->
+<div class="max-w-6xl mx-auto mb-lg flex flex-wrap gap-md justify-center md:justify-start">
+<button class="bg-surface border border-outline-variant rounded-xl px-lg py-md flex items-center gap-sm hover:bg-surface-variant transition-colors shadow-sm active:scale-95">
+<span class="material-symbols-outlined text-outline" data-icon="category">category</span>
+<span class="font-label-md text-label-md text-on-surface">Categoría</span>
+<span class="material-symbols-outlined text-outline ml-sm" data-icon="arrow_drop_down">arrow_drop_down</span>
+</button>
+<button class="bg-secondary-container text-on-secondary-container border border-secondary/20 rounded-xl px-lg py-md flex items-center gap-sm shadow-sm active:scale-95">
+<span class="material-symbols-outlined" data-icon="warehouse">warehouse</span>
+<span class="font-label-md text-label-md">Bodega: Principal</span>
+<span class="material-symbols-outlined ml-sm" data-icon="arrow_drop_down">arrow_drop_down</span>
+</button>
+<button class="bg-error-container/30 border border-error/20 rounded-xl px-lg py-md flex items-center gap-sm hover:bg-error-container/50 transition-colors shadow-sm active:scale-95">
+<span class="material-symbols-outlined text-error" data-icon="event_busy">event_busy</span>
+<span class="font-label-md text-label-md text-on-surface">Vencimiento Próximo</span>
+</button>
+<button class="bg-surface border border-outline-variant rounded-xl px-lg py-md flex items-center gap-sm hover:bg-surface-variant transition-colors shadow-sm active:scale-95 ml-auto">
+<span class="material-symbols-outlined text-outline" data-icon="filter_list">filter_list</span>
+<span class="font-label-md text-label-md text-on-surface">Más Filtros</span>
+</button>
+</div>
+<!-- Inventory Data Table (Spacious Layout) -->
+<div class="max-w-6xl mx-auto bg-surface rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.04)] border border-outline-variant overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse min-w-[900px]">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant">
+<th class="py-md px-lg font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Producto</th>
+<th class="py-md px-lg font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Lote</th>
+<th class="py-md px-lg font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Cantidad</th>
+<th class="py-md px-lg font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Alerta Mín.</th>
+<th class="py-md px-lg font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Vencimiento</th>
+<th class="py-md px-lg font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Estado</th>
+<th class="py-md px-lg text-right font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Acción</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/50">
+<!-- Row 1: Normal -->
+<tr class="hover:bg-surface-container-lowest transition-colors bg-surface">
+<td class="py-lg px-lg">
+<div class="font-body-lg text-body-lg text-on-surface font-medium">Maíz Blanco Primera</div>
+<div class="font-body-md text-body-md text-outline">Granos</div>
+</td>
+<td class="py-lg px-lg font-code-md text-code-md text-on-surface-variant">L-2023-11-A4</td>
+<td class="py-lg px-lg font-body-lg text-body-lg text-on-surface">450 Cajas</td>
+<td class="py-lg px-lg font-body-md text-body-md text-outline">100 Cajas</td>
+<td class="py-lg px-lg font-body-md text-body-md text-on-surface">15 Dic 2023</td>
+<td class="py-lg px-lg">
+<span class="inline-flex items-center px-md py-sm rounded-full bg-primary-fixed-dim/30 text-on-primary-fixed-variant font-label-md text-label-md border border-primary-fixed-dim/50">
+<span class="w-2 h-2 rounded-full bg-primary-container mr-sm"></span>
+                                        Disponible
+                                    </span>
+</td>
+<td class="py-lg px-lg text-right">
+<button class="border border-secondary text-secondary hover:bg-secondary/10 px-md py-sm rounded-lg font-label-md text-label-md transition-colors whitespace-nowrap">
+                                        Ver Detalle
+                                    </button>
+</td>
+</tr>
+<!-- Row 2: Warning (Low Stock) -->
+<tr class="hover:bg-surface-container-lowest transition-colors bg-surface-container-low/30">
+<td class="py-lg px-lg">
+<div class="font-body-lg text-body-lg text-on-surface font-medium">Frijol Negro Premium</div>
+<div class="font-body-md text-body-md text-outline">Granos</div>
+</td>
+<td class="py-lg px-lg font-code-md text-code-md text-on-surface-variant">L-LC-0982-X</td>
+<td class="py-lg px-lg font-body-lg text-body-lg text-tertiary-container font-bold">120 Unidades</td>
+<td class="py-lg px-lg font-body-md text-body-md text-outline">200 Unidades</td>
+<td class="py-lg px-lg font-body-md text-body-md text-on-surface">28 Ene 2024</td>
+<td class="py-lg px-lg">
+<span class="inline-flex items-center px-md py-sm rounded-full bg-tertiary-fixed-dim/30 text-tertiary-container font-label-md text-label-md border border-tertiary-fixed-dim/50">
+<span class="w-2 h-2 rounded-full bg-tertiary-container mr-sm"></span>
+                                        Stock Bajo
+                                    </span>
+</td>
+<td class="py-lg px-lg text-right">
+<button class="border border-secondary text-secondary hover:bg-secondary/10 px-md py-sm rounded-lg font-label-md text-label-md transition-colors whitespace-nowrap">
+                                        Ver Detalle
+                                    </button>
+</td>
+</tr>
+<!-- Row 3: Critical (Near Expiry) -->
+<tr class="hover:bg-surface-container-lowest transition-colors bg-surface">
+<td class="py-lg px-lg">
+<div class="font-body-lg text-body-lg text-on-surface font-medium">Arroz Grano Largo</div>
+<div class="font-body-md text-body-md text-outline">Granos</div>
+</td>
+<td class="py-lg px-lg font-code-md text-code-md text-on-surface-variant">L-YG-443-B</td>
+<td class="py-lg px-lg font-body-lg text-body-lg text-on-surface">85 Unidades</td>
+<td class="py-lg px-lg font-body-md text-body-md text-outline">50 Unidades</td>
+<td class="py-lg px-lg font-body-md text-body-md text-error font-bold flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]" data-icon="warning">warning</span>
+                                    02 Nov 2023
+                                </td>
+<td class="py-lg px-lg">
+<span class="inline-flex items-center px-md py-sm rounded-full bg-error-container text-on-error-container font-label-md text-label-md border border-error/30">
+<span class="w-2 h-2 rounded-full bg-error mr-sm"></span>
+                                        Crítico
+                                    </span>
+</td>
+<td class="py-lg px-lg text-right">
+<button class="border border-secondary text-secondary hover:bg-secondary/10 px-md py-sm rounded-lg font-label-md text-label-md transition-colors whitespace-nowrap">
+                                        Ver Detalle
+                                    </button>
+</td>
+</tr>
+<!-- Row 4: Normal -->
+<tr class="hover:bg-surface-container-lowest transition-colors bg-surface-container-low/30">
+<td class="py-lg px-lg">
+<div class="font-body-lg text-body-lg text-on-surface font-medium">Harina de Trigo</div>
+<div class="font-body-md text-body-md text-outline">Harinas</div>
+</td>
+<td class="py-lg px-lg font-code-md text-code-md text-on-surface-variant">L-AR-990-ZZ</td>
+<td class="py-lg px-lg font-body-lg text-body-lg text-on-surface">1200 Sacos</td>
+<td class="py-lg px-lg font-body-md text-body-md text-outline">300 Sacos</td>
+<td class="py-lg px-lg font-body-md text-body-md text-on-surface">10 Ago 2025</td>
+<td class="py-lg px-lg">
+<span class="inline-flex items-center px-md py-sm rounded-full bg-primary-fixed-dim/30 text-on-primary-fixed-variant font-label-md text-label-md border border-primary-fixed-dim/50">
+<span class="w-2 h-2 rounded-full bg-primary-container mr-sm"></span>
+                                        Disponible
+                                    </span>
+</td>
+<td class="py-lg px-lg text-right">
+<button class="border border-secondary text-secondary hover:bg-secondary/10 px-md py-sm rounded-lg font-label-md text-label-md transition-colors whitespace-nowrap">
+                                        Ver Detalle
+                                    </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Footer -->
+<div class="bg-surface-container-low border-t border-outline-variant px-lg py-md flex items-center justify-between">
+<span class="font-body-md text-body-md text-outline">Mostrando 1-4 de 248 lotes</span>
+<div class="flex gap-sm">
+<button class="p-sm rounded border border-outline-variant text-outline hover:bg-surface-variant disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="p-sm rounded border border-outline-variant text-on-surface hover:bg-surface-variant bg-surface">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+<script>
+(function () {
+  const rutas = {
+    "Dashboard": "/Home/Dashboard",
+    "BI Gerencial": "/Home/GerenciaBI",
+    "Compras": "/Home/Compras",
+    "Marketing": "/Home/Marketing",
+    "Contabilidad": "/Home/Contabilidad",
+    "Ventas": "/Home/Ventas",
+    "Inventario": "/Home/SupervisorBodega",
+    "Alertas": "/Home/Alertas",
+    "Reportes": "/Home/Reportes",
+    "Usuarios": "/Home/Administracion"
+  };
+
+  document.querySelectorAll('a').forEach(function (a) {
+    const texto = (a.textContent || '').trim().replace(/\s+/g, ' ');
+    Object.keys(rutas).forEach(function (clave) {
+      if (texto === clave || texto.includes(clave)) {
+        a.setAttribute('href', rutas[clave]);
+      }
+    });
+  });
+
+  document.querySelectorAll('button').forEach(function (b) {
+    const texto = (b.textContent || '').trim().replace(/\s+/g, ' ');
+    if (texto.includes('Iniciar sesión')) b.onclick = function () { location.href = '/Home/Dashboard'; };
+    if (texto.includes('Nueva Venta')) b.onclick = function () { location.href = '/Home/Ventas'; };
+    if (texto.includes('Solicitar Cotización')) b.onclick = function () { location.href = '/Home/Compras'; };
+    if (texto.includes('Exportar Reporte')) b.onclick = function () { location.href = '/Home/Reportes'; };
+  });
+})();
+</script>
+
+</body></html>
